@@ -1,0 +1,91 @@
+.season-table {
+  width: 80vw;
+  padding-bottom: 0.2em;
+  font-weight: 700;
+  margin: 4em auto;
+  @include subtle-shadow;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 3.3em repeat(7, 1fr);
+  height: 3.2em;
+  font-size: 0.9rem;
+  width: 80vw;
+}
+
+.cell {
+  box-sizing: border-box;
+  font-size: 0.85rem;
+  background-color: $white;
+  color: $white;
+  text-align: center;
+  padding: 0.2em;
+  margin: 0.2em 0.2em 0 0;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  justify-content: center;
+  cursor: pointer;
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.day-row, .week-col {
+  color: $darkgrey;
+  cursor: default;
+  font-size: 1.1rem;
+  min-height: 1.5em;
+}
+
+.week-0 .rest-cell {
+  grid-column: 2 / 8;
+}
+
+.rest-cell {
+  background: linear-gradient($tab-rest, darken($tab-rest, 7));
+  &:hover {
+    background: lighten($tab-rest, 8);
+  }
+}
+
+.base-cell {
+  background: linear-gradient($tab-base, darken($tab-base, 8));
+  &:hover {
+    background: lighten($tab-base, 8);
+  }
+}
+
+.strength-cell {
+  background: linear-gradient($tab-strength, darken($tab-strength, 8));
+  &:hover {
+    background: lighten($tab-strength, 8);
+  }
+}
+
+.power-cell {
+  background: linear-gradient($tab-power, darken($tab-power, 8));
+  &:hover {
+    background: lighten($tab-power, 8);
+  }
+}
+
+.endur-cell {
+  background: linear-gradient($tab-endur, darken($tab-endur, 8));
+  &:hover {
+    background: lighten($tab-endur, 8);
+  }
+}
+
+.perf-cell {
+  background: linear-gradient($tab-perf, darken($tab-perf, 8));
+  &:hover {
+    background: lighten($tab-perf, 8);
+  }
+}
+
+.current-day {
+  border: solid 0.4em red;
+}

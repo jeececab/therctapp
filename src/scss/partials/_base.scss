@@ -1,6 +1,7 @@
+html {
+  font-family: $main-font;
+}
+
 body {
-  background-color: black;
-  p {
-    color: red;
-  }
+  background: $white;
 }
