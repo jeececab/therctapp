@@ -7,196 +7,24 @@
   <title>The Rock Climber's Training App</title>
 <link href="style.css" rel="stylesheet"></head>
 <body>
+  <div class="navbar">
+     <h1 class="navbar__title"><span>The Rock Climber's</span> <span>Training App</span></h1>
+     <nav class="navbar__menu">
+       <ul>
+         <li><a href="#">Why train?</a></li>
+         <li><a href="#">The plan</a></li>
+         <li><a class="navbar__menu__item--log" href="./training.html">Log in</a></li>
+       </ul>
+     </nav>
+  </div>
+ 
 
-  <button class="btn novice-btn">Novice Trainee</button>
-  <button class="btn experienced-btn">Experienced Trainee</button>
-  <button class="btn-dates">Dates</button>
-
-  <section class="season-table">
-    
-    <div class="weeks-wrapper">
-      <div class="cell week-col"></div>
-      <div class="cell week-col">-</div>
-      <div class="cell week-col">1</div>
-      <div class="cell week-col">2</div>
-      <div class="cell week-col">3</div>
-      <div class="cell week-col">4</div>
-      <div class="cell week-col">5</div>
-      <div class="cell week-col">6</div>
-      <div class="cell week-col">7</div>
-      <div class="cell week-col">8</div>
-      <div class="cell week-col">9</div>
-      <div class="cell week-col">10</div>
-      <div class="cell week-col">11</div>
-      <div class="cell week-col">12</div>
-      <div class="cell week-col">13</div>
-      <div class="cell week-col">14</div>
-      <div class="cell week-col">15</div>
-      <div class="cell week-col">16</div>
-      <div class="cell week-col">17</div>
-    </div>
-
-    <div>
-      <div class="days-wrapper">
-        <div class="cell day-row">Sunday</div>
-        <div class="cell day-row">Monday</div>
-        <div class="cell day-row">Tuesday</div>
-        <div class="cell day-row">Wednesday</div>
-        <div class="cell day-row">Thursday</div>
-        <div class="cell day-row">Friday</div>
-        <div class="cell day-row">Saturday</div>
-      </div>
-
-      <div class="cells-wrapper">
-        <!-- <div class="cell rest-cell"></div>
-        <div class="cell rest-cell"></div>
-        <div class="cell rest-cell"></div>
-        <div class="cell rest-cell"></div>
-        <div class="cell rest-cell"></div>
-        <div class="cell rest-cell"></div> -->
-        <!-- <div class="cell day-0 base-cell"><p>Base-Fitness (BF)</p></div>
-
-        <div class="cell day-1 base-cell"><p>Base-Fitness (BF)</p></div>
-        <div class="cell day-2 base-cell"></div>
-        <div class="cell day-3 base-cell"><p>BF</p></div>
-        <div class="cell day-4 base-cell"></div>
-        <div class="cell day-5 base-cell"><p>BF</p></div>
-        <div class="cell day-6 base-cell"></div>
-        <div class="cell day-7 base-cell"><p>BF</p></div>
-        
-        <div class="cell day-8 base-cell"><p>BF</p></div>
-        <div class="cell day-9 base-cell"></div>
-        <div class="cell day-10 base-cell"><p>BF</p></div>
-        <div class="cell day-11 base-cell"></div>
-        <div class="cell day-12 base-cell"><p>BF</p></div>
-        <div class="cell day-13 base-cell"></div>
-        <div class="cell day-14 base-cell"><p>BF</p></div>
-        
-        <div class="cell day-15 base-cell"><p>BF</p></div>
-        <div class="cell day-16 base-cell"></div>
-        <div class="cell day-17 base-cell"><p>BF</p></div>
-        <div class="cell day-18 base-cell"><p>BF</p></div>
-        <div class="cell day-19 base-cell"><p>BF</p></div>
-        <div class="cell day-20 base-cell"></div>
-        <div class="cell day-21 base-cell"><p>BF</p></div>
-      
-        <div class="cell day-22 base-cell"><p>BF</p></div>
-        <div class="cell day-23 base-cell"></div>
-        <div class="cell day-24 base-cell"><p>BF</p></div>
-        <div class="cell day-25 base-cell"><p>BF</p></div>
-        <div class="cell day-26 base-cell"><p>BF</p></div>
-        <div class="cell day-27 base-cell"></div>
-        <div class="cell day-28 strength-cell"><p>Strength</p></div>
-      
-        <div class="cell day-29 strength-cell"></div>
-        <div class="cell day-30 strength-cell"></div>
-        <div class="cell day-31 strength-cell"><p>Strength</p></div>
-        <div class="cell day-32 strength-cell"></div>
-        <div class="cell day-33 strength-cell"></div>
-        <div class="cell day-34 strength-cell"><p>Strength</p></div>
-        <div class="cell day-35 strength-cell"></div>
-        
-        <div class="cell day-36 strength-cell"></div>
-        <div class="cell day-37 strength-cell"><p>Strength</p></div>
-        <div class="cell day-38 strength-cell"></div>
-        <div class="cell day-39 strength-cell"></div>
-        <div class="cell day-40 strength-cell"><p>Strength</p></div>
-        <div class="cell day-41 strength-cell"></div>
-        <div class="cell day-42 strength-cell"></div>
-      
-        <div class="cell day-43 strength-cell"><p>Strength</p></div>
-        <div class="cell day-44 strength-cell"></div>
-        <div class="cell day-45 strength-cell"></div>
-        <div class="cell day-46 strength-cell"><p>Strength</p></div>
-        <div class="cell day-47 strength-cell"></div>
-        <div class="cell day-48 strength-cell"></div>
-        <div class="cell day-49 power-cell"><p>Power</p></div>
-        
-        <div class="cell day-50 power-cell"></div>
-        <div class="cell day-51 power-cell"></div>
-        <div class="cell day-52 power-cell"><p>Power</p></div>
-        <div class="cell day-53 power-cell"></div>
-        <div class="cell day-54 power-cell"><p>Power</p></div>
-        <div class="cell day-55 power-cell"></div>
-        <div class="cell day-56 power-cell"></div>
-        
-        <div class="cell day-57 power-cell"><p>Power</p></div>
-        <div class="cell day-58 power-cell"></div>
-        <div class="cell day-59 power-cell"><p>Power</p></div>
-        <div class="cell day-60 power-cell"></div>
-        <div class="cell day-61 power-cell"></div>
-        <div class="cell day-62 power-cell"><p>Power</p></div>
-        <div class="cell day-63 power-cell"></div>
-        
-        <div class="cell day-64 endur-cell"><p>Power-Endurance (PE)</p></div>
-        <div class="cell day-65 endur-cell"></div>
-        <div class="cell day-66 endur-cell"></div>
-        <div class="cell day-67 endur-cell"><p>PE</p></div>
-        <div class="cell day-68 endur-cell"></div>
-        <div class="cell day-69 endur-cell"></div>
-        <div class="cell day-70 endur-cell"><p>Redpoint (RP) attempts</p></div>
-
-        <div class="cell day-71 endur-cell"><p>RP</p></div>
-        <div class="cell day-72 endur-cell"></div>
-        <div class="cell day-73 endur-cell"></div>
-        <div class="cell day-74 endur-cell"><p>PE</p></div>
-        <div class="cell day-75 endur-cell"></div>
-        <div class="cell day-76 endur-cell"></div>
-        <div class="cell day-77 endur-cell"><p>RP</p></div>
-        
-        <div class="cell day-78 endur-cell"><p>RP</p></div>
-        <div class="cell day-79 endur-cell"></div>
-        <div class="cell day-80 endur-cell"></div>
-        <div class="cell day-81 endur-cell"><p>PE</p></div>
-        <div class="cell day-82 endur-cell"></div>
-        <div class="cell day-83 endur-cell"></div>
-        <div class="cell day-84 endur-cell"><p>RP</p></div>
-      
-        <div class="cell day-85 perf-cell"><p>RP</p></div>
-        <div class="cell day-86 perf-cell"></div>
-        <div class="cell day-87 perf-cell"></div>
-        <div class="cell day-88 perf-cell"><p>PE</p></div>
-        <div class="cell day-89 perf-cell"></div>
-        <div class="cell day-90 perf-cell"></div>
-        <div class="cell day-91 perf-cell"><p>RP</p></div>
-      
-        <div class="cell day-92 perf-cell"><p>RP</p></div>
-        <div class="cell day-93 perf-cell"></div>
-        <div class="cell day-94 perf-cell"></div>
-        <div class="cell day-95 perf-cell"><p>PE</p></div>
-        <div class="cell day-96 perf-cell"></div>
-        <div class="cell day-97 perf-cell"></div>
-        <div class="cell day-98 perf-cell"><p>RP/OS</p></div>
-        
-        <div class="cell day-99 perf-cell"><p>RP/OS</p></div>
-        <div class="cell day-100 perf-cell"></div>
-        <div class="cell day-101 perf-cell"></div>
-        <div class="cell day-102 perf-cell"><p>PE</p></div>
-        <div class="cell day-103 perf-cell"></div>
-        <div class="cell day-104 perf-cell"></div>
-        <div class="cell day-105 perf-cell"><p>RP/OS</p></div>
-      
-        <div class="cell day-106 perf-cell"><p>RP/OS</p></div>
-        <div class="cell day-107 rest-cell"></div>
-        <div class="cell day-108 rest-cell"></div>
-        <div class="cell day-109 rest-cell"></div>
-        <div class="cell day-110 rest-cell"></div>
-        <div class="cell day-111 rest-cell"></div>
-        <div class="cell day-112 rest-cell"></div>
-      
-        <div class="cell day-113 rest-cell"></div>
-        <div class="cell day-114 rest-cell"></div>
-        <div class="cell day-115 rest-cell"></div>
-        <div class="cell day-116 rest-cell"></div>
-        <div class="cell day-117 rest-cell"></div>
-        <div class="cell day-118 rest-cell"></div>
-        <div class="cell day-119 base-cell">
-          <p>First day of next season</p>
-        </div> -->
-      </div>
-    </div>
-      
-  </section>
+  <div class="signup">
+    <a class="signup__button signup__button--primary" href="./signup.html">Get started</a>
+    <a class="signup__button signup__button--secondary" href="./training.html">Log in</a>
+  </div>
+  
+  
 
 <script type="text/javascript" src="js/bundle.js"></script></body>
 </html>

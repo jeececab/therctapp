@@ -21,6 +21,6 @@ export const datesView = () => {
   const datesArray = getDates(startDate, 118);
   for(let i = 0; i <= 118; i++) {
     let day = document.querySelector(`.day-${i}`);
-    day.insertAdjacentHTML('afterbegin', `<p class="date">${datesArray[i]}</p>`);
+    day.insertAdjacentHTML('afterbegin', `<p class="season__date">${datesArray[i]}</p>`);
   };
 };

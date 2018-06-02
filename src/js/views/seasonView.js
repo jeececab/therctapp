@@ -1,25 +1,24 @@
 import * as seasonPlan from '../models/seasonPlan';
 
-export const clearSeason = () => {
-  document.querySelector('.cells-wrapper').innerHTML = '';
+export const clearSeasonView = () => {
+  document.querySelector('.season__plan').innerHTML = '';
 };
 
-export const seasonView = traineeLevel => {
-  const season = traineeLevel;
-  const cellsWrapper = document.querySelector(`.cells-wrapper`);
-  
+export const seasonView = newSeason => {
+  const cellsWrapper = document.querySelector(`.season__plan`);
   cellsWrapper.insertAdjacentHTML('beforeEnd', `
-    <div class="cell rest-cell"></div>
-    <div class="cell rest-cell"></div>
-    <div class="cell rest-cell"></div>
-    <div class="cell rest-cell"></div>
-    <div class="cell rest-cell"></div>
-    <div class="cell rest-cell"></div>
+    <div class="season__cell season__cell--empty"></div>
+    <div class="season__cell season__cell--empty"></div>
+    <div class="season__cell season__cell--empty"></div>
+    <div class="season__cell season__cell--empty"></div>
+    <div class="season__cell season__cell--empty"></div>
+    <div class="season__cell season__cell--empty"></div>
   `);
 
-  for (let i = 0; i <= 118; i++) {
+  newSeason.forEach(el => {
     cellsWrapper.insertAdjacentHTML('beforeEnd', `
-      <div class="cell day-${i} ${season[i].phase}-cell"></div>
+      <div class="season__cell day-${el.day} season__cell--${newSeason[el.day].phase}"></div>
     `);
-  };
+    document.querySelector(`.day-${el.day}`).insertAdjacentHTML('beforeend', newSeason[el.day].displayed);
+  });
 };

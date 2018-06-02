@@ -5,11 +5,60 @@ html {
 body {
   background: #fafffd; }
 
-.season-table, .cells-wrapper, .days-wrapper, .weeks-wrapper {
+.navbar {
+  background-color: #283044;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em; }
+  @media (max-width: 55em) {
+    .navbar {
+      flex-direction: column; } }
+
+.navbar__title {
+  color: #fafffd;
+  font-size: 1.6rem;
+  line-height: 1;
+  margin: 0.2em 0;
+  text-align: center; }
+  @media (max-width: 55em) {
+    .navbar__title {
+      flex-direction: column; } }
+  @media (max-width: 28em) {
+    .navbar__title {
+      display: flex;
+      flex-flow: column; } }
+
+.navbar__menu {
+  margin: 0.6em 0; }
+  .navbar__menu ul {
+    display: flex;
+    margin: 0;
+    padding: 0; }
+  .navbar__menu li {
+    list-style: none;
+    margin: 0 0.5em;
+    padding: 0; }
+  .navbar__menu a {
+    color: #91b680;
+    font-weight: 700;
+    text-decoration: none; }
+
+.navbar__menu__item--log {
+  border: solid 2px #91b680;
+  border-radius: 1em;
+  padding: 0.15em 0.5em; }
+  .navbar__menu__item--log:hover {
+    background-color: rgba(145, 182, 128, 0.7);
+    color: #283044; }
+
+.season, .season__plan, .season__days, .season__weeks {
   display: grid;
   grid-gap: 0.2em; }
 
-.season-table {
+.season {
   grid-template-columns: 2.2em 1fr;
   margin: 4em auto;
   width: 95%;
@@ -18,32 +67,32 @@ body {
   -moz-box-shadow: 0px 3px 8px 3px rgba(0, 0, 0, 0.32);
   box-shadow: 0px 3px 8px 3px rgba(0, 0, 0, 0.32); }
   @media (max-width: 58em) {
-    .season-table {
+    .season {
       grid-template-columns: 1fr; } }
 
-.cells-wrapper, .days-wrapper {
+.season__plan {
+  padding: 0.2em; }
+
+.season__plan, .season__days {
   grid-template-columns: repeat(7, 1fr);
   margin: 0 auto; }
   @media (max-width: 58em) {
-    .cells-wrapper, .days-wrapper {
+    .season__plan, .season__days {
       grid-template-columns: repeat(auto-fit, minmax(7.2em, 1fr)); } }
 
-.days-wrapper, .weeks-wrapper {
+.season__days, .season__weeks {
   display: default; }
   @media (max-width: 58em) {
-    .days-wrapper, .weeks-wrapper {
+    .season__days, .season__weeks {
       display: none; } }
 
-.cells-wrapper {
-  padding: 0.2em; }
-
-.cell {
+.season__cell {
   box-sizing: border-box;
   background-color: #fafffd;
   color: #fafffd;
   text-align: center;
   font-size: 0.85rem;
-  height: 3em;
+  height: 3.1em;
   padding: 0.2em;
   display: flex;
   align-items: center;
@@ -51,16 +100,16 @@ body {
   justify-content: center;
   cursor: pointer;
   position: relative; }
-  .cell p {
+  .season__cell p {
     margin: 0;
     padding: 0; }
 
-.day-row, .week-col {
+.season__days-row, .season__weeks-col {
   color: #535353;
   cursor: default;
   font-weight: 700; }
 
-.date {
+.season__date {
   background-color: #fafffd;
   color: #535353;
   font-size: 0.65rem;
@@ -70,35 +119,82 @@ body {
   top: 0;
   right: 0; }
 
-.rest-cell {
+.season__cell--primary {
+  font-weight: 700; }
+
+.season__cell--secondary {
+  font-size: 0.75rem; }
+
+.season__cell--empty {
+  display: default;
+  cursor: default; }
+  @media (max-width: 58em) {
+    .season__cell--empty {
+      display: none; } }
+
+.season__cell--rest {
   background: linear-gradient(#9c897e, #887469); }
-  .rest-cell:hover {
+  .season__cell--rest:hover {
     background: #ae9e95; }
 
-.base-cell {
+.season__cell--base {
   background: linear-gradient(#91b680, #7ba766); }
-  .base-cell:hover {
+  .season__cell--base:hover {
     background: #a7c59a; }
 
-.strength-cell {
+.season__cell--strength {
   background: linear-gradient(#b3bfb8, #9daca3); }
-  .strength-cell:hover {
+  .season__cell--strength:hover {
     background: #c9d2cd; }
 
-.power-cell {
+.season__cell--power {
   background: linear-gradient(#78a1bb, #5d8ead); }
-  .power-cell:hover {
+  .season__cell--power:hover {
     background: #93b4c9; }
 
-.endur-cell {
+.season__cell--endur {
   background: linear-gradient(#283044, #191e2a); }
-  .endur-cell:hover {
+  .season__cell--endur:hover {
     background: #37425e; }
 
-.perf-cell {
+.season__cell--perf {
   background: linear-gradient(#d19119, #ad7815); }
-  .perf-cell:hover {
+  .season__cell--perf:hover {
     background: #e6a62d; }
+
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; }
+
+.signup__form {
+  margin: 4em 1em;
+  padding: 1.5em;
+  width: 20em;
+  -webkit-box-shadow: 0px 3px 8px 3px rgba(0, 0, 0, 0.32);
+  -moz-box-shadow: 0px 3px 8px 3px rgba(0, 0, 0, 0.32);
+  box-shadow: 0px 3px 8px 3px rgba(0, 0, 0, 0.32); }
+
+.signup__title {
+  color: #91b680;
+  font-size: 1.6rem;
+  text-align: center; }
+
+.signup__inputs p {
+  display: flex;
+  flex-flow: column; }
+
+.signup__inputs label {
+  color: #283044;
+  padding-bottom: 0.1em; }
+
+.signup__inputs button {
+  font-family: inherit;
+  line-height: 1;
+  padding: 0.3em 0.2em 0.2em 0.2em;
+  margin: 1.1em auto 0.5em auto;
+  width: 6em; }
 
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document

@@ -1,0 +1,38 @@
+
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.signup__form {
+  margin: 4em 1em;
+  padding: 1.5em;
+  width: 20em; 
+  @include subtle-shadow;
+}
+
+.signup__title {
+  color: $base;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.signup__inputs {
+  p {
+    display: flex;
+    flex-flow: column;
+  }
+  label {
+    color: $endur;
+    padding-bottom: 0.1em;
+  }
+  button {
+    font-family: inherit;
+    line-height: 1;
+    padding: 0.3em 0.2em 0.2em 0.2em;
+    margin: 1.1em auto 0.5em auto;
+    width: 6em;
+  }
+}
