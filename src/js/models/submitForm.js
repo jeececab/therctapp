@@ -18,8 +18,6 @@ export function submitForm(e) {
     confirmPassword: confirmPassword
   };
 
-  console.log(state.userData);
-
   accountView(state);
 };
 

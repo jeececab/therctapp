@@ -12,7 +12,7 @@ import { userDataToJSON } from './models/saveUserData';
 
 // The state will contain:
 //  1 - The seasonPlan array
-//  2 - The userData
+//  2 - The userData object
 export const state = {};
 
 // CONTROLLER
@@ -23,10 +23,24 @@ elements.signUp.addEventListener('click', () => {
   
 // B - Log In
 elements.logIn.addEventListener('click', () => {
+  // Temporary fake user data to test stuff:
+  state.userData = {
+    userName: "jeececab",
+    email: "jcseguincabana@gmail.com",
+    password: "12345",
+    confirmPassword: "12345"
+  };
+
   accountView(state);
 });
 
-// D - Start new season
+// C - Start new season
+// elements.noviceTraining.addEventListener('click', e => {
+//   state.season = seasonPlan.novice();
+//   seasonView(state.season);
+//   datesView();
+// });
+
 if (document.querySelector('.novice-btn')) {
   document.querySelector('.novice-btn').addEventListener('click', e => {
     console.log('test');
@@ -38,6 +52,14 @@ if (document.querySelector('.novice-btn')) {
   });
 };
 
+
+function dynamicEvent(eventName, dynamicChildSelector, functionToExecute) {
+  document.querySelector(elements.appContainer).addEventListener(eventName, function (event) {
+    if (event.target.classList.contains(dynamicChildSelector)) {
+      functionToExecute;
+    };
+  });
+}
 
 
 
