@@ -1,12 +1,7 @@
-import * as seasonPlan from '../models/seasonPlan';
-import { elements, updateElements } from './base';
 
-export const clearSeasonView = () => {
-  document.querySelector('.season__plan').innerHTML = '';
-};
 
 export const seasonView = newSeason => {
-  elements.appContainer.insertAdjacentHTML('beforeend', `
+  $('.app-container').append(`
     <div class="season">
       
       <div class="season__weeks">
@@ -50,9 +45,7 @@ export const seasonView = newSeason => {
     </div>
   `);
 
-  updateElements();
-
-  elements.cellsWrapper.insertAdjacentHTML('beforeEnd', `
+  $('.season__plan').append(`
     <div class="season__cell season__cell--empty"></div>
     <div class="season__cell season__cell--empty"></div>
     <div class="season__cell season__cell--empty"></div>
@@ -62,9 +55,22 @@ export const seasonView = newSeason => {
   `);
 
   newSeason.forEach(el => {
-    elements.cellsWrapper.insertAdjacentHTML('beforeEnd', `
+    $('.season__plan').append(`
       <div class="season__cell day-${el.day} season__cell--${newSeason[el.day].phase}"></div>
     `);
     document.querySelector(`.day-${el.day}`).insertAdjacentHTML('beforeend', newSeason[el.day].displayed);
   });
+};
+
+export const clearSeasonView = () => {
+  if ($('.season')) {
+    $('.season').remove();
+  }
+};
+
+export const shrinkWeeks = () => {
+  $('.season__weeks div:last-child').remove();
+  $('.season__weeks div:last-child').remove();
+  $('.season__weeks div:last-child').remove();
+  $('.season__weeks div:last-child').remove();
 };

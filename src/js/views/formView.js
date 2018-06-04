@@ -1,10 +1,10 @@
-import { elements, updateElements } from './base';
+// import { elements, updateElements } from './base';
 import { submitForm } from '../models/submitForm';
 
 
 export function formView() {
-  document.querySelector('.app-container').innerHTML = '';
-  document.querySelector('.app-container').insertAdjacentHTML('beforeend', `
+  $('.app-container').empty();
+  $('.app-container').append(`
     <div class="signup">
     <div class="signup__form animated bounceInLeft">
       <h1 class="signup__title">Create your account</h1>
@@ -34,7 +34,5 @@ export function formView() {
     </div>
     </div>
   `);
-  updateElements();
-
-  elements.signupForm.addEventListener('submit', submitForm);
+  // updateElements();
 };

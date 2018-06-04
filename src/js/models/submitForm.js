@@ -1,8 +1,7 @@
 
-import { accountView } from '../views/accountView';
 import { state } from '../index';
 
-export let userName, email, password, confirmPassword;
+let userName, email, password, confirmPassword;
 
 export function submitForm(e) {
   e.preventDefault();
@@ -17,8 +16,6 @@ export function submitForm(e) {
     password: password,
     confirmPassword: confirmPassword
   };
-
-  accountView(state);
 };
 
 // Function to get from values

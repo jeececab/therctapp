@@ -10,3 +10,7 @@ $strength: #b3bfb8;
 $power: #78a1bb;
 $endur: #283044;
 $perf: #d19119;
+
+@mixin linear-gradient($color) {
+  background: linear-gradient($color, darken($color, 8));
+};

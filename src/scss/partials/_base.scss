@@ -5,3 +5,16 @@ html {
 body {
   background: $white;
 }
+
+.container {
+  margin: 2em auto 0 auto;
+  padding: 0 1em;
+  max-width: 1150px;
+  text-align: left;
+  h2 {
+    text-align: center;
+  }
+  @media (max-width: 52em) {
+    text-align: center;
+  }
+}

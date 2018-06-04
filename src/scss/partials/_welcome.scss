@@ -1,16 +1,5 @@
 
-.welcome {
-  margin: 2em auto;
-  padding: 0 1em;
-  max-width: 1150px;
-  text-align: left;
-  h2 {
-    text-align: center;
-  }
-  @media (max-width: 55em) {
-    text-align: center;
-  }
-}
+
 
 .w-signup {
   display: flex;
@@ -74,9 +63,15 @@
 .manual__front-img {
   grid-column: 2;
   order: 2;
+  @media (max-width: 55em) {
+    order: 1;
+  }
 }
 
 .manual__back-img {
   grid-column-start: 1;
   order: 1;
+  @media (max-width: 55em) {
+    order: 2;
+  }
 }

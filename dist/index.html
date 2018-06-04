@@ -5,26 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>The Rock Climber's Training App</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link href="style.css" rel="stylesheet"></head>
 <body>
   <div class="navbar">
      <h1 class="navbar__title"><span>The Rock Climber's</span> <span>Training App</span></h1>
      <nav class="navbar__menu">
        <ul>
-         <li><a href="#">Why train?</a></li>
-         <li><a href="#">The plan</a></li>
-         <li><a class="navbar__menu__item--log" href="./training.html">Log in</a></li>
+         <li><button class="navbar__menu__item--log logIn">Log in</button></li>
        </ul>
      </nav>
   </div>
- 
 
-  <div class="signup">
-    <a class="signup__button signup__button--primary" href="./signup.html">Get started</a>
-    <a class="signup__button signup__button--secondary" href="./training.html">Log in</a>
+  <div class="app-container">
+
+    <div class="welcome">
+      <h2>A guide to continuous improvement</h2>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio minima, beatae facilis temporibus alias adipisci ab suscipit id, aspernatur veniam dolores unde assumenda? Ea voluptatem incidunt optio, fugit non eveniet at facilis veritatis aspernatur eaque quis eum omnis doloribus ratione esse autem aliquid veniam soluta impedit totam. Ad, tempore voluptatibus?</p>
+
+      <div class="w-signup">
+        <button class="w-signup__btn w-signup__btn--primary signUp">Get started</button>
+        <button class="w-signup__btn w-signup__btn--secondary logIn">Log in</button>
+      </div>
+
+      <div class="manual">
+        <img class="manual__front-img" src="./img/rctm-front.jpg" alt="Back cover of the Rock Climber's training manual">
+        <img class="manual__back-img" src="./img/rctm-back.jpg" alt="Front cover of the Rock Climber's training manual">
+      </div>
+
+    </div>
+    
   </div>
-  
-  
 
 <script type="text/javascript" src="js/bundle.js"></script></body>
 </html>

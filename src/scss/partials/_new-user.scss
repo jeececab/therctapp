@@ -1,0 +1,68 @@
+
+.new-user__title {
+  text-transform: uppercase;
+}
+
+.start-new-season__title {
+  color: $base;
+  font-size: 1.4rem;
+  margin: 1em 0;
+}
+
+.plan-templates {
+  display: grid;
+  grid-gap: 0.8em;
+  grid-template-columns: repeat(4, 12em);
+  margin: 2em auto 0 auto;
+  justify-content: center;
+  @media (max-width: 52em) {
+    grid-template-columns: repeat(2, 12em);
+  }
+  @media (max-width: 27.5em) {
+    grid-template-columns: repeat(1, 12em);
+  }
+}
+
+.plan-templates__btn {
+  @include linear-gradient($rest);
+  border: none;
+  color: $white;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0.5em 0.3em;
+  width: 12em;
+  &:hover {
+    background: lighten($rest, 8);
+  }
+}
+
+.plan-templates__btn--active {
+  background: $base;
+  cursor: default;
+  &:hover {
+    background: $base;
+  }
+}
+
+.start-new-season__step {
+  color: $perf;
+  cursor: pointer;
+  font-size: 1.4rem;
+  margin: 1em 0;
+  position: relative;
+  right: 0.3em;
+  text-align: center;
+  &::after {
+    content: "";
+    width: 0; 
+    height: 0; 
+    border-top: 0.35em solid transparent;
+    border-bottom: 0.35em solid transparent;
+    border-left: 0.8em solid $perf;
+    position: absolute;
+    top: 0.33em;
+    margin-left: 0.3em;
+  }
+}

@@ -1,9 +1,9 @@
 import TrainingDay from './TrainingDay';
 
-let baseFitnessDisplay, bfDisplay, optAeroExDisplay, oaeDisplay, strengthDisplay, optBaseFitDisplay, obfDisplay, powerDisplay, powerEndurDisplay, peDisplay, redpointDisplay, rpDisplay, redpointOnsight, rposDisplay, optCrossDisplay, oaeOctDisplay;
+let baseFitnessDisplay, bfDisplay, aeroExDisplay, aeDisplay, optAeroExDisplay, oaeDisplay, outRopeBouldDisplay, orbDisplay, strengthDisplay, optBaseFitDisplay, obfDisplay, powerDisplay, powerEndurDisplay, peDisplay, redpointDisplay, rpDisplay, redpointOnsight, rposDisplay, optCrossDisplay, oaeOctDisplay;
 
 // NOVICE TRAINEE SEASONAL TRAINING PLAN TEMPLATE
-export const novice = () => {
+function novice() {
   // Creates array of objects that represents each training day and the phase it belongs to
   const trainingDays = new Array();
   for (let i = 0; i <= 119; i++ ) {
@@ -25,16 +25,20 @@ export const novice = () => {
   // 1- Select which cell will contain which content
   baseFitnessDisplay = [0];
   bfDisplay = [1, 3, 5, 7, 8, 10, 12, 14, 15, 17, 18, 19, 21, 22, 24, 25, 26];
+  aeroExDisplay = [2];
+  aeDisplay = [9];
   optAeroExDisplay = [2];
   oaeDisplay = [4, 6, 9, 11, 13, 16, 20, 23, 27, 30, 33, 36, 39, 42];
+  outRopeBouldDisplay = [14];
+  orbDisplay = [];
   strengthDisplay = [28, 31, 34, 37, 40, 43, 46];
   optBaseFitDisplay = [29];
   obfDisplay = [32, 35, 38, 41, 44];
   powerDisplay = [49, 52, 54, 57, 59, 62];
   powerEndurDisplay = [64];
-  peDisplay = [67, 71, 74, 77, 78, 81, 88, 95, 102];
+  peDisplay = [67, 71, 74, 77, 78, 81, 88, 102];
   redpointDisplay = [70];
-  rpDisplay = [71, 77, 78, 84, 85, 91, 92];
+  rpDisplay = [71, 77, 78, 84, 85, 91, 92, 94, 95];
   redpointOnsight = [98];
   rposDisplay = [99, 105, 106];
   optCrossDisplay = [108];
@@ -47,7 +51,7 @@ export const novice = () => {
 };
 
 // EXPERIENCED TRAINEE SEASONAL TRAINING PLAN TEMPLATE
-export const experienced = () => {
+function experienced() {
   const trainingDays = new Array();
   for (let i = 0; i <= 119; i++ ) {
     if (i <= 13) {
@@ -67,8 +71,12 @@ export const experienced = () => {
 
   baseFitnessDisplay = [0];
   bfDisplay = [1, 3, 5, 7, 8, 10, 11, 12];
+  aeroExDisplay = [2];
+  aeDisplay = [9];
   optAeroExDisplay = [2];
   oaeDisplay = [4, 6, 9, 13, 16, 18, 19, 21, 22, 24, 25, 27, 28, 31];
+  outRopeBouldDisplay = [14];
+  orbDisplay = [];
   strengthDisplay = [14, 17, 20, 23, 26, 29, 32, 35, 38];
   optBaseFitDisplay = [15];
   obfDisplay = [21];
@@ -87,7 +95,93 @@ export const experienced = () => {
   return trainingDays;
 };
 
-// TODO : SEASONAL TRAINING PLAN TEMPLATE FOR TRAD CLIMBER - book page 262
+// TRAD CLIMBING TRAINEE SEASONAL TRAINING PLAN TEMPLATE
+function trad() {
+  const trainingDays = new Array();
+  for (let i = 0; i <= 119; i++ ) {
+    if (i <= 13) {
+      trainingDays[i] = new TrainingDay(i, 'base'); 
+    } else if (i >= 14 && i <= 49) {
+      trainingDays[i] = new TrainingDay(i, 'strength'); 
+    } else if (i >= 50 && i <= 62) {
+      trainingDays[i] = new TrainingDay(i, 'power'); 
+    } else if (i >= 63 && i <= 69) {
+      trainingDays[i] = new TrainingDay(i, 'endur'); 
+    } else if (i >= 70 && i <= 106) {
+      trainingDays[i] = new TrainingDay(i, 'perf'); 
+    } else if (i >= 107 && i <= 118) {
+      trainingDays[i] = new TrainingDay(i, 'rest'); 
+    }; 
+  };
+
+  baseFitnessDisplay = [0];
+  bfDisplay = [1, 3, 5, 7, 8, 10, 11, 12, 15, 21, 36, 42, 57];
+  aeroExDisplay = [2];
+  aeDisplay = [9, 16, 18, 24, 25, 27, 30, 31, 33, 37, 39, 43, 45, 46, 48, 51, 53, 58, 60];
+  optAeroExDisplay = [4];
+  oaeDisplay = [6, 13, 19, 22, 28, 34, 40, 49, 55, 62, 65, 67, 69, 72, 73, 75];
+  outRopeBouldDisplay = [14];
+  orbDisplay = [29, 35];
+  strengthDisplay = [17, 20, 23, 26, 32, 35, 38, 41, 44, 47];
+  optBaseFitDisplay = [];
+  obfDisplay = [];
+  powerDisplay = [50, 52, 54, 56, 59, 61];
+  powerEndurDisplay = [66];
+  peDisplay = [68, 74, 95, 102];
+  redpointDisplay = [63];
+  rpDisplay = [64, 70, 71, 77, 78, 80, 82, 84, 86, 88];
+  redpointOnsight = [90];
+  rposDisplay = [92, 98, 99, 105, 106];
+  optCrossDisplay = [108];
+  oaeOctDisplay = [110, 112, 114, 116, 118];
+
+  assignDisplayed(trainingDays);
+
+  return trainingDays;
+};
+
+// SEASONAL TRAINING PLAN TEMPLATE FOR BOULDERING
+function boulder() {
+  const trainingDays = new Array();
+  for (let i = 0; i <= 119; i++ ) {
+    if (i <= 6) {
+      trainingDays[i] = new TrainingDay(i, 'base'); 
+    } else if (i >= 7 && i <= 36) {
+      trainingDays[i] = new TrainingDay(i, 'strength'); 
+    } else if (i >= 36 && i <= 56) {
+      trainingDays[i] = new TrainingDay(i, 'power'); 
+    } else if (i >= 57 && i <= 84) {
+      trainingDays[i] = new TrainingDay(i, 'perf'); 
+    } else if (i >= 85 && i <= 90) {
+      trainingDays[i] = new TrainingDay(i, 'rest'); 
+    }; 
+  };
+
+  baseFitnessDisplay = [];
+  bfDisplay = [];
+  aeroExDisplay = [];
+  aeDisplay = [];
+  optAeroExDisplay = [];
+  oaeDisplay = [];
+  outRopeBouldDisplay = [];
+  orbDisplay = [];
+  strengthDisplay = [];
+  optBaseFitDisplay = [];
+  obfDisplay = [];
+  powerDisplay = [];
+  powerEndurDisplay = [];
+  peDisplay = [];
+  redpointDisplay = [];
+  rpDisplay = [];
+  redpointOnsight = [];
+  rposDisplay = [];
+  optCrossDisplay = [];
+  oaeOctDisplay = [];
+
+  assignDisplayed(trainingDays);
+
+  return trainingDays;
+};
 
 function assignDisplayed (trainingDays)  {
   for (let i = 0; i < trainingDays.length; i++) {
@@ -95,10 +189,18 @@ function assignDisplayed (trainingDays)  {
       trainingDays[i].displayed = '<p class="season__cell--primary">Base-Fitness (BF)</p>';
     } else if (bfDisplay.includes(i)) {
       trainingDays[i].displayed = '<p class="season__cell--primary">BF</p>';
+    } else if (aeroExDisplay.includes(i)) {
+      trainingDays[i].displayed = '<p class="season__cell--secondary">Aerobic Exercise (AE)</p>';
+    } else if (aeDisplay.includes(i)) {
+      trainingDays[i].displayed = '<p class="season__cell--secondary">AE</p>';
     } else if (optAeroExDisplay.includes(i)) {
       trainingDays[i].displayed = '<p class="season__cell--secondary">Optional Aerobic Exercise (OAE)</p>';
     } else if (oaeDisplay.includes(i)) {
       trainingDays[i].displayed = '<p class="season__cell--secondary">OAE</p>';
+    } else if (outRopeBouldDisplay.includes(i)) {
+      trainingDays[i].displayed = '<p class="season__cell--primary">Out. Roped Boulder. (ORB)</p>';
+    } else if (orbDisplay.includes(i)) {
+      trainingDays[i].displayed = '<p class="season__cell--primary">ORB</p>';
     } else if (strengthDisplay.includes(i)) {
       trainingDays[i].displayed = '<p class="season__cell--primary">Strength</p>';
     } else if (optBaseFitDisplay.includes(i)) {
@@ -124,5 +226,17 @@ function assignDisplayed (trainingDays)  {
     } else if (oaeOctDisplay.includes(i)) {
       trainingDays[i].displayed = '<p class="season__cell--secondary">OAE/OCT</p>';
     };
+  };
+};
+
+export function planTemplate(type) {
+  if (type === 'novice') {
+    return novice();
+  } else if (type === 'experienced') {
+    return experienced();
+  } else if (type === 'trad') {
+    return trad();
+  } else if (type === 'boulder') {
+    return boulder();
   };
 };
