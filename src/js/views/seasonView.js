@@ -1,8 +1,20 @@
+import { datesView } from './datesView';
 
+const clearSeasonView = () => {
+  if ($('.season')) {
+    $('.season').remove();
+  }
+};
 
-export const seasonView = newSeason => {
+export const disableCells = () => {
+  $('.season__cell').addClass('season__cell--disable');
+  $('.season').removeClass('animated bounceInLeft');
+};
+
+export const seasonView = season => {
+  clearSeasonView();
   $('.app-container').append(`
-    <div class="season">
+    <div class="season animated bounceInLeft">
       
       <div class="season__weeks">
         <div class="season__cell season__weeks-col"></div>
@@ -54,23 +66,36 @@ export const seasonView = newSeason => {
     <div class="season__cell season__cell--empty"></div>
   `);
 
-  newSeason.forEach(el => {
+  season.forEach(el => {
     $('.season__plan').append(`
-      <div class="season__cell day-${el.day} season__cell--${newSeason[el.day].phase}"></div>
+      <div class="season__cell day-${el.day} season__cell--${season[el.day].phase} season__cell"></div>
     `);
-    document.querySelector(`.day-${el.day}`).insertAdjacentHTML('beforeend', newSeason[el.day].displayed);
+    document.querySelector(`.day-${el.day}`).insertAdjacentHTML('beforeend', season[el.day].displayed);
   });
+
+  if (season.length <= 93) {
+    $('.season__weeks div:last-child').remove();
+    $('.season__weeks div:last-child').remove();
+    $('.season__weeks div:last-child').remove();
+    $('.season__weeks div:last-child').remove();
+  };
 };
 
-export const clearSeasonView = () => {
-  if ($('.season')) {
-    $('.season').remove();
-  }
-};
 
-export const shrinkWeeks = () => {
-  $('.season__weeks div:last-child').remove();
-  $('.season__weeks div:last-child').remove();
-  $('.season__weeks div:last-child').remove();
-  $('.season__weeks div:last-child').remove();
+
+export const newSeasonView = (type, season) => {
+
+  $('.plan-templates__btn').removeClass('plan-templates__btn--active');
+  $(`.${type}-btn`).addClass('plan-templates__btn--active');
+
+  seasonView(season);
+  datesView(season);
+  disableCells();
+
+  if ($('.start-new-season__btn--next')) {
+    $('.start-new-season__btn--next').remove();
+  };
+  $('.start-new-season').append(`
+    <button class="start-new-season__btn start-new-season__btn--next">Next »</button>
+  `);
 };

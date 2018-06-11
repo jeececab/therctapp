@@ -2,30 +2,16 @@ import style from '../scss/main.scss';
 import { formView } from './views/formView';
 import { submitForm } from './models/submitForm';
 import { accountView } from './views/accountView';
-import { seasonView, clearSeasonView, shrinkWeeks } from './views/seasonView';
+import { seasonView, newSeasonView, sampleSeason } from './views/seasonView';
+import { instructionsView } from './views/instructionsView';
 import { planTemplate } from './models/planTemplate';
 import { mapDates } from './models/mapDates';
-import { datesView } from './views/datesView';
-
-/*
-import * as exerciseList from './models/exercisesList';
-import { userDataToJSON } from './models/saveUserData';
-*/
+import { dayPlanView } from './views/dayPlanView';
+import { saveUserData, importUserData } from './models/userData';
 
 
-// The state will contain:
-//  1 - The seasonPlan array
-//  2 - The userData object
-export const state = {};
-
-// Uncomment to simulate a user:
-state.userData = {
-  userName: "jeececab",
-  email: "jcseguincabana@gmail.com",
-  password: "12345",
-  confirmPassword: "12345"
-};
-
+// The state = {season, userData};
+let state;
 
 // CONTROLLER
 // A - Get started aka sign up
@@ -34,14 +20,18 @@ $('.signUp').click(() => {
 });
 
 // B - Submit Form
-$('.app-container').on('submit', '#signupForm', e => {
-  submitForm(e);
-  accountView(state);
+$('.app-container').on('submit', '#signupForm', () => {
+  state = {userData:'', season:''};
+  submitForm(e, state);
+  saveUserData(state);
+  accountView(state, 'newUser');
 });
   
 // C - Log In
 $('.logIn').click(() => {
-  accountView(state);
+  // Load user data from database 
+  state = importUserData();
+  accountView(state, 'user');
 });
 
 // D - Log out
@@ -51,40 +41,39 @@ $('.navbar').on('click', '.logOut', () => {
 });
 
 // E - Start new season
+// e.1 - Select a seasonal plan template (novice, experienced, trad or boulder)
 $('.app-container').on('click', '.plan-templates__btn', e => {
   const type = e.target.classList[0].replace('-btn', '');
-  clearSeasonView();
   state.season = planTemplate(type);
-  seasonView(state.season);
-  if (type === 'boulder') {
-    shrinkWeeks();
-  }
   mapDates(state.season);
-  datesView(state.season);
-  $('.plan-templates__btn').removeClass('plan-templates__btn--active');
-  $(`.${type}-btn`).addClass('plan-templates__btn--active');
+  newSeasonView(type, state.season);
+});
+
+// e.2 - Click "next" to choose the plan and move to account window
+$('.app-container').on('click', '.start-new-season__btn--next', () => {
+  saveUserData(state);
+  accountView(state, 'user');
+  instructionsView();
+});
+
+// F - Click on a cell to edit day plan
+// f.1
+$('.app-container').on('click', '.season__cell', e => {
+  let day;
+  if (e.target.classList[1]) {
+    day = e.target.classList[1].slice(4);
+  } else {
+    const btn = e.target.closest('.season__cell');
+    day = btn.classList[1].slice(4);
+  };
+  dayPlanView(state.season[day]);
+});
+//f.2 - Click on "Add Exercise" to add exercise to the list
+$('.app-container').on('click', '.addExercise', () => {
+
 });
 
 
-
-
-
-
-// // TODO : Save user data:
-// // 1 - convert into JSON file
-// // userDataToJSON(newSeason);
-// // 2 - Post JSON file to server
-
-
-
-// // window.addEventListener('click', e => {
-// //   if (e.target.classList[1].includes('day-')) {
-// //     const nb = e.target.classList[1].slice(4);
-// //     if (isNaN(nb) === false ) {
-// //       console.log(nb);
-// //     };
-// //   };
-// // });
 
 
 

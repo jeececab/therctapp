@@ -1,12 +1,7 @@
 
-.new-user__title {
-  text-transform: uppercase;
-}
-
-.start-new-season__title {
-  color: $base;
+.greet-user__title {
   font-size: 1.4rem;
-  margin: 1em 0;
+  text-transform: uppercase;
 }
 
 .plan-templates {
@@ -23,19 +18,26 @@
   }
 }
 
-.plan-templates__btn {
-  @include linear-gradient($rest);
+.start-new-season__btn {
   border: none;
-  color: $white;
   cursor: pointer;
   font-size: 1rem;
   font-weight: 700;
   line-height: 1;
   padding: 0.5em 0.3em;
   width: 12em;
+  &:focus {
+    outline: none;
+  }
+}
+
+.plan-templates__btn {
+  @include linear-gradient($rest);
+  color: $white;
   &:hover {
     background: lighten($rest, 8);
   }
+  
 }
 
 .plan-templates__btn--active {
@@ -46,23 +48,14 @@
   }
 }
 
-.start-new-season__step {
-  color: $perf;
-  cursor: pointer;
-  font-size: 1.4rem;
-  margin: 1em 0;
-  position: relative;
-  right: 0.3em;
+.start-new-season__btn--next {
+  background: transparent;
+  color: $power;
+  display: block;
+  font-size: 1.2rem;
+  margin: 1em auto 0 auto;
   text-align: center;
-  &::after {
-    content: "";
-    width: 0; 
-    height: 0; 
-    border-top: 0.35em solid transparent;
-    border-bottom: 0.35em solid transparent;
-    border-left: 0.8em solid $perf;
-    position: absolute;
-    top: 0.33em;
-    margin-left: 0.3em;
+  &:hover {
+    color: lighten($power, 8);
   }
 }

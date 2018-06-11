@@ -1,3 +1,5 @@
+@import 'vendors/normalize';
+
 @import 'modules/colors';
 @import 'modules/mixins';
 @import 'modules/typography';
@@ -6,7 +8,7 @@
 @import 'partials/navbar';
 @import 'partials/welcome';
 @import 'partials/signup';
-@import 'partials/new-user';
+@import 'partials/new-season';
 @import 'partials/season';
-
-@import 'vendors/normalize';
+@import 'partials/modal';
+@import 'partials/day-plan';

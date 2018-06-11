@@ -1,0 +1,35 @@
+
+.modal-container {
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+}
+
+.modal {
+  background: $white;
+  height: 30em;
+  margin: 5.8em 1em 0 1em;
+  max-width: 50em;
+}
+
+.overflowless {
+  overflow: hidden;
+}
+
+.modal__header {
+  align-items: center;
+  background: $endur;
+  display: flex;
+  padding: 0.2em;
+  h3 {
+    margin: 0.3em 0.3em;
+  }
+  @media (max-width: 52em) {
+    justify-content: center;
+  }
+}

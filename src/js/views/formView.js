@@ -1,6 +1,3 @@
-// import { elements, updateElements } from './base';
-import { submitForm } from '../models/submitForm';
-
 
 export function formView() {
   $('.app-container').empty();
@@ -34,5 +31,4 @@ export function formView() {
     </div>
     </div>
   `);
-  // updateElements();
 };

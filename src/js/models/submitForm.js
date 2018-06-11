@@ -1,9 +1,7 @@
 
-import { state } from '../index';
-
 let userName, email, password, confirmPassword;
 
-export function submitForm(e) {
+export function submitForm(e, state) {
   e.preventDefault();
   userName = getInputVal('userName');
   email = getInputVal('email');

@@ -1,3 +1,7 @@
+.startDayTraining {
+  display: block;
+  margin: 1em auto 0 auto;
+}
 
 .season, .season__plan, .season__days, .season__weeks {
   display: grid;
@@ -6,7 +10,7 @@
 
 .season {
   grid-template-columns: 2.2em 1fr;
-  margin: 2.5em auto;
+  margin: 1.5em auto;
   width: 90%;
   max-width: 1100px;
   @media (max-width: 58em) {
@@ -51,6 +55,7 @@
   p {
     margin: 0;
     padding: 0;
+    text-align: center;
   }
 }
 
@@ -69,6 +74,10 @@
   position: absolute;
   top: 0;
   right: 0;
+}
+
+.currentDay {
+  border: solid 0.2em rgba(255, 0, 0, 0.76);
 }
 
 .season__cell--primary {
@@ -129,4 +138,10 @@
   &:hover {
     background: lighten($perf, 8);
   }
+}
+
+
+.season__cell--disable {
+  cursor: default;
+  pointer-events: none;
 }

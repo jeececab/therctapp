@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700,900");
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700,900);
 html {
   font-family: "Montserrat", sans-serif; }
 
@@ -6,7 +6,7 @@ body {
   background: #fafffd; }
 
 .container {
-  margin: 2em auto;
+  margin: 0 auto;
   padding: 0 1em;
   max-width: 1150px;
   text-align: left; }
@@ -81,6 +81,8 @@ body {
   text-transform: uppercase;
   width: 15em;
   transition: ease-in 0.125s; }
+  .w-signup__btn:focus {
+    outline: none; }
 
 .w-signup__btn--primary {
   background: #91b680;
@@ -118,10 +120,16 @@ body {
 .manual__front-img {
   grid-column: 2;
   order: 2; }
+  @media (max-width: 55em) {
+    .manual__front-img {
+      order: 1; } }
 
 .manual__back-img {
   grid-column-start: 1;
   order: 1; }
+  @media (max-width: 55em) {
+    .manual__back-img {
+      order: 2; } }
 
 .signup {
   display: flex;
@@ -145,9 +153,11 @@ body {
 .signup__inputs p {
   display: flex;
   flex-flow: column; }
+
 .signup__inputs label {
   color: #283044;
   padding-bottom: 0.1em; }
+
 .signup__inputs button {
   font-family: inherit;
   line-height: 1;
@@ -155,7 +165,8 @@ body {
   margin: 1.1em auto 0.5em auto;
   width: 6em; }
 
-.new-user__title {
+.greet-user__title {
+  font-size: 1.4rem;
   text-transform: uppercase; }
 
 .start-new-season__title {
@@ -176,16 +187,20 @@ body {
     .plan-templates {
       grid-template-columns: repeat(1, 12em); } }
 
-.plan-templates__btn {
-  background: linear-gradient(#9c897e, #887469);
+.start-new-season__btn {
   border: none;
-  color: #fafffd;
   cursor: pointer;
   font-size: 1rem;
   font-weight: 700;
   line-height: 1;
   padding: 0.5em 0.3em;
   width: 12em; }
+  .start-new-season__btn:focus {
+    outline: none; }
+
+.plan-templates__btn {
+  background: linear-gradient(#9c897e, #887469);
+  color: #fafffd; }
   .plan-templates__btn:hover {
     background: #ae9e95; }
 
@@ -195,24 +210,31 @@ body {
   .plan-templates__btn--active:hover {
     background: #91b680; }
 
-.start-new-season__step {
+.start-new-season__btn--next {
+  background: transparent;
+  color: #78a1bb;
+  display: block;
+  font-size: 1.2rem;
+  margin: 1em auto 0 auto;
+  text-align: center; }
+  .start-new-season__btn--next:hover {
+    color: #93b4c9; }
+
+.start-training-btn {
+  background: transparent;
+  border: 0.2em solid #d19119;
   color: #d19119;
   cursor: pointer;
-  font-size: 1.4rem;
-  margin: 1em 0;
-  position: relative;
-  right: 0.3em;
-  text-align: center; }
-  .start-new-season__step::after {
-    content: "";
-    width: 0;
-    height: 0;
-    border-top: 0.35em solid transparent;
-    border-bottom: 0.35em solid transparent;
-    border-left: 0.8em solid #d19119;
-    position: absolute;
-    top: 0.33em;
-    margin-left: 0.3em; }
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 1em auto 0 auto;
+  padding: 0.4em 1em;
+  text-transform: uppercase; }
+  .start-training-btn:hover {
+    background: rgba(209, 145, 25, 0.2); }
+  .start-training-btn:focus {
+    outline: none; }
 
 .season, .season__plan, .season__days, .season__weeks {
   display: grid;
@@ -220,8 +242,8 @@ body {
 
 .season {
   grid-template-columns: 2.2em 1fr;
-  margin: 4em auto;
-  width: 95%;
+  margin: 1.5em auto;
+  width: 90%;
   max-width: 1100px;
   -webkit-box-shadow: 0px 3px 8px 3px rgba(0, 0, 0, 0.32);
   -moz-box-shadow: 0px 3px 8px 3px rgba(0, 0, 0, 0.32);
@@ -252,7 +274,7 @@ body {
   color: #fafffd;
   text-align: center;
   font-size: 0.85rem;
-  height: 3.1em;
+  height: 3.2em;
   padding: 0.2em;
   display: flex;
   align-items: center;
@@ -321,6 +343,29 @@ body {
   background: linear-gradient(#d19119, #ad7815); }
   .season__cell--perf:hover {
     background: #e6a62d; }
+
+.season__cell--disable {
+  cursor: default;
+  pointer-events: none; }
+
+.modal-container {
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw; }
+
+.modal {
+  background: #fafffd;
+  height: 30em;
+  margin: 6em 1em 0 1em;
+  max-width: 50em; }
+
+.overflowless {
+  overflow: hidden; }
 
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -661,4 +706,3 @@ template {
 [hidden] {
   display: none; }
 
-/*# sourceMappingURL=style.css.map */

@@ -7,14 +7,76 @@ body {
 }
 
 .container {
-  margin: 2em auto 0 auto;
+  margin: 0 auto;
   padding: 0 1em;
   max-width: 1150px;
+}
+
+p {
   text-align: left;
-  h2 {
-    text-align: center;
-  }
   @media (max-width: 52em) {
     text-align: center;
   }
 }
+
+h2 {
+  text-align: center;
+}
+
+h3 {
+  color: $base;
+  font-size: 1.4rem;
+  margin: 1em 0;
+  text-align: left;
+  @media (max-width: 52em) {
+    text-align: center;
+  }
+}
+
+.btn {
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 700;
+  height: 2.3em;
+  line-height: 1;
+  margin-top: 0.7em; 
+  padding: 0.5em 0;
+  text-transform: uppercase;
+  transition: background-color ease-in 0.125s;
+  width: 15em;
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn--primary {
+  background: $base;
+  border: none;
+  color: $white;
+  &:hover {
+    background: darken($base, 9);
+  }
+}
+
+.btn--secondary {
+  background: transparent;
+  border: 0.2em solid $power;
+  color: $power;
+  &:hover {
+    background: rgba($power, 0.2);
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn--gray {
+  border: 0.2em solid $strength;
+  color: $strength;
+  &:hover {
+    background: rgba($strength, 0.2);
+  }
+}
+
+
