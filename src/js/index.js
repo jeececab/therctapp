@@ -2,25 +2,27 @@ import style from '../scss/main.scss';
 import { formView } from './views/formView';
 import { submitForm } from './models/submitForm';
 import { accountView } from './views/accountView';
-import { seasonView, newSeasonView, sampleSeason } from './views/seasonView';
+import { newSeasonView } from './views/seasonView';
 import { instructionsView } from './views/instructionsView';
 import { planTemplate } from './models/planTemplate';
 import { mapDates } from './models/mapDates';
-import { dayPlanView } from './views/dayPlanView';
+import { dayEditorView } from './views/dayEditorView';
 import { saveUserData, importUserData } from './models/userData';
+
+//import * as exercise from './models/exercisesList';
+//import { addExercise } from './models/TrainingDay';
 
 
 // The state = {season, userData};
 let state;
 
-// CONTROLLER
 // A - Get started aka sign up
 $('.signUp').click(() => {
   formView();
 });
 
 // B - Submit Form
-$('.app-container').on('submit', '#signupForm', () => {
+$('.app-container').on('submit', '#signupForm', e => {
   state = {userData:'', season:''};
   submitForm(e, state);
   saveUserData(state);
@@ -57,21 +59,24 @@ $('.app-container').on('click', '.start-new-season__btn--next', () => {
 });
 
 // F - Click on a cell to edit day plan
-// f.1
 $('.app-container').on('click', '.season__cell', e => {
-  let day;
+  let el;
   if (e.target.classList[1]) {
-    day = e.target.classList[1].slice(4);
+    el = e.target.classList[1].slice(4);
   } else {
     const btn = e.target.closest('.season__cell');
-    day = btn.classList[1].slice(4);
+    el = btn.classList[1].slice(4);
   };
-  dayPlanView(state.season[day]);
+  dayEditorView(state.season[el]);
 });
-//f.2 - Click on "Add Exercise" to add exercise to the list
-$('.app-container').on('click', '.addExercise', () => {
 
-});
+// G - Start daily training
+
+// H - Start new season
+  // archiveSeason();
+  // saveUserData();
+  // state.season = '';
+  // accountView(state, 'user');
 
 
 
