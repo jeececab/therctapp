@@ -12,4 +12,9 @@ export const modal = () => {
       $('body').removeClass('overflowless');
     };
   });
+
+  $('.modal__close-btn').click(e => {
+    $('.modal-container').remove();
+    $('body').removeClass('overflowless');
+  });
 };

@@ -2,11 +2,11 @@ import style from '../scss/main.scss';
 import { formView } from './views/formView';
 import { submitForm } from './models/submitForm';
 import { accountView } from './views/accountView';
-import { newSeasonView } from './views/seasonView';
+import { newSeasonView, seasonView } from './views/seasonView';
 import { instructionsView } from './views/instructionsView';
 import { planTemplate } from './models/planTemplate';
 import { mapDates } from './models/mapDates';
-import { dayEditorView } from './views/dayEditorView';
+import { dayPlanView } from './views/dayPlanView';
 import { saveUserData, importUserData } from './models/userData';
 
 //import * as exercise from './models/exercisesList';
@@ -58,17 +58,22 @@ $('.app-container').on('click', '.start-new-season__btn--next', () => {
   instructionsView();
 });
 
-// F - Click on a cell to edit day plan
+// F - View, edit and start day plan
+// f.1 - Click on a cell to view a day plan
 $('.app-container').on('click', '.season__cell', e => {
-  let el;
+  let day;
   if (e.target.classList[1]) {
-    el = e.target.classList[1].slice(4);
+    day = e.target.classList[1].slice(4);
   } else {
     const btn = e.target.closest('.season__cell');
-    el = btn.classList[1].slice(4);
+    day = btn.classList[1].slice(4);
   };
-  dayEditorView(state.season[el]);
+  dayPlanView(state.season[day]);
 });
+
+// f.2
+// 
+
 
 // G - Start daily training
 

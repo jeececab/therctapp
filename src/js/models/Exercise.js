@@ -1,10 +1,9 @@
 
 export default class Exercise {
-  constructor(id, name, type, directives, sets) {
+  constructor(id, title, type, directives) {
     this.id = id;
-    this.name = name;
+    this.title = title;
     this.type = type;
     this.directives = directives;
-    this.sets = sets;
   }
 };

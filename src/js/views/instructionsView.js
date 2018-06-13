@@ -3,8 +3,9 @@ import { modal } from './base';
 export const instructionsView = () => {
   $('.app-container').append(`
     <div class="modal-container">
-      <div class="modal">
-        <div class="modal__header">
+      <div class="instructions modal animated bounceInDown">
+        <i class="modal__close-btn fa fa-times-circle"></i>
+        <div class="modal__header ">
           <h3>Click on a cell to edit an individual day plan</h3>
         </div>
         <div class="modal__content container">

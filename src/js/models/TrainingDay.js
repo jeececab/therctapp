@@ -4,7 +4,7 @@ export default class TrainingDay {
     this.day = day;
     this.phase = phase;
     this.date = 0;
-    this.exercises = [];
+    this.exercises = ['...'];
     this.displayed = '';
   }
 };

@@ -1,6 +1,4 @@
 
-  // TODO: map complete date instead of just day date number
-
 const getDates = (startDate, daysToAdd) => {
   const datesArray = [];
   for (let i = 0; i <= daysToAdd; i++) {

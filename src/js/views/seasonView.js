@@ -8,13 +8,12 @@ const clearSeasonView = () => {
 
 export const disableCells = () => {
   $('.season__cell').addClass('season__cell--disable');
-  $('.season').removeClass('animated bounceInLeft');
 };
 
 export const seasonView = season => {
   clearSeasonView();
   $('.app-container').append(`
-    <div class="season animated bounceInLeft">
+    <div class="season">
       
       <div class="season__weeks">
         <div class="season__cell season__weeks-col"></div>
@@ -79,6 +78,8 @@ export const seasonView = season => {
     $('.season__weeks div:last-child').remove();
     $('.season__weeks div:last-child').remove();
   };
+
+  datesView(season);
 };
 
 

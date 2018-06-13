@@ -12,9 +12,19 @@
 
 .modal {
   background: $white;
-  height: 40em;
-  margin: 5.8em 1em 0 1em;
-  max-width: 50em;
+  height: 80vh;
+}
+
+.modal__close-btn {
+  cursor: pointer;
+  color: $white;
+  font-size: 1.5rem;
+  position: absolute;
+  right: -0.3em;
+  top: -0.4em;
+  &:hover {
+    color: darken($white, 8);
+  }
 }
 
 .overflowless {
