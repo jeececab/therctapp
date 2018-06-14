@@ -27,15 +27,26 @@ export const dayPlanView = day => {
     `);
 
     // 3 - Display exercises todo list
-    // TODO: btn--ex-${el.type} dans CSS pour changer les couleurs des boutons selon le type
-    day.exercises.forEach(el => {
-      const exer = getExercise(el.id);
-      $('.day-plan__exer-list').append(`
-        <button id="${exer.id}" class="btn btn--ex btn--ex-${exer.type}">${exer.title} <i class="exer-arrow fa fa-caret-right"></i></button>
-      `);
-    });
+    if (day.exercises.length >= 1) {
+      day.exercises.forEach(el => {
+        const exer = getExercise(el.id);
+        $('.day-plan__exer-list').append(`
+          <button id="${exer.id}" class="btn btn--ex btn--ex-${exer.type}">${exer.title} <i class="exer-arrow fa fa-caret-right"></i></button>
+        `);
+      });
+    };
 
-    // 4 - Display Edit button
+    // 4 - Display secondary exercises todo list
+    if (day.secExercises.length >= 1) {
+      day.secExercises.forEach(el => {
+        const exer = getExercise(el.id);
+        $('.day-plan__exer-list').append(`
+          <button id="${exer.id}" class="btn btn--sec-ex">${exer.title} <i class="exer-arrow fa fa-caret-right"></i></button>
+        `);
+      });
+    };
+
+    // 5 - Display Edit button
     $('.day-plan__content').append(`
         <button id="editDay-${day.day}" class="btn btn--secondary btn--edit">Edit</button>
     `);

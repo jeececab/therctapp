@@ -40,10 +40,10 @@
   color: $white;
   font-size: 1.1rem;
   font-weight: 700;
-  height: auto;
+  height: 2.2em;
   width: 100%;
   min-width: 14em;
-  margin-bottom: 0.2em;
+  margin: 0.2em 0;
   position: relative;
 }
 
@@ -51,6 +51,58 @@
   background: $base;
   &:hover {
     background: lighten($base, 8);
+  }
+}
+
+.btn--ex-strength {
+  background: $strength;
+  &:hover {
+    background: lighten($strength, 8);
+  }
+}
+
+.btn--ex-power {
+  background: $power;
+  &:hover {
+    background: lighten($power, 8);
+  }
+}
+
+.btn--ex-endur {
+  background: $endur;
+  &:hover {
+    background: lighten($endur, 8);
+  }
+}
+
+.btn--ex-perf {
+  background: $perf;
+  &:hover {
+    background: lighten($perf, 8);
+  }
+}
+
+.btn--ex-rest {
+  background: $rest;
+  &:hover {
+    background: lighten($rest, 8);
+  }
+}
+
+.btn--sec-ex {
+  background: transparent;
+  border: solid 0.2em $strength;
+  box-sizing: border-box;
+  color: $strength;
+  font-size: 1.1rem;
+  font-weight: 700;
+  height: 2.2em;
+  width: 100%;
+  min-width: 14em;
+  margin: 0.2em 0;
+  position: relative;
+  &:hover {
+    background: rgba($strength, 0.2);
   }
 }
 

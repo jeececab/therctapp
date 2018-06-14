@@ -8,9 +8,15 @@ import { planTemplate } from './models/planTemplate';
 import { mapDates } from './models/mapDates';
 import { dayPlanView } from './views/dayPlanView';
 import { dayEditorView, updateEditView, addExerciseView } from './views/dayEditorView';
-import { initEditorData, storeEditorPhase, selectEditorExer, addExercice } from './models/dayEditor';
-import { getExercise } from './models/exercisesList';
-import { exerciseView } from './views/exerciseView';
+import { 
+  initEditorData, 
+  storeEditorPhase, 
+  selectEditorExer, 
+  selectEditorSecExer, 
+  addExercise, 
+  addSecExercise, 
+  saveDayPlan 
+} from './models/dayEditor';
 import { saveUserData, importUserData } from './models/userData';
 
 
@@ -92,9 +98,10 @@ $('.app-container').on('click', '.btn--ex', e => {
   // exerciseView(exer /*, exerLog*/);
 });
 // Click on edit to edit the day plan
-$('.app-container').on('click', '.btn--edit', () => {
-  dayEditorView();
-  initEditorData();
+$('.app-container').on('click', '.btn--edit', e => {
+  const day = e.target.id.slice(8)
+  dayEditorView(day);
+  initEditorData(day);
 });
 
 
@@ -113,11 +120,26 @@ $('.app-container').on('click', '.btn-ok', () => {
 $('.app-container').on('change', '#edit__exer__inputs', e => {
   selectEditorExer(e.target.value);
  });
-// Select exercise and press add
+// Select exercise and press add to add phase exercise
 $('.app-container').on('click', '.btn-add', () => {
-  addExercice();
+  addExercise();
+  updateEditView();
+});
+// Change the secondary exercise based on the value of the selection menu
+$('.app-container').on('change', '#edit__secExer__inputs', e => {
+  selectEditorSecExer(e.target.value);
+ });
+// Select sec exercise and press add to add secondary(optional, add-on, etc) exercise
+$('.app-container').on('click', '.btn-add--sec', () => {
+  addSecExercise();
   updateEditView();
 });
 
-
-// const day = e.target.id.slice(8);
+// Click save to update and save season data
+$('.app-container').on('click', '.btn--save', e => {
+  const day = e.target.id.slice(9);
+  saveDayPlan(state.season[day]);
+  saveUserData(state);
+  accountView(state, 'user');
+  dayPlanView(state.season[day]);
+});

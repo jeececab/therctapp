@@ -69,7 +69,7 @@ export const seasonView = season => {
     $('.season__plan').append(`
       <div id="day-${el.day}" class="season__cell season__cell--${season[el.day].phase} season__cell"></div>
     `);
-    document.querySelector(`#day-${el.day}`).insertAdjacentHTML('beforeend', season[el.day].displayed);
+    $(`#day-${el.day}`).append(season[el.day].displayed);
   });
 
   if (season.length <= 93) {

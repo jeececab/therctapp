@@ -15,8 +15,6 @@ const outdoorMileage = new Exercise(
   'Climb six to twelve "moderate" routes or pitches. These climbs should be approximately one to two full number grades below the climber\'s maximum onsight ability. They should be moderately fatiguing - just like ARCing. Apply the guidelines of ARC training to these routes. It means you should try to create continuous ARC "sets" of 20-45 minutes, which may require to climb multiple pitches back-to-back.'
 );
 
-export const baseExercises = [arc, outdoorMileage];
-
 // SKILL ACQUISITION
 const straightArms = new Exercise(
   'straightArms',
@@ -39,7 +37,6 @@ const speedClimbing = new Exercise(
   'lorem'
 );
 
-export const skillExercises = [straightArms, restPractice, speedClimbing];
 
 // STRENGTH EXERCISES
 const beginnerHangboard = new Exercise(
@@ -63,21 +60,17 @@ const advancedHangboard = new Exercise(
   'lorem'
 );
 
-
-export const strengthExercises = [beginnerHangboard, intermediateHangboard, advancedHangboard];
-
-
-
-///////
-
-export const powerExercises = [];
-export const endurExercises = [];
-export const perfExercises = [];
-export const aeroExercises = [];
-export const crossExercises = [];
+const baseExercises = [arc, outdoorMileage];
+const baseSecExercises = [straightArms, restPractice, speedClimbing];
+const strengthExercises = [beginnerHangboard, intermediateHangboard, advancedHangboard];
+//TODO:
+const powerExercises = [];
+const endurExercises = [];
+const perfExercises = [];
+const restExercises = [];
 
 
-const exercisesList = baseExercises.concat(skillExercises, strengthExercises, powerExercises, endurExercises, perfExercises, aeroExercises, crossExercises);
+const exercisesList = baseExercises.concat(strengthExercises, powerExercises, endurExercises, perfExercises, baseSecExercises);
 
 //Cycle through exercises to get the exercise-object by giving a matching id
 export const getExercise = id => {
@@ -103,6 +96,19 @@ export const getExerciseList = phase => {
   } else if (phase === 'perf') {
     return perfExercises;
   } else if (phase === 'rest') {
-    return rest;
+    return restExercises;
+  } else if (phase === 'base-sec') {
+    return baseSecExercises;
   };
+};
+
+
+export const formatExerName = (id)  => {
+  let title;
+  exercisesList.forEach(el => {
+    if (id === el.id) {
+      title = el.title;
+    }
+  });
+  return title;
 };

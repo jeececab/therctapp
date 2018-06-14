@@ -8,5 +8,11 @@
 }
 
 .edit__phase {
-  margin-top: 2em;
+  margin-top: 1.5em;
+}
+
+.edit__exer {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 0.3em;
 }

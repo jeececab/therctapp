@@ -1,8 +1,8 @@
 import { clearDayPlanContent, formatPhaseTitle } from './dayPlanView';
 import { editorData } from '../models/dayEditor';
-import { getExerciseList } from '../models/exercisesList';
+import { getExerciseList, formatExerName } from '../models/exercisesList';
 
-export const dayEditorView = () => {
+export const dayEditorView = day => {
 
   clearDayPlanContent();
 
@@ -26,9 +26,10 @@ export const dayEditorView = () => {
       <div class="edit__exer"></div>
 
       <ul class="edit__exer__list"></ul>
+      <ul class="edit__secExer__list"></ul>
 
       <div class="edit-btns">
-        <button>Save</button>
+        <button id="btn-save-${day}" class="btn--save">Save</button>
         <button>Cancel</button>
       </div>
 
@@ -37,14 +38,24 @@ export const dayEditorView = () => {
 };
 
 export const updateEditView = () => {
-  $('.edit__phase').empty();
-  $('.edit__phase').append(`
+  $('.edit__phase').remove();
+  $('.edit h4').remove();
+  $('.edit').prepend(`
     <h4>${formatPhaseTitle(editorData.phase)}</h4>
   `);
+
   $('.edit__exer__list').empty();
   editorData.exercisesList.forEach(el => {
     $('.edit__exer__list').append(`
-      <li>${el}</li>
+      <li>${formatExerName(el)}</li>
+    `);
+  });
+
+ 
+  $('.edit__secExer__list').empty();
+  editorData.secExercisesList.forEach(el => {
+    $('.edit__exer__list').append(`
+      <li>${formatExerName(el)}</li>
     `);
   });
 }
@@ -53,7 +64,7 @@ export const addExerciseView = () => {
 
   $('.edit__exer').empty();
   $('.edit__exer').append(`
-    <label for="edit__exer__inputs">Select Exercise: </label>
+    <label for="edit__exer__inputs">Phase exercise: </label>
     <select id="edit__exer__inputs">
     </select>
     <button class="btn-add">Add</button>
@@ -65,4 +76,22 @@ export const addExerciseView = () => {
     `);
   });
 
+  if (editorData.phase === 'base') {
+    displaySecExer();
+    getExerciseList('base-sec').forEach(el => {
+      $('#edit__secExer__inputs').append(`
+        <option value="${el.id}">${el.title}</option>
+      `);
+    });
+  }
+
+};
+
+const displaySecExer = () => {
+  $('.edit__exer').append(`
+    <label for="edit__secExer__inputs">Other exercise: </label>
+    <select id="edit__secExer__inputs">
+    </select>
+    <button class="btn-add--sec">Add</button>
+  `);
 };

@@ -13,6 +13,8 @@
 .modal {
   background: $white;
   height: 80vh;
+  width: 90%;
+  min-width: 300px;
 }
 
 .modal__close-btn {

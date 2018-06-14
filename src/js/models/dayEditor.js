@@ -1,15 +1,21 @@
 import { getExercise, getExerciseList } from './exercisesList';
 
 export const editorData = {
+  day: 0,
   phase: "",
   exercise: "",
-  exercisesList: []
+  exercisesList: [],
+  secExercise: "",
+  secExercisesList: []
 };
 
-export const initEditorData = () => {
+export const initEditorData = day => {
+  editorData.day = day;
   editorData.phase = "base";
   editorData.exercise = "";
   editorData.exercisesList = [];
+  editorData.secExercise = "";
+  editorData.secExercisesList = [];
 }
 
 export const storeEditorPhase = phase => {
@@ -20,13 +26,47 @@ export const selectEditorExer = exercice => {
   editorData.exercise = exercice;
 };
 
-export const addExercice = () => {
+export const selectEditorSecExer = exercise => {
+  editorData.secExercise = exercise;
+};
+
+export const addExercise = () => {
   let exer;
   if (editorData.exercise === "") {
-    exer = getExerciseList(editorData.phase)[0].title;
+    exer = getExerciseList(editorData.phase)[0].id;
   } else {
-    exer = getExercise(editorData.exercise).title;
+    exer = getExercise(editorData.exercise).id;
   };
   editorData.exercisesList.push(exer);
 };
 
+export const addSecExercise = () => {
+  let secExer;
+  if (editorData.secExercise === "") {
+    secExer = getExerciseList(`${editorData.phase}-sec`)[0].id;
+  } else {
+    secExer = getExercise(editorData.secExercise).id;
+  };
+  editorData.secExercisesList.push(secExer);
+}
+
+export const saveDayPlan = day => {
+  day.phase = editorData.phase;
+
+  const exercises = [];
+  editorData.exercisesList.forEach(el => {
+    exercises.push({id: el, exerData: []});
+  });
+  day.exercises = exercises;
+
+  const secExercises = [];
+  editorData.secExercisesList.forEach(el => {
+    secExercises.push({id: el, exerData: []});
+  });
+  day.secExercises = secExercises;
+
+  //TODO: day display = phase if phase exercise. else = title of first sec exercise. 
+
+  $('.modal-container').remove();
+  $('body').removeClass('overflowless');
+};
