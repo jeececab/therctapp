@@ -3,7 +3,7 @@
     "date" : [ 2018, 5, 16 ],
     "day" : 0,
     "displayed" : "<p class=\"season__cell--primary\">Base-Fitness</p>",
-    "exercises" : [{"id": "arc", "title": "ARC training", "type": "base"}, {"id": "outdoorMileage", "title": "Outdoor mileage", "type": "base"}],
+    "exercises" : [{"id":"arc", "exercData": []}, {"id":"outdoorMileage", "exercData": []}],
     "phase" : "base"
   }, {
     "date" : [ 2018, 5, 17 ],

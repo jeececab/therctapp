@@ -67,9 +67,9 @@ export const seasonView = season => {
 
   season.forEach(el => {
     $('.season__plan').append(`
-      <div class="season__cell day-${el.day} season__cell--${season[el.day].phase} season__cell"></div>
+      <div id="day-${el.day}" class="season__cell season__cell--${season[el.day].phase} season__cell"></div>
     `);
-    document.querySelector(`.day-${el.day}`).insertAdjacentHTML('beforeend', season[el.day].displayed);
+    document.querySelector(`#day-${el.day}`).insertAdjacentHTML('beforeend', season[el.day].displayed);
   });
 
   if (season.length <= 93) {

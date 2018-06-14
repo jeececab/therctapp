@@ -41,10 +41,68 @@ const speedClimbing = new Exercise(
 
 export const skillExercises = [straightArms, restPractice, speedClimbing];
 
+// STRENGTH EXERCISES
+const beginnerHangboard = new Exercise(
+  'beginnerHangboard',
+  'Beginner Hangboard',
+  'strength',
+  'lorem'
+);
 
-export const strengthExercises = [];
+const intermediateHangboard = new Exercise(
+  'intermediateHangboard',
+  'Intermediate Hangboard',
+  'strength',
+  'lorem'
+);
+
+const advancedHangboard = new Exercise(
+  'advancedHangboard',
+  'Advanced Hangboard',
+  'strength',
+  'lorem'
+);
+
+
+export const strengthExercises = [beginnerHangboard, intermediateHangboard, advancedHangboard];
+
+
+
+///////
+
 export const powerExercises = [];
 export const endurExercises = [];
 export const perfExercises = [];
 export const aeroExercises = [];
 export const crossExercises = [];
+
+
+const exercisesList = baseExercises.concat(skillExercises, strengthExercises, powerExercises, endurExercises, perfExercises, aeroExercises, crossExercises);
+
+//Cycle through exercises to get the exercise-object by giving a matching id
+export const getExercise = id => {
+  let exer;
+  exercisesList.forEach(el => {
+    if (el.id === id) {
+      exer = el;
+    };
+  });
+  return exer;
+};
+
+// Get exercises list by type of phase
+export const getExerciseList = phase => {
+  if (phase === 'base') {
+    return baseExercises;
+  } else if (phase === 'strength') {
+    return strengthExercises;
+  } else if (phase === 'power') {
+    return powerExercises;
+  } else if (phase === 'endur') {
+    return endurExercises;
+  } else if (phase === 'perf') {
+    return perfExercises;
+  } else if (phase === 'rest') {
+    return rest;
+  };
+};

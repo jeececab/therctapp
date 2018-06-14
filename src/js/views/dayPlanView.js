@@ -1,49 +1,50 @@
 import { modal } from './base';
-import * as exercise from '../models/exercisesList';
+import { getExercise } from '../models/exercisesList';
 
 export const dayPlanView = day => {
-  console.log(exercise.baseExercises[0]);
-  // Display dayPlan modal
-  $('.app-container').append(`
-    <div class="modal-container">
-      <div class="day-plan modal animated bounceInDown">
-        <i class="modal__close-btn fa fa-times-circle"></i>
-        <div class="day-plan__header modal__header"></div>
-        <div class="day-plan__content">
-          <div class="day-plan__exer-list"></div>
+  if (day) {
+    // Display dayPlan modal
+    $('.app-container').append(`
+      <div class="modal-container">
+        <div class="day-plan modal animated bounceInDown">
+          <i class="modal__close-btn fa fa-times-circle"></i>
+          <div class="day-plan__header modal__header"></div>
+          <div class="day-plan__content">
+            <div class="day-plan__exer-list"></div>
+          </div>
         </div>
       </div>
-    </div>
-  `);
-
-  // 1 - Display day number
-  $('.day-plan__header').append(`
-      <h3>Training day ${day.day + 1}</h3>
-  `);
-
-  // 2 - Display phase type
-  $('.day-plan__content').prepend(`
-      <h4>${formatPhaseTitle(day.phase)}</h4>
-  `);
-
-  // 3 - Display exercises todo list
-  // TODO: btn--ex-${el.type} dans CSS pour changer les couleurs des boutons selon le type
-  day.exercises.forEach(el => {
-    $('.day-plan__exer-list').append(`
-      <button id="${el.id}" class="btn btn--ex btn--ex-${el.type}">${el.title}</button>
     `);
-  });
 
-  // 4 - Display Edit button
-  $('.day-plan__content').append(`
-      <button class="btn btn--secondary btn--edit">Edit</button>
-  `);
+    // 1 - Display day number
+    $('.day-plan__header').append(`
+        <h3>Training day ${day.day + 1}</h3>
+    `);
 
+    // 2 - Display phase type
+    $('.day-plan__content').prepend(`
+        <h4>${formatPhaseTitle(day.phase)}</h4>
+    `);
 
-  modal();
+    // 3 - Display exercises todo list
+    // TODO: btn--ex-${el.type} dans CSS pour changer les couleurs des boutons selon le type
+    day.exercises.forEach(el => {
+      const exer = getExercise(el.id);
+      $('.day-plan__exer-list').append(`
+        <button id="${exer.id}" class="btn btn--ex btn--ex-${exer.type}">${exer.title} <i class="exer-arrow fa fa-caret-right"></i></button>
+      `);
+    });
+
+    // 4 - Display Edit button
+    $('.day-plan__content').append(`
+        <button id="editDay-${day.day}" class="btn btn--secondary btn--edit">Edit</button>
+    `);
+
+    modal();
+  };
 };
 
-function formatPhaseTitle(phase) {
+export const formatPhaseTitle = phase => {
   if (phase === 'base') {
     return 'Base-Fitness Phase';
   } else if (phase === 'strength') {
@@ -55,8 +56,12 @@ function formatPhaseTitle(phase) {
   } else if (phase === 'perf') {
     return 'Performance Phase';
   } else if (phase === 'rest') {
-    return 'Resr Phase';
+    return 'Rest Phase';
   };
+};
+
+export const clearDayPlanContent = () => {
+  $('.day-plan__content').empty();
 };
 
 /*

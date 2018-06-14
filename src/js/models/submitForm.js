@@ -1,7 +1,7 @@
 
 let userName, email, password, confirmPassword;
 
-export function submitForm(e, state) {
+export const submitForm = (e, state) => {
   e.preventDefault();
   userName = getInputVal('userName');
   email = getInputVal('email');
@@ -17,6 +17,6 @@ export function submitForm(e, state) {
 };
 
 // Function to get from values
-function getInputVal(id) {
+const getInputVal= id => {
   return document.getElementById(id).value;
 }
