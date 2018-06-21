@@ -8,35 +8,28 @@ import { planTemplate } from './models/planTemplate';
 import { mapDates } from './models/mapDates';
 import { dayPlanView } from './views/dayPlanView';
 import { dayEditorView, updateEditView, addExerciseView } from './views/dayEditorView';
-import { 
-  initEditorData, 
-  storeEditorPhase, 
-  selectEditorExer, 
-  selectEditorSecExer, 
-  addExercise, 
-  addSecExercise, 
-  saveDayPlan 
+import { initEditorData, storeEditorPhase, selectEditorExer, selectEditorSecExer, addExercise, addSecExercise,deleteExercise, saveDayPlan 
 } from './models/dayEditor';
 import { saveUserData, importUserData } from './models/userData';
 
 
+import { exercisesList } from './models/exercisesList';
+console.log(exercisesList);
+
 // The state = {season, userData};
 let state;
-
 
 // INDEX PAGE UI CONTROLLER
 // Get started aka sign up
 $('.signUp').click(() => {
   formView();
 });
-
 // Log In
 $('.logIn').click(() => {
   // Load user data from database 
   state = importUserData();
   accountView(state, 'user');
 });
-
 // Log out
 $('.navbar').on('click', '.logOut', () => {
   // Temporary fallback when log out
@@ -62,7 +55,6 @@ $('.app-container').on('click', '.plan-templates__btn', e => {
   mapDates(state.season);
   newSeasonView(type, state.season);
 });
-
 // Click "next" to choose the plan and move to account UI
 $('.app-container').on('click', '.start-new-season__btn--next', () => {
   saveUserData(state);
@@ -83,7 +75,7 @@ $('.app-container').on('click', '.season__cell', e => {
   };
   dayPlanView(state.season[day]);
 });
-// TODO: Start daily plan button (which basically is the same as clicking on the actuve day cell)
+// TODO: Start daily plan button (which basically is the same as clicking on the active day cell)
 // TODO: Start new season button:
   // archiveSeason();
   // saveUserData();
@@ -115,7 +107,6 @@ $('.app-container').on('click', '.btn-ok', () => {
   updateEditView();
   addExerciseView();
 });
-
 // Change the exercise based on the value of the selection menu
 $('.app-container').on('change', '#edit__exer__inputs', e => {
   selectEditorExer(e.target.value);
@@ -134,12 +125,23 @@ $('.app-container').on('click', '.btn-add--sec', () => {
   addSecExercise();
   updateEditView();
 });
-
+// Click on the X nest to an exercise to delete it
+$('.app-container').on('click', '.delete-btn', e => {
+  const exer = e.target.id.slice(7);
+  deleteExercise(exer);
+  updateEditView();
+});
 // Click save to update and save season data
 $('.app-container').on('click', '.btn--save', e => {
   const day = e.target.id.slice(9);
   saveDayPlan(state.season[day]);
   saveUserData(state);
   accountView(state, 'user');
+  dayPlanView(state.season[day]);
+});
+// Click cancel to go back to day plan view
+$('.app-container').on('click', '.btn--cancel', e => {
+  const day = e.target.id.slice(11);
+  $('.modal-container').remove();
   dayPlanView(state.season[day]);
 });

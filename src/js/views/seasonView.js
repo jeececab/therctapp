@@ -1,4 +1,5 @@
 import { datesView } from './datesView';
+import { formatExerName } from '../models/exercisesList';
 
 const clearSeasonView = () => {
   if ($('.season')) {
@@ -6,9 +7,21 @@ const clearSeasonView = () => {
   }
 };
 
-export const disableCells = () => {
+const disableCells = () => {
   $('.season__cell').addClass('season__cell--disable');
 };
+
+const cellDisplay = day => {
+  let display;
+  if (day.exercises.length >= 1) {
+    display = `<p class="season__cell--primary">${formatExerName(day.exercises[0].id)}</p>`;
+  } else if (day.secExercises.length >= 1) {
+    display = `<p class="season__cell--secondary">${formatExerName(day.secExercises[0].id)}</p>`;
+  } else {
+    display = '';
+  };
+  return display;
+}
 
 export const seasonView = season => {
   clearSeasonView();
@@ -69,7 +82,7 @@ export const seasonView = season => {
     $('.season__plan').append(`
       <div id="day-${el.day}" class="season__cell season__cell--${season[el.day].phase} season__cell"></div>
     `);
-    $(`#day-${el.day}`).append(season[el.day].displayed);
+    $(`#day-${el.day}`).append(cellDisplay(season[el.day]));
   });
 
   if (season.length <= 93) {
@@ -81,7 +94,6 @@ export const seasonView = season => {
 
   datesView(season);
 };
-
 
 
 export const newSeasonView = (type, season) => {

@@ -3,16 +3,31 @@ import Exercise from './Exercise';
 // BASE EXERCISES
 const arc = new Exercise(
   'arc',
-  'ARC training', 
+  'ARC Training', 
   'base',
-  'Climb at your MSS (maximum steady state - p.95) for 20-45 minutes straight. Up to three sets of at least 20 minutes can be completed in a single ARC workout. Choose vertical to slightly overhanging terrain. The goal is not to pump off the wall. Once the correct level of effort is determined, add up tp three skill acquisition exercises (choose from pp.63-67).'
+  'Climb at your MSS (maximum steady state) for 20-45 minutes straight. Up to three sets of at least 20 minutes can be completed in a single ARC workout. Choose vertical to slightly overhanging terrain. The goal is not to pump off the wall. Once the correct level of effort is determined, add up tp three skill acquisition exercises (choose from pp.63-67).'
 );
 
 const outdoorMileage = new Exercise(
   'outdoorMileage',
-  'Outdoor mileage',
+  'Outdoor Mileage',
   'base',
-  'Climb six to twelve "moderate" routes or pitches. These climbs should be approximately one to two full number grades below the climber\'s maximum onsight ability. They should be moderately fatiguing - just like ARCing. Apply the guidelines of ARC training to these routes. It means you should try to create continuous ARC "sets" of 20-45 minutes, which may require to climb multiple pitches back-to-back.'
+  'Climb six to twelve &quot;moderate&quot; routes or pitches. These climbs should be approximately one to two full number grades below the climber\'s maximum onsight ability. They should be moderately fatiguing - just like ARCing. Apply the guidelines of ARC training to these routes. It means you should try to create continuous ARC "sets" of 20-45 minutes, which may require to climb multiple pitches back-to-back.'
+);
+
+// OPTIONAL EXERCISES
+const aerobicExercise = new Exercise(
+  'aerobicExercise',
+  'Aerobic Exercise',
+  'opt',
+  'Running and cross-trainer machines are preferable to cycling, which is prone to building up the leg muscles. Provided you feel fit enough, you should aim to incorporate anaerobic intervals (high-intensity bursts of exercises such as sprints) to send your heart soaring, followed by controlled periods where you slow back down and recover. Those who are less fit should build up from 15-20 minutes aerobic sessions (steady pace) until they can sustain 35 to 45 minutes of effort. After this, it is safe to attempt to incorporate intervals.'
+);
+
+const crossTraining = new Exercise(
+  'crossTraining',
+  'Cross Training',
+  'opt',
+  'Cross-training is athletic training in sport others than the athlete\'s usual sport. The goal is improving overall performance. It takes advantage of the particular effectiveness of one training method to negate the shortcomings of another. For example, you could do conditioning sessions with a lots of different exercises, with low weights and faily high reps. Be careful to avoid any leg exercises that are prone to causing muscle bulk, such as squats with weight.'
 );
 
 // SKILL ACQUISITION
@@ -20,57 +35,287 @@ const straightArms = new Exercise(
   'straightArms',
   'Straight Arms',
   'skill',
-  'While traversing an indoor circuit, attempt to keep the elbows virtually loched, by hanging with straight arms and a low center of gravity. Utilizes flags, backsteps, and crosses to maintain straight arms while traversing accross the wall.'
+  '(Skill - Beginner) While traversing an indoor circuit, attempt to keep the elbows virtually loched, by hanging with straight arms and a low center of gravity. Utilizes flags, backsteps, and crosses to maintain straight arms while traversing accross the wall.'
 );
 
 const restPractice = new Exercise(
   'restPractice',
   'Rest Practice',
   'skill',
-  'While traversing an indoor circuit or climbing an outdoor warm-up, seek and practice novel rest stances, especially "no-hands" or other easy stances involving stems, kneebars, drop-knees, jams, thumb wraps, etc.'
+  '(Skill - Intermediate) While traversing an indoor circuit or climbing an outdoor warm-up, seek and practice novel rest stances, especially "no-hands" or other easy stances involving stems, kneebars, drop-knees, jams, thumb wraps, etc.'
 );
 
 const speedClimbing = new Exercise(
   'speedClimbing',
   'Speed Climbing',
   'skill',
-  'lorem'
+  '(Skill - Intermediate) While toproping a familiar route indoors or out, climb as fast as you can. Time yourself and try to improve each attempt. Mentally reahearse the route beforehand to speed yourself up. Efficiency is not critical, so go &quot;all out&quot;. The goal is to extend yout range of climbing pace so that you can climb faster when appropriate.'
 );
 
+const findingCalm = new Exercise(
+  'findingCalm',
+  'Finding Calm',
+  'skill',
+  '(Skill - Advanced) While ARCing (boulder or toproping), plan a course that incorporates several dynamic moves. Consciously pause after each dyno to restart breathing with slow, deep breaths. Deliberately relax the grip, shift weight onto the feet, and if possible shake out.'
+);
+
+const movementPerfection = new Exercise(
+  'movementPerfection',
+  'Movement Perfection',
+  'skill',
+  '(Skill - Advanced) While bouldering indoors or outside, select a problem near your flash level and repeatedly climb the problem over several sessions, attempting to complete it as effeciently/effortlessly as possible. That drill can span seasons or years for some problems.'
+);
+
+const momentumClimbing = new Exercise(
+  'momentumClimbing',
+  'Momentum Climbing',
+  'skill',
+  '(Skill - Advanced) While toproping or bouldering on moderate terrain, attempt to climb the route in one continuous movement. Try to minimize any pause in motion. Use a well-known route, at first, and mentally rehearse the sequences before beginning. As you progress, attempt this drill on lesser-known routes.'
+);
+
+const stutterStep = new Exercise(
+  'stutterStep',
+  'Stutter Step',
+  'skill',
+  '(Skill - Beginner) While boulder traversing or toproping, the climber will make three foot movements for every one hand movement. Foot moves should be small and should allow the climber to fully weight his feet. If in a climbing gym, avoid pinching the handholds, which makes them unrealistically &quot;positive&quot;.'
+);
+
+const thumbsOnly = new Exercise(
+  'thumbsOnly',
+  'Thumbs Only',
+  'skill',
+  '(Skill - Beginner) While toproping a moderate, just-under-vertical route, attempt to climb using only the thumbs (and feet). Use a well-featured route and make small foot movements. Attempt to maintain smooth, flowing movement, which requires significant effort and control from the lower body. This drill can also be done with &quot;two fingers only&quot;.'
+);
+
+const downclimbing = new Exercise(
+  'downclimbing',
+  'Downclimbing',
+  'skill',
+  '(Skill - Intermediate) On any terrain, indoor our out, climb down in addition to climbing up. Deliberately select footholds, guide your feet to them, and don\'t look away until they &quot;land&quot;. Balance your body before moving the leading foot, and avoid large foot movements.'
+);
+
+const toeingHard = new Exercise(
+  'toeingHard',
+  'Toeing Hard',
+  'skill',
+  '(Skill - Advanced) On moderate terrain, attempt long reaches while concentrating on maximizing foot force throughout. The mind will try to focus exclusively on guiding the reaching hand, but also focus on the opposing foot, which drives the movement. Simultaneously guiding hands and feet in different tasks is difficult but critical.'
+);
+
+const pullingFeet = new Exercise(
+  'pullingFeet',
+  'Pulling Feet',
+  'skill',
+  '(Skill - Advanced) While toproping on steep terrain with positive footholds, deliberately pull with your feet to keep your COM close to the wall. Make careful toe placements in the incut part of the hold, like fingers for max pulling power. Experiment with pulling and pushing in unison. Try it on a travers as well, pulling with the leading foot.'
+);
+
+const precisionFeet = new Exercise(
+  'precisionFeet',
+  'Precision Feet',
+  'skill',
+  '(Skill - Beginner) While boulder traversing or toproping, make careful and precise foot placements. Select the bull\'s-eye on each foot-hold deliberately, and don\'t look away until your foot has reached the target. Take your time initially, then speed up as you gain proficiency. Sound provides immediate feedback, but toe accuracy is the ultimate goal, so focus on that.'
+);
+
+const footSlab = new Exercise(
+  'footSlab',
+  'Foot Slab',
+  'skill',
+  '(Skill - Beginner) While standing near any wall with distinguishable features (not while climbing), stand on one leg, then pick out precise &quot;targets&quot; on the wall to aim for and touch with the toe of the free leg. Can be performed statically or dynamically.'
+);
+
+const blinkingDrill = new Exercise(
+  'blinkingDrill',
+  'Blinking Drill',
+  'skill',
+  '(Skill - Intermediate) While bouldering or toproping, visuallyidentify the desired foothold, memorize in spatial location, and then close your eyes while guiding your foot to the hold, making necessary adjusments by feel. Open your eyes to assess your performance, spot the next hold, and so on. Can also be performed with hands movements.'
+);
+
+const jibsOnly = new Exercise(
+  'jibsOnly',
+  'Jibs Only',
+  'skill',
+  '(Skill - Intermediate) While bouldering or toproping indoors, restrict footholds to only screw-on holds (aka &quot;jibs&quot;), smears, molded features, or empty bolt holes (divots or ripples on larger holds can also be used).'
+);
+
+const glueFeet = new Exercise(
+  'glueFeet',
+  'Glue Feet',
+  'skill',
+  '(Skill - Advanced) On any climbing terrain, climb as though your toes become &quot;frozen&quot; to the wall as soon as they land on the foothold (no pivoting, rotating or sliding allowed). As you move past the hold, flex at the ankle and forefoot to avoid pivoting on the hold.'
+);
+
+const twoPoints = new Exercise(
+  'twoPoints',
+  'Two Points',
+  'skill',
+  '(Skill - Beginner) While climbing on any terrain, remove one foot from the wall (let it dangle) before and during every hand movement. This will ensure you keep only two points of contact (at most) with the rock, and will force a more-dynamic climbing style. It is permissible to have both feet on the wall, just not while reaching with a hand.'
+);
+
+const oneArmTraverse = new Exercise(
+  'oneArmTraverse',
+  'One-Arm Traverse',
+  'skill',
+  '(Skill - Beginner) While boulder-traversing on not-so-steep terrain with plenty of holds, climb with only one arm. After completing the traverse, try it again with the other arm. Use big holds, as this drill can be very pumpy.'
+);
+
+const blindDynos = new Exercise(
+  'blindDynos',
+  'Blind Dynos',
+  'skill',
+  '(Skill - Intermediate) While bouldering, select a group of handholds that allow you to repeatedly dyno back and forth without moving your feet. Practice these dynos several times, then try it with your eyes closed, using proprioceptive awareness to guide your hands to the hold.'
+);
+
+const pocketDynos = new Exercise(
+  'pocketDynos',
+  'Pocket Dynos',
+  'skill',
+  '(Skill - Intermediate) On a gym or home wall, set some simple boulder problems that require dynos to tight pockets (may be one-, two-, three-, or four-finger pockets). Rehearse the dynos several times in a session, and perform the drill frequently to develop accuracy.'
+);
+
+const targetCampusing = new Exercise(
+  'targetCampusing',
+  'Target Campusing',
+  'skill',
+  '(Skill - Advanced) On a campus board, use masking tape (or a thick mark) to create &quot;targets&quot; on specified rungs (place the tape on either side of the aim point to create a &quot;virtual pocket&quot;). While campusing, try to hit the targets.'
+);
+
+const deadpoints = new Exercise(
+  'deadpoints',
+  'Deadpoints',
+  'skill',
+  '(Skill - Advanced) On a gym or home wall, set boulder-problem dynos with non-positive target holds (slopers, pinches). Latching these holds will require precise deadpoints. Rehearse the dynos repeatedly. An entire route or traverse can be constructed with such moves.'
+);
 
 // STRENGTH EXERCISES
 const beginnerHangboard = new Exercise(
   'beginnerHangboard',
   'Beginner Hangboard',
   'strength',
-  'lorem'
+  'Use two arms &quot;dead hangs&quot; with each arm on the same size and type of grip for a given set. Elbows and shoulders should be slightly bent. The Beginner Hangboard Routine should include one set each of eight to ten different grip positions. The following are recommended: warm-up jugs, large edge, medium edge, wide pinch, medium pinch, sloper, index-middle-ring (IMR) deep three-finger pocket, middle-ring-pinky (MRP) deep three-finger pocket, middle-ring (MR) deep two-finger pocket.'
 );
 
 const intermediateHangboard = new Exercise(
   'intermediateHangboard',
   'Intermediate Hangboard',
   'strength',
-  'lorem'
+  'Use two arms &quot;dead hangs&quot; with each arm on the same size and type of grip for a given set. Elbows and shoulders should be slightly bent. The Intermediate Hangboard Routine should include two sets each of five to six of the following different grip positions: warm-up sloper, medium open-hand edge, small semi-closed edge, MR shallow two-finger pocket, index-middle (IM) deep two-finger pocket, IMR or MRP deep three-finger pocket, pinch.'
 );
 
 const advancedHangboard = new Exercise(
   'advancedHangboard',
   'Advanced Hangboard',
   'strength',
-  'lorem'
+  'Use two arms &quot;dead hangs&quot; with each arm on the same size and type of grip for a given set. Elbows and shoulders should be slightly bent. The Advanced Hangboard Routine should include three sets each of six or seven different grip positions. Start with the grips listed for the Intermediate Hangboard Routine, but consider replacing some of the larger grips with more advanced grips such as: middle one-finger pocket (1F), additional pinch grips (or different width), closed crimp (very carefully).'
 );
 
+// SUPPLEMENTAL EXERCISES (STRENGTH PHASE)
+const pullUps = new Exercise(
+  'pullUps',
+  'Pull-Ups',
+  'suppExer',
+  '(SE) Climbers should use independant free-hanging grips (such as gymnastic rings or &quot;Rock Rings&quot;), which allow the hands to supinate (rotate, such that the palms face each other at the top of the contraction). Begin from a dead-hang, pull your body upward until your chin is level with the tops of your hands, lock-off momentarily, and then lower your body back to a dead-hang position.'
+);
+
+const oneArmInvRow = new Exercise(
+  'oneArmInvRow',
+  'One-Arm Inverted Row',
+  'suppExer',
+  '(SE) Modified pull-up. Use a similar free-hanging grip, but position the ring low enough that your feet can rest on the ground (or another support), such that the body is inclined to the ground as an angle of 30 degrees. Using one arm at the time, begin with a dead-hang, then raise the upper body and rotate the hips while &quot;reaching&quot; with the free hand, bringing the armpit of the free arm up to the ring, as if reaching for a hold.'
+);
+
+const lockOffLaps = new Exercise(
+  'lockOffLaps',
+  'Lock-Off Laps',
+  'suppExer',
+  '(SE) On a 45-degree overhanging climbing wall, begin in a seated position with feet on small but positive footholds and one hand on the wall (the other hand should hang free). Pull onto the wall and then raise the upper body until the shoulder of the active hand is adjacent to that same hand. Hold this lock-off position for two deep breaths, then grasp the next jug with the inactive hand. Step the feet up the wall, release the low hand, and then raise the upper body until the other shoulder is adjacent to the other hand. Hold this lock-off position for two deep breaths. Continue up and down the wall in this fashion.'
+);
+
+const pushUps = new Exercise(
+  'pushUps',
+  'Push-Ups',
+  'suppExer',
+  '(SE) Begin by lying flat on the floor with the body in a plank position and palms flat on the ground, adjacent to the shoulders. Extend both arms until nearly locked to raise the chest off the ground. After a brief pause, lower the chest to within two inches of the ground. A dumbbell can be held between the shoulder blades to add resistance.'
+);
+
+const shoulderPress = new Exercise(
+  'shoulderPress',
+  'Shoulder Press',
+  'suppExer',
+  '(SE) In a standing position, hold a dumbbell in each hand at shoulder level, with your elbows bent. Extend the dumbbells straight up until your elbows are nearly locked, allowing the palms to rotate freely. After a brief hold, lower the dumbbells back to the shoulders.'
+);
+
+const dips = new Exercise(
+  'dips',
+  'Dips',
+  'suppExer',
+  '(SE) Begin with one hand on each parralel bar (or a countertop corner), with arms straight and the pody suspended in a vertical plank position. Bending at the elbow and shoulders, lower the body until the armpits are level with the hands. Hold this position for one deep breath, and then raise the body back up until the elbows are nearly locked.'
+);
+
+const hangingLegRaises = new Exercise(
+  'hangingLegRaises',
+  'Hanging Leg Raises',
+  'suppExer',
+  '(SE) Beginning with the body suspended in a vertical plank position, raise your straightened legs forward to form a free-hanging pike position (beginners will want to start with knees bent, but should aim to perform this lift with legs straight). Hold this position for one deep breath, then lower the legs back to free-hanging pike position.'
+);
+
+const legLifts = new Exercise(
+  'legLifts',
+  'Leg Lifts',
+  'suppExer',
+  '(SE) Lie flat on the floor in a reverse plank position. Keeping the legs straight at the knee joint, bend at the hips to raise the feet until they are roughly 16 inches of the floor. Hold this position for two deep breaths, then lower the feet back to the ground.'
+);
+
+const latToFrontRaise = new Exercise(
+  'latToFrontRaise',
+  'Lateral-to-Front Raise',
+  'suppExer',
+  '(SE) Begin  in a standing position with arms hanging straight down, elbows slightly bent, with a dumbbell (low weight) in each hand. Raise both arms straight out to the side, so that the arms are nearly straight, parrallel to the ground, and your palms are facing down. Hold this position for one deep breath. Next, keeping the arms nearly straight at the elbow joint, parralel to the ground, and palms facing down, slowly swing the arms inward until the two dumbbells are touching. Hold this position for one deep breath, and then slowly lower the dumbbells until the arms are again hanging straight down.'
+);
+
+const bicepCurl = new Exercise(
+  'bicepCurl',
+  'Bicep Curl',
+  'suppExer',
+  '(SE) Grasp a dumbbell in one hand, standing straight up with arms straight down. Bending at the elbow, slowly raise the dumbbell until the hand is level with the shoulder, and then slowly lower the dumbbell back down until the elbow is nearly locked.'
+);
+
+// POWER PHASE EXERCISES
+const limitBouldering = new Exercise(
+  'limitBouldering',
+  'Limit Bouldering',
+  'power',
+  'Begin with a thorough warm-up that should entail 10-30 minutes of low-intensity ARC-style traversing. Next, complete a progressive Warm-Up Boulder Ladder (WBL). Starting at V-easy, complete one to four boulder problems at each V-grade before progressing to the next. The goal is to complete that phase in 20 to 30 minutes (adjust the number of problems in consequence). Next, complete 20-30 minutes of &quot;hard&quot; bouldering. Pick three to four problems harder than your flash level and work them for five to 10 minutes each. Finally, move on to the limit boulder problems. Select two to three problems, right at the climber\'s limit and they should be powerful. Spend 15 minutes (or more) on each problem (4 or 5 solid attempts) and rest for five to 10 minutes between problems.'
+);
+
+const campusTraining = new Exercise(
+  'campusTraining',
+  'Campus Training',
+  'power',
+  ''
+);
+
+
+const skillExercises = [straightArms, restPractice, speedClimbing, findingCalm, movementPerfection, momentumClimbing, stutterStep, thumbsOnly, downclimbing, toeingHard, pullingFeet, precisionFeet, footSlab, blinkingDrill, jibsOnly, glueFeet, twoPoints, oneArmTraverse, blindDynos, pocketDynos];
+
 const baseExercises = [arc, outdoorMileage];
-const baseSecExercises = [straightArms, restPractice, speedClimbing];
+const baseSecExercises = [aerobicExercise];
+
 const strengthExercises = [beginnerHangboard, intermediateHangboard, advancedHangboard];
-//TODO:
-const powerExercises = [];
+const strengthSecExercises = [pullUps, oneArmInvRow, lockOffLaps, pushUps, shoulderPress, dips, hangingLegRaises, legLifts, latToFrontRaise,bicepCurl, arc, outdoorMileage];
+
+const powerExercises = [limitBouldering];
+const powerSecExercises = [aerobicExercise];
+
 const endurExercises = [];
+const endurSecExercises = [aerobicExercise];
+
 const perfExercises = [];
-const restExercises = [];
+const perfSecExercises = [];
+
+const restSecExercises = [aerobicExercise, crossTraining];
 
 
-const exercisesList = baseExercises.concat(strengthExercises, powerExercises, endurExercises, perfExercises, baseSecExercises);
+// Temporary list to simulate the whole JSON file containing all the exercises
+export const exercisesList = baseExercises.concat(strengthExercises, powerExercises, endurExercises, perfExercises, baseSecExercises, strengthSecExercises, powerSecExercises, skillExercises, endurSecExercises, restSecExercises, perfSecExercises);
 
 //Cycle through exercises to get the exercise-object by giving a matching id
 export const getExercise = id => {
@@ -84,6 +329,7 @@ export const getExercise = id => {
 };
 
 // Get exercises list by type of phase
+// Eventually chagge for forEach : IF exercise.type === 'myType', return exercise
 export const getExerciseList = phase => {
   if (phase === 'base') {
     return baseExercises;
@@ -95,14 +341,24 @@ export const getExerciseList = phase => {
     return endurExercises;
   } else if (phase === 'perf') {
     return perfExercises;
-  } else if (phase === 'rest') {
-    return restExercises;
   } else if (phase === 'base-sec') {
     return baseSecExercises;
+  } else if (phase === 'strength-sec') {
+    return strengthSecExercises;
+  } else if (phase === 'power-sec') {
+    return powerSecExercises;
+  } else if (phase === 'endur-sec') {
+    return endurSecExercises;
+  } else if (phase === 'power-sec') {
+    return powerSecExercises;
+  } else if (phase === 'perf-sec') {
+    return perfSecExercises;
+  } else if (phase === 'rest-sec') {
+    return restSecExercises;
   };
 };
 
-
+// Takes an ID and cycles through list to return the title of the corresponding exercise 
 export const formatExerName = (id)  => {
   let title;
   exercisesList.forEach(el => {

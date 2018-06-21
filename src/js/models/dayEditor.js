@@ -50,6 +50,14 @@ export const addSecExercise = () => {
   editorData.secExercisesList.push(secExer);
 }
 
+export const deleteExercise = exer => {
+  if (editorData.exercisesList.includes(exer)) {
+    editorData.exercisesList.splice(editorData.exercisesList.indexOf(exer), 1);
+  } else {
+    editorData.secExercisesList.splice(editorData.secExercisesList.indexOf(exer), 1);
+  };
+};
+
 export const saveDayPlan = day => {
   day.phase = editorData.phase;
 
@@ -64,8 +72,6 @@ export const saveDayPlan = day => {
     secExercises.push({id: el, exerData: []});
   });
   day.secExercises = secExercises;
-
-  //TODO: day display = phase if phase exercise. else = title of first sec exercise. 
 
   $('.modal-container').remove();
   $('body').removeClass('overflowless');

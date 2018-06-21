@@ -6,6 +6,5 @@ export default class TrainingDay {
     this.date = 0;
     this.exercises = [];
     this.secExercises = [];
-    this.displayed = '';
   }
 };
