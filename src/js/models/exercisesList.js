@@ -279,20 +279,110 @@ const bicepCurl = new Exercise(
 );
 
 // POWER PHASE EXERCISES
+
+const warmUpBoulderLadder = new Exercise(
+  'warmUpBoulderLadder',
+  'Warm-Up Boulder Ladder',
+  'Begin with a thorough warm-up that should entail 10-30 minutes of low-intensity ARC-style traversing. Next, complete the progressive Warm-Up Boulder Ladder. Starting at V-easy, complete one to four boulder problems at each V-grade before progressing to the next. The goal is to complete that phase in 20 to 30 minutes (adjust the number of problems in consequence). Next, complete 20-30 minutes of &quot;hard&quot; bouldering. Pick three to four problems harder than your flash level and work them for five to 10 minutes each.'
+);
+
 const limitBouldering = new Exercise(
   'limitBouldering',
   'Limit Bouldering',
   'power',
-  'Begin with a thorough warm-up that should entail 10-30 minutes of low-intensity ARC-style traversing. Next, complete a progressive Warm-Up Boulder Ladder (WBL). Starting at V-easy, complete one to four boulder problems at each V-grade before progressing to the next. The goal is to complete that phase in 20 to 30 minutes (adjust the number of problems in consequence). Next, complete 20-30 minutes of &quot;hard&quot; bouldering. Pick three to four problems harder than your flash level and work them for five to 10 minutes each. Finally, move on to the limit boulder problems. Select two to three problems, right at the climber\'s limit and they should be powerful. Spend 15 minutes (or more) on each problem (4 or 5 solid attempts) and rest for five to 10 minutes between problems.'
+  'Select two to three problems, right at the climber\'s limit and they should be powerful. Spend 15 minutes (or more) on each problem (4 or 5 solid attempts) and rest for five to 10 minutes between problems.'
 );
 
-const campusTraining = new Exercise(
-  'campusTraining',
-  'Campus Training',
+const beginnerCampus = new Exercise(
+  'beginnerCampus',
+  'Beginner Campus Routine',
   'power',
-  ''
+  'Campus training requires a campus board and involves footless dynos between like holds. The Beginner Campus Routine is an introduction to campus training designed to those who are new to structured campusing. This routine is focused on learning the basic movements, practicing dynamic accuracy, and overcoming inhibitions. Emphasize smooth movement, using momentum to flow from one move to the next.'
 );
 
+const intermediateCampus = new Exercise(
+  'intermediateCampus',
+  'Intermediate Campus Routine',
+  'power',
+  'Campus training requires a campus board and involves footless dynos between like holds. The Intermediate Campus Routine is intended for climbers who can smoothly and reliably complete basic ladders without assistance. This workout includes greater emphasis on physical power, as opposed to movement skill and commitment. However, you shou.d focus on completing the moves smoothly, using momentum to flow from one move to the next.'
+);
+
+const advancedCampus = new Exercise(
+  'advancedCampus',
+  'Advanced Campus Routine',
+  'power',
+  'Campus training requires a campus board and involves footless dynos between like holds. The Advanced Campus Routine is for well-trained climbers with extensive experience using the campus board. This routine introduces extremely intense reactive movements, so climbers should have approximately five years of campus training experience before attempting it. This experience is necessary to know how hard to push and when to stop.'
+);
+
+const matchingLadders = new Exercise(
+  'matchingLadders',
+  'Matching Ladders',
+  'campus',
+  'Climb the board one rung at a time, matching on every rung until reaching the top. For example, begin with both hands matched on rung No.1, then bump the left hand from rung No. 1 to rung No. 2, then bump the right hand from rung No. 1 to rung No. 2, then the left hand to rung No. 3, and so on. Alternate sets leading with each hand.'
+);
+
+const basicLadders = new Exercise(
+  'basicLadders',
+  'Basic Ladders',
+  'campus',
+  'Climb the board one rung at a time, alternating hands, latching every rung until reaching the top. For example, begin with both hands on rung No. 1, then bump the left hand from rung No. 1 to rung No. 2, the move the right hand from rung No. 1 to rung No. 3 (without matching on rung No. 2), then move the left hand from rung No. 2 to rung No. 4, and so on, until the top of the board is reached.'
+);
+
+const maxLadders = new Exercise(
+  'maxLadders',
+  'Max Ladders',
+  'campus',
+  'Climb the board alternating hands, skipping as many rungs as possible. For example, start with both hands on rung No. 1, throw the left hand from rung No. 1 to rung No. 5, then, without matching, throw the right hand from rung No. 1 to rung No. 9, then match the left hand to rung No. 9. The ultimate goal is to travel as far up the board as possible in two hand moves.'
+);
+
+const typewriters = new Exercise(
+  'typewriters',
+  'Typewriters',
+  'campus',
+  'In this exercise, the climber campuses horizontally. Begin with hands matched on the left end of the campus board. Bump the right hand progressively farther right, without going up the board, until near failure or until run out of real estate. Then progressively bump the left hand to the right, eventually matching the left hand next to the right. Then reverse the exercise. These should be uses infrequently to train for a specific move, and can be hard on the shoulders.'
+);
+
+const maxFirstMove = new Exercise(
+  'maxFirstMove',
+  'Max First Move',
+  'campus',
+  'Start matched on th first rung and throw one hand to the highest run possible (leaving the other hand on the first rung). These are very specific to rock climbing, but also good for building the shoulder strength necessary for progressing on max ladders. Once the high rung is latched, try to match (or pass the high rung).'
+);
+
+const goAgains = new Exercise(
+  'goAgains',
+  'Go Agains (aka Bumps)',
+  'campus',
+  'Complete the first move of the max ladders exercise, then continue bumping the high hand one rung at a time until failure, leaving the low hand on the first rung. This exercise can be hard on the shoulders.'
+);
+
+const touches = new Exercise(
+  'touches',
+  'Touches',
+  'campus',
+  'Begin as for the first move of a max ladder, but instead of latching the high rung, simply touch the rung, then fall slowly back onto the starting rung. These work upper-arm explosive power and lock-off strength in a &quot;negative&quot;, eccentric contraction.' 
+);
+
+const doubleDynos = new Exercise(
+  'doubleDynos',
+  'Double Dynos',
+  'campus',
+  'Move both hands at the same time in matched double-dynamic fashion - so for each movement you\'ll have no contact with the board. These are among the least specific campus exercises, but they are also the most plyometric and are great for developping dynamic aggression, spatial awareness, and hand-eye coordination at high speed.'
+);
+
+const upDownUp = new Exercise(
+  'upDownUp',
+  'Up-Down-Up',
+  'campus',
+  'Begin on a relatively high rung, then down-campus a set increment (with a single hand or matched hands)­. When the lower rung is latched, explode back up to the starting rung, striving to make the down-and-up portion one continuous movement, executed as quickly as possible.'
+);
+
+const fingersCampusing = new Exercise(
+  'fingersCampusing',
+  '3-/2-/1-finger Campusing',
+  'campus',
+  'For the hardcore, any of the campus exerecises described above can be performed with three, two, or even one finger. Campusing in this manner isolated finger strength.'
+);
 
 const skillExercises = [straightArms, restPractice, speedClimbing, findingCalm, movementPerfection, momentumClimbing, stutterStep, thumbsOnly, downclimbing, toeingHard, pullingFeet, precisionFeet, footSlab, blinkingDrill, jibsOnly, glueFeet, twoPoints, oneArmTraverse, blindDynos, pocketDynos];
 
@@ -302,7 +392,9 @@ const baseSecExercises = [aerobicExercise];
 const strengthExercises = [beginnerHangboard, intermediateHangboard, advancedHangboard];
 const strengthSecExercises = [pullUps, oneArmInvRow, lockOffLaps, pushUps, shoulderPress, dips, hangingLegRaises, legLifts, latToFrontRaise,bicepCurl, arc, outdoorMileage];
 
-const powerExercises = [limitBouldering];
+const campusExercises = [matchingLadders, basicLadders, maxLadders, typewriters, maxFirstMove, goAgains, touches, doubleDynos, upDownUp, fingersCampusing];
+
+const powerExercises = [warmUpBoulderLadder, limitBouldering, beginnerCampus, intermediateCampus, advancedCampus];
 const powerSecExercises = [aerobicExercise];
 
 const endurExercises = [];
@@ -315,7 +407,7 @@ const restSecExercises = [aerobicExercise, crossTraining];
 
 
 // Temporary list to simulate the whole JSON file containing all the exercises
-export const exercisesList = baseExercises.concat(strengthExercises, powerExercises, endurExercises, perfExercises, baseSecExercises, strengthSecExercises, powerSecExercises, skillExercises, endurSecExercises, restSecExercises, perfSecExercises);
+export const exercisesList = baseExercises.concat(strengthExercises, powerExercises, endurExercises, perfExercises, baseSecExercises, strengthSecExercises, powerSecExercises, skillExercises, endurSecExercises, restSecExercises, perfSecExercises, campusExercises);
 
 //Cycle through exercises to get the exercise-object by giving a matching id
 export const getExercise = id => {
@@ -329,7 +421,7 @@ export const getExercise = id => {
 };
 
 // Get exercises list by type of phase
-// Eventually chagge for forEach : IF exercise.type === 'myType', return exercise
+// Eventually change for forEach : IF exercise.type === 'myType', return exercise
 export const getExerciseList = phase => {
   if (phase === 'base') {
     return baseExercises;

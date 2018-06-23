@@ -33,21 +33,27 @@ export const dayEditorView = day => {
       </div>
 
       <div class="edit-btns">
-        <button id="btn-save-${day}" class="btn--save">Save</button>
-        <button id="btn-cancel-${day}" class="btn--cancel">Cancel</button>
+        <button id="btn-save-${day.day}" class="btn--save">Save</button>
+        <button id="btn-cancel-${day.day}" class="btn--cancel">Cancel</button>
       </div>
 
     </div>
   `);
+
+  // Display day data if there is any
+  $('#edit__phase__inputs').val(day.phase);
 };
 
-export const updateEditView = () => {
+export const displayPhaseTitle = () => {
   $('.edit__phase').remove();
   $('.edit h4').remove();
   $('.edit').prepend(`
     <h4>${formatPhaseTitle(editorData.phase)}</h4>
   `);
+}
 
+export const displayExerSelection = () => {
+ 
   $('.edit__exer__list').empty();
   editorData.exercisesList.forEach(el => {
     $('.edit__exer__list').append(`
@@ -62,62 +68,45 @@ export const updateEditView = () => {
       <li>${formatExerName(el)} <span id="delete-${el}" class="delete-btn">(remove)</span></li>
     `);
   });
+
 }
 
 export const addExerciseView = () => {
 
   $('.edit__exer').empty();
-  $('.edit__exer').append(`
-    <label for="edit__exer__inputs">Phase exercise: </label>
-    <div>
-      <select id="edit__exer__inputs">
-      </select>
-      <button class="btn-add">Add</button>
-    </div>
-  `);
 
-  getExerciseList(editorData.phase).forEach(el => {
-    $('#edit__exer__inputs').append(`
-      <option  value="${el.id}" title="${el.directives}">${el.title}</option>
+  if (getExerciseList(editorData.phase)) {
+    $('.edit__exer').append(`
+      <label for="edit__exer__inputs">Phase exercise: </label>
+      <div>
+        <select id="edit__exer__inputs">
+        </select>
+        <button class="btn-add">Add</button>
+      </div>
     `);
-  });
 
-  if (editorData.phase === 'base') {
-    displaySecExer();
-    getExerciseList('base-sec').forEach(el => {
+    getExerciseList(editorData.phase).forEach(el => {
+      $('#edit__exer__inputs').append(`
+        <option  value="${el.id}" title="${el.directives}">${el.title}</option>
+      `);
+    });
+  };
+
+  if (getExerciseList(`${editorData.phase}-sec`)) {
+    $('.edit__exer').append(`
+      <label for="edit__secExer__inputs">Other exercise: </label>
+      <div>
+        <select id="edit__secExer__inputs">
+        </select>
+        <button class="btn-add--sec">Add</button>
+      </div>
+    `);
+
+    getExerciseList(`${editorData.phase}-sec`).forEach(el => {
       $('#edit__secExer__inputs').append(`
         <option value="${el.id}" title="${el.directives}">${el.title}</option>
       `);
     });
   };
-
-  if (editorData.phase === 'strength') {
-    displaySecExer();
-    getExerciseList('strength-sec').forEach(el => {
-      $('#edit__secExer__inputs').append(`
-        <option value="${el.id}" title="${el.directives}">${el.title}</option>
-      `);
-    });
-  };
-
-  if (editorData.phase === 'power') {
-    displaySecExer();
-    getExerciseList('power-sec').forEach(el => {
-      $('#edit__secExer__inputs').append(`
-        <option value="${el.id}" title="${el.directives}">${el.title}</option>
-      `);
-    });
-  };
-
 };
 
-const displaySecExer = () => {
-  $('.edit__exer').append(`
-    <label for="edit__secExer__inputs">Other exercise: </label>
-    <div>
-      <select id="edit__secExer__inputs">
-      </select>
-      <button class="btn-add--sec">Add</button>
-    </div>
-  `);
-};

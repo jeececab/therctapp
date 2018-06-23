@@ -7,16 +7,16 @@ import { instructionsView } from './views/instructionsView';
 import { planTemplate } from './models/planTemplate';
 import { mapDates } from './models/mapDates';
 import { dayPlanView } from './views/dayPlanView';
-import { dayEditorView, updateEditView, addExerciseView } from './views/dayEditorView';
-import { initEditorData, storeEditorPhase, selectEditorExer, selectEditorSecExer, addExercise, addSecExercise,deleteExercise, saveDayPlan 
+import { dayEditorView, displayPhaseTitle, addExerciseView, displayExerSelection } from './views/dayEditorView';
+import { initEditorData, storeEditorPhase, selectEditorExer, selectEditorSecExer, addExercise, addSecExercise, deleteExercise, saveDayPlan 
 } from './models/dayEditor';
 import { saveUserData, importUserData } from './models/userData';
 
+// To eventually export a JSON file of the exercises:
+// import { exercisesList } from './models/exercisesList';
+// console.log(exercisesList);
 
-import { exercisesList } from './models/exercisesList';
-console.log(exercisesList);
-
-// The state = {season, userData};
+// The state = {season, userData, pastData};
 let state;
 
 // INDEX PAGE UI CONTROLLER
@@ -92,8 +92,8 @@ $('.app-container').on('click', '.btn--ex', e => {
 // Click on edit to edit the day plan
 $('.app-container').on('click', '.btn--edit', e => {
   const day = e.target.id.slice(8)
-  dayEditorView(day);
-  initEditorData(day);
+  initEditorData(state.season[day]);
+  dayEditorView(state.season[day]);
 });
 
 
@@ -104,7 +104,8 @@ $('.app-container').on('change', '#edit__phase__inputs', e => {
 });
 // Click OK to set the phase
 $('.app-container').on('click', '.btn-ok', () => {
-  updateEditView();
+  displayPhaseTitle();
+  displayExerSelection();
   addExerciseView();
 });
 // Change the exercise based on the value of the selection menu
@@ -114,7 +115,7 @@ $('.app-container').on('change', '#edit__exer__inputs', e => {
 // Select exercise and press add to add phase exercise
 $('.app-container').on('click', '.btn-add', () => {
   addExercise();
-  updateEditView();
+  displayExerSelection();
 });
 // Change the secondary exercise based on the value of the selection menu
 $('.app-container').on('change', '#edit__secExer__inputs', e => {
@@ -123,13 +124,13 @@ $('.app-container').on('change', '#edit__secExer__inputs', e => {
 // Select sec exercise and press add to add secondary(optional, add-on, etc) exercise
 $('.app-container').on('click', '.btn-add--sec', () => {
   addSecExercise();
-  updateEditView();
+  displayExerSelection();
 });
-// Click on the X nest to an exercise to delete it
+// Click on the X next to an exercise to delete it
 $('.app-container').on('click', '.delete-btn', e => {
   const exer = e.target.id.slice(7);
   deleteExercise(exer);
-  updateEditView();
+  displayExerSelection();
 });
 // Click save to update and save season data
 $('.app-container').on('click', '.btn--save', e => {

@@ -9,14 +9,22 @@ export const editorData = {
   secExercisesList: []
 };
 
+const getExercisesIDs = objList => {
+  let idArray = [];
+  objList.forEach(el => {
+    idArray.push(el.id);
+  });
+  return idArray;
+};
+
 export const initEditorData = day => {
-  editorData.day = day;
-  editorData.phase = "base";
+  editorData.day = day.day;
+  editorData.phase = day.phase;
   editorData.exercise = "";
   editorData.exercisesList = [];
   editorData.secExercise = "";
   editorData.secExercisesList = [];
-}
+};
 
 export const storeEditorPhase = phase => {
   editorData.phase = phase;
