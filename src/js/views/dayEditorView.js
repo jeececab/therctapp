@@ -29,7 +29,6 @@ export const dayEditorView = day => {
 
       <div class="edit__exer__sel">
         <ul class="edit__exer__list"></ul>
-        <ul class="edit__secExer__list"></ul>
       </div>
 
       <div class="edit-btns">
@@ -50,63 +49,49 @@ export const displayPhaseTitle = () => {
   $('.edit').prepend(`
     <h4>${formatPhaseTitle(editorData.phase)}</h4>
   `);
-}
+};
 
 export const displayExerSelection = () => {
- 
   $('.edit__exer__list').empty();
   editorData.exercisesList.forEach(el => {
     $('.edit__exer__list').append(`
       <li>${formatExerName(el)} <span id="delete-${el}" class="delete-btn">(remove)</span></li>
     `);
   });
+};
 
- 
-  $('.edit__secExer__list').empty();
-  editorData.secExercisesList.forEach(el => {
-    $('.edit__secExer__list').append(`
-      <li>${formatExerName(el)} <span id="delete-${el}" class="delete-btn">(remove)</span></li>
-    `);
-  });
-
-}
-
-export const addExerciseView = () => {
+export const exerSelectionView = () => {
 
   $('.edit__exer').empty();
 
-  if (getExerciseList(editorData.phase)) {
-    $('.edit__exer').append(`
-      <label for="edit__exer__inputs">Phase exercise: </label>
-      <div>
-        <select id="edit__exer__inputs">
-        </select>
-        <button class="btn-add">Add</button>
-      </div>
-    `);
+  $('.edit__exer').append(`
+    <label for="edit__exer__inputs">Phase exercise: </label>
+    <div>
+      <select id="edit__exer__inputs">
+      </select>
+      <button class="btn-add">Add</button>
+    </div>
+  `);
 
-    getExerciseList(editorData.phase).forEach(el => {
+  $('.edit__exer').append(`
+    <label for="edit__secExer__inputs">Other exercise: </label>
+    <div>
+      <select id="edit__secExer__inputs">
+      </select>
+      <button class="btn-add--sec">Add</button>
+    </div>
+  `);
+
+  getExerciseList(editorData.phase).forEach(el => {
+    if (el.type.includes(`${editorData.phase}-p`)) {
       $('#edit__exer__inputs').append(`
         <option  value="${el.id}" title="${el.directives}">${el.title}</option>
       `);
-    });
-  };
-
-  if (getExerciseList(`${editorData.phase}-sec`)) {
-    $('.edit__exer').append(`
-      <label for="edit__secExer__inputs">Other exercise: </label>
-      <div>
-        <select id="edit__secExer__inputs">
-        </select>
-        <button class="btn-add--sec">Add</button>
-      </div>
-    `);
-
-    getExerciseList(`${editorData.phase}-sec`).forEach(el => {
+    } else if (el.type.includes(`${editorData.phase}-s`)) {
       $('#edit__secExer__inputs').append(`
         <option value="${el.id}" title="${el.directives}">${el.title}</option>
       `);
-    });
-  };
+    };
+  });
 };
 

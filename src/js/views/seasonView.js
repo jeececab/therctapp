@@ -1,5 +1,5 @@
 import { datesView } from './datesView';
-import { formatExerName } from '../models/exercisesList';
+import { formatExerName, exerIDtoObj } from '../models/exercisesList';
 
 const clearSeasonView = () => {
   if ($('.season')) {
@@ -13,13 +13,27 @@ const disableCells = () => {
 
 const cellDisplay = day => {
   let display;
-  if (day.exercises.length >= 1) {
-    display = `<p class="season__cell--primary">${formatExerName(day.exercises[0].id)}</p>`;
-  } else if (day.secExercises.length >= 1) {
-    display = `<p class="season__cell--secondary">${formatExerName(day.secExercises[0].id)}</p>`;
+  const exerList = [];
+  day.exercises.forEach(el => {
+    exerList.push(exerIDtoObj(el.id));
+  });
+  
+  const phaseExer = exerList.find(el => {
+    return el.type.includes(`${day.phase}-p`);
+  });
+
+  const secExer = exerList.find(el => {
+    return el.type.includes(`${day.phase}-s`);
+  });
+
+  if (phaseExer) {
+    display = `<p class="season__cell--primary">${phaseExer.title}</p>`;
+  } else if (secExer) {
+    display = `<p class="season__cell--secondary">${secExer.title}</p>`;
   } else {
     display = '';
   };
+
   return display;
 }
 

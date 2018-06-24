@@ -5,6 +5,5 @@ export default class TrainingDay {
     this.phase = phase;
     this.date = 0;
     this.exercises = [];
-    this.secExercises = [];
   }
 };

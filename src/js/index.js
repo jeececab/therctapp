@@ -7,7 +7,7 @@ import { instructionsView } from './views/instructionsView';
 import { planTemplate } from './models/planTemplate';
 import { mapDates } from './models/mapDates';
 import { dayPlanView } from './views/dayPlanView';
-import { dayEditorView, displayPhaseTitle, addExerciseView, displayExerSelection } from './views/dayEditorView';
+import { dayEditorView, displayPhaseTitle, exerSelectionView, displayExerSelection } from './views/dayEditorView';
 import { initEditorData, storeEditorPhase, selectEditorExer, selectEditorSecExer, addExercise, addSecExercise, deleteExercise, saveDayPlan 
 } from './models/dayEditor';
 import { saveUserData, importUserData } from './models/userData';
@@ -106,7 +106,7 @@ $('.app-container').on('change', '#edit__phase__inputs', e => {
 $('.app-container').on('click', '.btn-ok', () => {
   displayPhaseTitle();
   displayExerSelection();
-  addExerciseView();
+  exerSelectionView();
 });
 // Change the exercise based on the value of the selection menu
 $('.app-container').on('change', '#edit__exer__inputs', e => {
@@ -126,7 +126,7 @@ $('.app-container').on('click', '.btn-add--sec', () => {
   addSecExercise();
   displayExerSelection();
 });
-// Click on the X next to an exercise to delete it
+// Click on the (remove) link next to an exercise to delete it
 $('.app-container').on('click', '.delete-btn', e => {
   const exer = e.target.id.slice(7);
   deleteExercise(exer);
