@@ -284,14 +284,21 @@ const warmUpBoulderLadder = new Exercise(
   'warmUpBoulderLadder',
   'Warm-Up Boulder Ladder',
   ['power-s', 'endur-s', 'perf-s'],
-  'Begin with a thorough warm-up that should entail 10-30 minutes of low-intensity ARC-style traversing. Next, complete the progressive Warm-Up Boulder Ladder. Starting at V-easy, complete one to four boulder problems at each V-grade before progressing to the next. The goal is to complete that phase in 20 to 30 minutes (adjust the number of problems in consequence). Next, complete 20-30 minutes of &quot;hard&quot; bouldering. Pick three to four problems harder than your flash level and work them for five to 10 minutes each.'
+  'Begin with a thorough warm-up that should entail 10-30 minutes of low-intensity ARC-style traversing. Next, complete the progressive Warm-Up Boulder Ladder. Starting at V-easy, complete one to four boulder problems at each V-grade before progressing to the next. The goal is to complete that phase in 20 to 30 minutes (adjust the number of problems in consequence).'
+);
+
+const hardBouldering = new Exercise(
+  'hardBouldering',
+  'Hard Bouldering',
+  ['power-s', 'endur-s', 'perf-s'],
+  'Begin with a Warm-Up Boulder Ladder, then complete 20-30 minutes of &quot;hard&quot; bouldering. Pick three to four problems harder than your flash level and work them for five to 10 minutes each. Ideally, these would be problems that require three to four attempts to climb.'
 );
 
 const limitBouldering = new Exercise(
   'limitBouldering',
   'Limit Bouldering',
   ['power-p'],
-  'Select two to three problems, right at the climber\'s limit and they should be powerful. Spend 15 minutes (or more) on each problem (4 or 5 solid attempts) and rest for five to 10 minutes between problems.'
+  'Begin with a Warm-Up Boulder Ladder and Hard Bouldering. Next, start the Limit Bouldering Routine. Select two to three problems, right at the climber\'s limit and they should be powerful. Spend 15 minutes (or more) on each problem (4 or 5 solid attempts) and rest for five to 10 minutes between problems. Can also be performed outdoor.'
 );
 
 const beginnerCampus = new Exercise(
@@ -387,8 +394,44 @@ const fingersCampusing = new Exercise(
   'For the hardcore, any of the campus exerecises described above can be performed with three, two, or even one finger. Campusing in this manner isolated finger strength.'
 );
 
+// POWER-ENDURANCE PHASE EXERCISES
+const linkedBoulderCircuit = new Exercise(
+  'linkedBoulderCircuit',
+  'Linked Bouldering Circuit',
+  ['endur-p'],
+  'A linked bouldering circuit is an unbroken chain of boulder problems or a long boulder traverse consisting of premeditated number of moves, designed to mimic the goal route as closely as possible. If there isn\'t a specific goal route in mind, a reasonable target is about 24 total hands movements, with no rest stances or shakes. A single LBC set will take one to four minutes to complete. The circuit should be difficult but not desperate; easy enough that the climber can complete it most of the time when she is warmed-up but not ye fatigued. Build up the circuit from three, four or five distinct problems. Complete 6 to 8 sets of 20 moves or less; 4 to 6 for sets of 20 to 40 moves. Set to rest time ratio should be 1:2 early in the phase and 1:1 late in the phase.'
+);
+
+const routeIntervals = new Exercise(
+  'routeIntervals',
+  'Route Intervals',
+  ['endur-p'],
+  'Route Intervals are a form of lower-intensity PE training that are usually accomplished by climbing a route or bouldering circuit repeatedly. Select a route that is one letter grade harder then your onsight level. It should be similar to the goal route in terms of length, angle, hold types, etc. It should be well-rehearsed and can usually be climbed on demand when un-fatigued. Complete two to four sets or laps with a resting time ratio of 1:2 early in the phase and 1:1 late in the phase.'
+);
+
+const redpointAttempts = new Exercise(
+  'redpointAttempts',
+  'Redpoint Attempts',
+  ['endur-p', 'perf-p'],
+  'Redpointing is free-climbing a route without falling, while lead climbing, after having practiced the route beforehand (either by hangdogging or top roping). There are two types of redpoints, the short-term that can be sent in three to four days, and the long-term which is any project that takes more than a week\'s worth of climbing days to complete (even entire seasons, or years). They both require different strategies and planning (see pages 237-245).'
+);
+
+const onsightAttempts = new Exercise(
+  'onsightAttempts',
+  'Onsight Attempts',
+  ['perf-p'],
+  'An onsight ascent is one in which the climber leads a climb sucessfully without prior rehearsal on the route, or specific information about the climbing. Onsight pyramids should begin humbly, with routes well below the climber\'s limit, because there is only one shot to onsight each route. The onsight pyramid should only be composed of outdoor routes on real rock.'
+);
+
+const boulderAttempts = new Exercise(
+  'boulderAttempts',
+  'Boulder Attempts',
+  ['perf-p'],
+  'Free-climb outdoor boulder problems without falling.'
+);
+
 // Temporary list to simulate the whole JSON file containing all the exercises
-export const exercisesList = [straightArms, restPractice, speedClimbing, findingCalm, movementPerfection, momentumClimbing, stutterStep, thumbsOnly, downclimbing, toeingHard, pullingFeet, precisionFeet, footSlab, blinkingDrill, jibsOnly, glueFeet, twoPoints, oneArmTraverse, blindDynos, pocketDynos, arc, outdoorMileage, aerobicExercise, beginnerHangboard, intermediateHangboard, advancedHangboard, pullUps, oneArmInvRow, lockOffLaps, pushUps, shoulderPress, dips, hangingLegRaises, legLifts, latToFrontRaise, bicepCurl, matchingLadders, basicLadders, maxLadders, typewriters, maxFirstMove, goAgains, touches, doubleDynos, upDownUp, fingersCampusing, warmUpBoulderLadder, limitBouldering, beginnerCampus, intermediateCampus, advancedCampus, crossTraining, deadpoints, targetCampusing];
+export const exercisesList = [straightArms, restPractice, speedClimbing, findingCalm, movementPerfection, momentumClimbing, stutterStep, thumbsOnly, downclimbing, toeingHard, pullingFeet, precisionFeet, footSlab, blinkingDrill, jibsOnly, glueFeet, twoPoints, oneArmTraverse, blindDynos, pocketDynos, arc, outdoorMileage, aerobicExercise, beginnerHangboard, intermediateHangboard, advancedHangboard, pullUps, oneArmInvRow, lockOffLaps, pushUps, shoulderPress, dips, hangingLegRaises, legLifts, latToFrontRaise, bicepCurl, matchingLadders, basicLadders, maxLadders, typewriters, maxFirstMove, goAgains, touches, doubleDynos, upDownUp, fingersCampusing, warmUpBoulderLadder, hardBouldering, limitBouldering, beginnerCampus, intermediateCampus, advancedCampus, crossTraining, deadpoints, targetCampusing, linkedBoulderCircuit, routeIntervals, redpointAttempts, onsightAttempts, boulderAttempts];
 
 //Cycle through exercises to get the exercise-object by giving a matching id
 export const exerIDtoObj = id => {

@@ -11,21 +11,19 @@ const disableCells = () => {
   $('.season__cell').addClass('season__cell--disable');
 };
 
+// Displays the first phase exercise title in the cell, else the first secExercise
 const cellDisplay = day => {
   let display;
   const exerList = [];
   day.exercises.forEach(el => {
     exerList.push(exerIDtoObj(el.id));
   });
-  
   const phaseExer = exerList.find(el => {
     return el.type.includes(`${day.phase}-p`);
   });
-
   const secExer = exerList.find(el => {
     return el.type.includes(`${day.phase}-s`);
   });
-
   if (phaseExer) {
     display = `<p class="season__cell--primary">${phaseExer.title}</p>`;
   } else if (secExer) {
@@ -33,7 +31,6 @@ const cellDisplay = day => {
   } else {
     display = '';
   };
-
   return display;
 }
 

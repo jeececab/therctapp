@@ -64,14 +64,16 @@ export const exerSelectionView = () => {
 
   $('.edit__exer').empty();
 
-  $('.edit__exer').append(`
-    <label for="edit__exer__inputs">Phase exercise: </label>
-    <div>
-      <select id="edit__exer__inputs">
-      </select>
-      <button class="btn-add">Add</button>
-    </div>
-  `);
+  if (editorData.phase !== 'rest') {
+    $('.edit__exer').append(`
+      <label for="edit__exer__inputs">Phase exercise: </label>
+      <div>
+        <select id="edit__exer__inputs">
+        </select>
+        <button class="btn-add">Add</button>
+      </div>
+    `);
+  };
 
   $('.edit__exer').append(`
     <label for="edit__secExer__inputs">Other exercise: </label>

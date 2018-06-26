@@ -4,7 +4,7 @@ const getDates = (startDate, daysToAdd) => {
   for (let i = 0; i <= daysToAdd; i++) {
     const currentDate = new Date();
     currentDate.setDate(startDate.getDate() + i);
-    datesArray.push([currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()]);
+    datesArray.push([currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate()]);
   };
   return datesArray;
 }

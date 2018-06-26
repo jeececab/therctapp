@@ -132,7 +132,7 @@ $('.app-container').on('click', '.delete-btn', e => {
   deleteExercise(exer);
   displayExerSelection();
 });
-// Click save to update and save season data
+// Click "save" to update and save season data
 $('.app-container').on('click', '.btn--save', e => {
   const day = e.target.id.slice(9);
   saveDayPlan(state.season[day]);
@@ -140,7 +140,7 @@ $('.app-container').on('click', '.btn--save', e => {
   accountView(state, 'user');
   dayPlanView(state.season[day]);
 });
-// Click cancel to go back to day plan view
+// Click "cancel" to go back to day plan view
 $('.app-container').on('click', '.btn--cancel', e => {
   const day = e.target.id.slice(11);
   $('.modal-container').remove();
