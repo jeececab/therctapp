@@ -2,6 +2,7 @@ import style from '../scss/main.scss';
 import { formView } from './views/formView';
 import { submitForm } from './models/submitForm';
 import { accountView } from './views/accountView';
+import { templatesView } from './views/startNewSeasonView';
 import { newSeasonView } from './views/seasonView';
 import { instructionsView } from './views/instructionsView';
 import { planTemplate } from './models/planTemplate';
@@ -48,6 +49,27 @@ $('.app-container').on('submit', '#signupForm', e => {
   
 
 // NEW SEASON UI CONTROLLER
+// Change starting date input to select starting date
+$('.app-container').on('change', '#datepicker', e => {
+  const dateArr = e.target.value.split('/');
+  for (let i = 0; i < dateArr.length; i++) {
+    if (dateArr[i][0] === '0') {
+      dateArr[i] = dateArr[i].slice(1, 2);
+    };
+  };
+  const year = dateArr[2] - 0;
+  const month = dateArr[0] - 1;
+  const day = dateArr[1] - 0;
+  const formatedDate = [year, month, day];
+  console.log(formatedDate);
+  // TODO: setStartDate();
+});
+// Click ok to select the starting date of the template and move on
+$('.app-container').on('click', '#btnStartDateOk', e => {
+// TODO: setStartDate();
+  templatesView();
+});
+
 // Select a seasonal plan template (novice, experienced, trad or boulder)
 $('.app-container').on('click', '.plan-templates__btn', e => {
   const type = e.target.classList[0].replace('-btn', '');
@@ -103,7 +125,7 @@ $('.app-container').on('change', '#edit__phase__inputs', e => {
   storeEditorPhase(e.target.value);
 });
 // Click OK to set the phase
-$('.app-container').on('click', '.btn-ok', () => {
+$('.app-container').on('click', '#btnPhaseOk', () => {
   displayPhaseTitle();
   displayExerSelection();
   exerSelectionView();

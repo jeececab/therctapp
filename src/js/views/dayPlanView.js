@@ -18,7 +18,7 @@ export const dayPlanView = day => {
 
     // 1 - Display day number
     $('.day-plan__header').append(`
-        <h3>Training day ${day.day + 1}</h3>
+        <h3>${formatDate(day.date)}</h3>
     `);
 
     // 2 - Display phase type
@@ -69,4 +69,11 @@ export const formatPhaseTitle = phase => {
 
 export const clearDayPlanContent = () => {
   $('.day-plan__content').empty();
+};
+
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+const formatDate = array => {
+  const date = `${months[array[1]]} ${array[2]}`;
+  return date
 };

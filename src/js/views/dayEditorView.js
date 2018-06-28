@@ -21,7 +21,7 @@ export const dayEditorView = day => {
             <option value="perf">Performance</option>
             <option value="rest">Rest</option>
           </select>
-          <button class="btn-ok">Ok</button>
+          <button id="btnPhaseOk" class="btn-ok">Ok</button>
         </div>
       </div>
 

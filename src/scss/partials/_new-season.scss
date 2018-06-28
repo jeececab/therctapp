@@ -18,6 +18,31 @@
   }
 }
 
+.start-date {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-gap: 0.2em;
+  align-items: center;
+  justify-content: center;
+  h3 {
+    margin: 0 0.3em;
+    text-align: center;
+  }
+  input {
+    margin-right: 0.3em;
+  }
+  @media (max-width: 33em) {
+    grid-template-columns: repeat(1, auto);
+  }
+}
+
+.start-date__input {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .start-new-season__btn {
   border: none;
   cursor: pointer;

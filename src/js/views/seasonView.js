@@ -42,23 +42,6 @@ export const seasonView = season => {
       <div class="season__weeks">
         <div class="season__cell season__weeks-col"></div>
         <div class="season__cell season__weeks-col">-</div>
-        <div class="season__cell season__weeks-col">1</div>
-        <div class="season__cell season__weeks-col">2</div>
-        <div class="season__cell season__weeks-col">3</div>
-        <div class="season__cell season__weeks-col">4</div>
-        <div class="season__cell season__weeks-col">5</div>
-        <div class="season__cell season__weeks-col">6</div>
-        <div class="season__cell season__weeks-col">7</div>
-        <div class="season__cell season__weeks-col">8</div>
-        <div class="season__cell season__weeks-col">9</div>
-        <div class="season__cell season__weeks-col">10</div>
-        <div class="season__cell season__weeks-col">11</div>
-        <div class="season__cell season__weeks-col">12</div>
-        <div class="season__cell season__weeks-col">13</div>
-        <div class="season__cell season__weeks-col">14</div>
-        <div class="season__cell season__weeks-col">15</div>
-        <div class="season__cell season__weeks-col">16</div>
-        <div class="season__cell season__weeks-col">17</div>
       </div>
 
       <div>
@@ -89,19 +72,23 @@ export const seasonView = season => {
     <div class="season__cell season__cell--empty"></div>
   `);
 
+  let weekNb = 1;
+
   season.forEach(el => {
     $('.season__plan').append(`
       <div id="day-${el.day}" class="season__cell season__cell--${season[el.day].phase} season__cell"></div>
     `);
     $(`#day-${el.day}`).append(cellDisplay(season[el.day]));
-  });
 
-  if (season.length <= 93) {
-    $('.season__weeks div:last-child').remove();
-    $('.season__weeks div:last-child').remove();
-    $('.season__weeks div:last-child').remove();
-    $('.season__weeks div:last-child').remove();
-  };
+    // Adds a week in the left column for every 7 cells/days
+    if (el.day % 7 === 0) {
+      $('.season__weeks').append(`
+        <div class="season__cell season__weeks-col">${weekNb}</div>
+      `);
+      weekNb++;
+    };
+  
+  });
 
   datesView(season);
 };

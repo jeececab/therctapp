@@ -75,6 +75,9 @@
   &:focus {
     outline: none;
   }
+  &:hover {
+    background: darken($base, 9);
+  }
 }
 
 .btn--save, .btn--cancel {
