@@ -1,24 +1,38 @@
 
-const getDates = (startDate, daysToAdd) => {
+export let calStartDate;
+export let trainingStartDate;
+
+export const setStartDate = e => {
+  const dateArr = e.target.value.split('/');
+  for (let i = 0; i < dateArr.length; i++) {
+    if (dateArr[i][0] === '0') {
+      dateArr[i] = dateArr[i].slice(1, 2);
+    };
+  };
+  const year = dateArr[2] - 0;
+  const month = dateArr[0] - 1;
+  const day = dateArr[1] - 0;
+  trainingStartDate = new Date(year, month, day);
+  if (trainingStartDate.getDay() === 0) {
+    calStartDate = trainingStartDate;
+  } else {
+    calStartDate = new Date();
+    calStartDate.setDate(trainingStartDate.getDate() - trainingStartDate.getDay());
+  };
+};
+
+const getDates = daysToAdd => {
   const datesArray = [];
   for (let i = 0; i <= daysToAdd; i++) {
-    const currentDate = new Date();
-    currentDate.setDate(startDate.getDate() + i);
-    datesArray.push([currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate()]);
+    const newDate = new Date();
+    newDate.setDate(calStartDate.getDate() + i);
+    datesArray.push([newDate.getFullYear(), newDate.getMonth(), newDate.getDate()]);
   };
   return datesArray;
 }
 
 export const mapDates = season => {
-  const date = new Date();
-  let startDate;
-  if (date.getDay() === 6) {
-    startDate = date;
-  } else {
-    date.setDate(date.getDate() + (6 - date.getDay()));
-    startDate = date;
-  };
-  const datesArray = getDates(startDate, season.length);
+  const datesArray = getDates(season.length);
   for(let i = 0; i < season.length; i++) {
     season[i].date = datesArray[i];
   };

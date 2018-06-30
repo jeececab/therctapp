@@ -91,11 +91,7 @@
 
 // CELLS TYPES STYLE:
 .season__cell--empty {
-  display: default;
-  cursor: default;
-  @media (max-width: 58em) {
-    display: none;
-  }
+  border: solid 1px $strength;
 }
 
 .season__cell--rest {

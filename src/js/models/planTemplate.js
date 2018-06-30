@@ -1,26 +1,51 @@
 import TrainingDay from './TrainingDay';
+import { trainingStartDate } from './mapDates';
+
 
 // NOVICE TRAINEE SEASONAL TRAINING PLAN TEMPLATE
 function novice() {
   const trainingDays = new Array();
-  for (let i = 0; i <= 119; i++ ) {
-    if (i <= 27) {
+  const dayNb = trainingStartDate.getDay();
+
+  if (dayNb !== 0) {
+    for (let i = 0; i < dayNb; i++) {
+      trainingDays[i] = new TrainingDay(i, 'empty');
+    };
+  };
+
+  for (let i = dayNb; i <= 119 + dayNb; i++ ) {
+    if (i <= 27 + dayNb) {
       trainingDays[i] = new TrainingDay(i, 'base'); 
-    } else if (i >= 28 && i <= 48) {
+    } else if (i >= 28 + dayNb && i <= 48 + dayNb) {
       trainingDays[i] = new TrainingDay(i, 'strength'); 
-    } else if (i >= 49 && i <= 63) {
+    } else if (i >= 49 + dayNb && i <= 63 + dayNb) {
       trainingDays[i] = new TrainingDay(i, 'power'); 
-    } else if (i >= 64 && i <= 84) {
+    } else if (i >= 64 + dayNb && i <= 84 + dayNb) {
       trainingDays[i] = new TrainingDay(i, 'endur'); 
-    } else if (i >= 85 && i <= 106) {
+    } else if (i >= 85 + dayNb && i <= 106 + dayNb) {
       trainingDays[i] = new TrainingDay(i, 'perf'); 
-    } else if (i >= 107 && i <= 118) {
+    } else if (i >= 107 + dayNb && i <= 118 + dayNb) {
       trainingDays[i] = new TrainingDay(i, 'rest'); 
     }; 
   };
 
   return trainingDays;
 };
+
+export function planTemplate(type) {
+  if (type === 'novice') {
+    return novice();
+  } else if (type === 'experienced') {
+    return experienced();
+  } else if (type === 'trad') {
+    return trad();
+  } else if (type === 'boulder') {
+    return boulder();
+  };
+};
+
+
+////////////
 
 // EXPERIENCED TRAINEE SEASONAL TRAINING PLAN TEMPLATE
 function experienced() {
@@ -84,16 +109,4 @@ function boulder() {
   };
 
   return trainingDays;
-};
-
-export function planTemplate(type) {
-  if (type === 'novice') {
-    return novice();
-  } else if (type === 'experienced') {
-    return experienced();
-  } else if (type === 'trad') {
-    return trad();
-  } else if (type === 'boulder') {
-    return boulder();
-  };
 };

@@ -1,5 +1,5 @@
 import { datesView } from './datesView';
-import { formatExerName, exerIDtoObj } from '../models/exercisesList';
+import { exerIDtoObj } from '../models/exercisesList';
 
 const clearSeasonView = () => {
   if ($('.season')) {
@@ -41,7 +41,6 @@ export const seasonView = season => {
       
       <div class="season__weeks">
         <div class="season__cell season__weeks-col"></div>
-        <div class="season__cell season__weeks-col">-</div>
       </div>
 
       <div>
@@ -63,14 +62,17 @@ export const seasonView = season => {
     </div>
   `);
 
-  $('.season__plan').append(`
-    <div class="season__cell season__cell--empty"></div>
-    <div class="season__cell season__cell--empty"></div>
-    <div class="season__cell season__cell--empty"></div>
-    <div class="season__cell season__cell--empty"></div>
-    <div class="season__cell season__cell--empty"></div>
-    <div class="season__cell season__cell--empty"></div>
-  `);
+  let nbOfEmptyCells = 0;
+  season.forEach(el => {
+    if (el.phase === 'empty') {
+      nbOfEmptyCells++
+    }
+  });
+  if (nbOfEmptyCells === 5 || nbOfEmptyCells === 6 ) {
+    $('.season__weeks').append(`
+      <div class="season__cell season__weeks-col">-</div>
+    `);
+  };
 
   let weekNb = 1;
 
@@ -87,8 +89,11 @@ export const seasonView = season => {
       `);
       weekNb++;
     };
-  
   });
+
+  if (nbOfEmptyCells === 5 || nbOfEmptyCells === 6 ) {
+    $('.season__weeks div:last-child').remove();
+  };
 
   datesView(season);
 };

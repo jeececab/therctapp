@@ -18,6 +18,12 @@ export function saveUserData(state) {
   console.log(state);
 };
 
+// export function saveExercisesList(array) {
+//   firebase.database().ref('exercises/').set({
+//     exercises: array,
+//   });
+// };
+
 
 export function importUserData() {
   // temporary

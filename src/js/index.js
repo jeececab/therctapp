@@ -6,16 +6,12 @@ import { templatesView } from './views/startNewSeasonView';
 import { newSeasonView } from './views/seasonView';
 import { instructionsView } from './views/instructionsView';
 import { planTemplate } from './models/planTemplate';
-import { mapDates } from './models/mapDates';
+import { setStartDate, mapDates } from './models/mapDates';
 import { dayPlanView } from './views/dayPlanView';
 import { dayEditorView, displayPhaseTitle, exerSelectionView, displayExerSelection } from './views/dayEditorView';
 import { initEditorData, storeEditorPhase, selectEditorExer, selectEditorSecExer, addExercise, addSecExercise, deleteExercise, saveDayPlan 
 } from './models/dayEditor';
 import { saveUserData, importUserData } from './models/userData';
-
-// To eventually export a JSON file of the exercises:
-// import { exercisesList } from './models/exercisesList';
-// console.log(exercisesList);
 
 // The state = {season, userData, pastData};
 let state;
@@ -51,22 +47,10 @@ $('.app-container').on('submit', '#signupForm', e => {
 // NEW SEASON UI CONTROLLER
 // Change starting date input to select starting date
 $('.app-container').on('change', '#datepicker', e => {
-  const dateArr = e.target.value.split('/');
-  for (let i = 0; i < dateArr.length; i++) {
-    if (dateArr[i][0] === '0') {
-      dateArr[i] = dateArr[i].slice(1, 2);
-    };
-  };
-  const year = dateArr[2] - 0;
-  const month = dateArr[0] - 1;
-  const day = dateArr[1] - 0;
-  const formatedDate = [year, month, day];
-  console.log(formatedDate);
-  // TODO: setStartDate();
+  setStartDate(e);
 });
 // Click ok to select the starting date of the template and move on
 $('.app-container').on('click', '#btnStartDateOk', e => {
-// TODO: setStartDate();
   templatesView();
 });
 
