@@ -457,7 +457,13 @@
   }, {
     "date" : [ 2018, 9, 16 ],
     "day" : 91,
-    "exercises" : [],
+    "exercises" : [
+    		{"id" : "redpointAttempts", "exerData" : [
+		    		{ "id" : "0-loggedRoute", "compData" : ["Prestation Aérienne", "5.11a", "Onsight", "My notes..."] },
+		    		{ "id" : "1-loggedRoute", "compData" : ["Prestation Vénérienne", "5.17a", "Onsight", "My notes..."] }
+	    		]
+	    	}
+    	],
     "phase" : "perf"
   }, {
     "date" : [ 2018, 9, 17 ],

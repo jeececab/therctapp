@@ -32,8 +32,8 @@ export const dayEditorView = day => {
       </div>
 
       <div class="edit-btns">
-        <button id="btn-save-${day.day}" class="btn--save">Save</button>
-        <button id="btn-cancel-${day.day}" class="btn--cancel">Cancel</button>
+        <button id="btn-save-${day.day}" class="btnSaveDay btn--save">Save</button>
+        <button id="btn-cancel-${day.day}" class="btnCancelDay btn--cancel">Cancel</button>
       </div>
 
     </div>

@@ -7,102 +7,21 @@
 }
 
 .day-plan__content {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-
+  overflow: auto;
 }
 
 .day-plan__exer-list {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
   margin: 0 auto;
   width: 90%;
+  height: auto;
 }
 
 
 .btn--edit {
+  display: block;
   height: 1.8em;
   padding: 0.1em;
   text-transform: initial;
   width: 4em;
-}
-
-// Exercise button by type
-.btn--ex {
-  border: none;
-  color: $white;
-  font-size: 1.1rem;
-  font-weight: 700;
-  height: 2.2em;
-  width: 100%;
-  min-width: 14em;
-  margin: 0.2em 0;
-  position: relative;
-}
-
-.btn--ex-base {
-  background: $base;
-  &:hover {
-    background: lighten($base, 8);
-  }
-}
-
-.btn--ex-strength {
-  background: $strength;
-  &:hover {
-    background: lighten($strength, 8);
-  }
-}
-
-.btn--ex-power {
-  background: $power;
-  &:hover {
-    background: lighten($power, 8);
-  }
-}
-
-.btn--ex-endur {
-  background: $endur;
-  &:hover {
-    background: lighten($endur, 8);
-  }
-}
-
-.btn--ex-perf {
-  background: $perf;
-  &:hover {
-    background: lighten($perf, 8);
-  }
-}
-
-.btn--ex-rest {
-  background: $rest;
-  &:hover {
-    background: lighten($rest, 8);
-  }
-}
-
-.btn--sec-ex {
-  background: transparent;
-  border: solid 0.2em $strength;
-  box-sizing: border-box;
-  color: $strength;
-  font-size: 1.1rem;
-  font-weight: 700;
-  height: 2.2em;
-  width: 100%;
-  min-width: 14em;
-  margin: 0.2em 0;
-  position: relative;
-  &:hover {
-    background: rgba($strength, 0.2);
-  }
-}
-
-.exer-arrow {
-  position: absolute;
-  right: 0.5em;
-  top: 0.5em;
+  margin: 0.4em auto;
 }

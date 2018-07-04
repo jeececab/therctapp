@@ -8,13 +8,14 @@ import { instructionsView } from './views/instructionsView';
 import { planTemplate } from './models/planTemplate';
 import { setStartDate, mapDates } from './models/mapDates';
 import { dayPlanView } from './views/dayPlanView';
+import { exerciseView } from './views/exerciseView';
 import { dayEditorView, displayPhaseTitle, exerSelectionView, displayExerSelection } from './views/dayEditorView';
 import { initEditorData, storeEditorPhase, selectEditorExer, selectEditorSecExer, addExercise, addSecExercise, deleteExercise, saveDayPlan 
 } from './models/dayEditor';
 import { saveUserData, importUserData } from './models/userData';
 
 // The state = {season, userData, pastData};
-let state;
+export let state;
 
 // INDEX PAGE UI CONTROLLER
 // Get started aka sign up
@@ -26,6 +27,7 @@ $('.logIn').click(() => {
   // Load user data from database 
   state = importUserData();
   accountView(state, 'user');
+  console.log(state.season);
 });
 // Log out
 $('.navbar').on('click', '.logOut', () => {
@@ -91,9 +93,9 @@ $('.app-container').on('click', '.season__cell', e => {
 
 // DAY PLAN UI CONTROLLER
 // Click on an exercise to show the exercise UI
-$('.app-container').on('click', '.btn--ex', e => {
-  // const exer = getExercise(e.target.id);
-  // exerciseView(exer /*, exerLog*/);
+$('.app-container').on('click', '.exercise__header', e => {
+  const id = $(e.target).parents('div')[1].id;
+  exerciseView(id, /*exerData*/);
 });
 // Click on edit to edit the day plan
 $('.app-container').on('click', '.btn--edit', e => {
@@ -139,7 +141,7 @@ $('.app-container').on('click', '.delete-btn', e => {
   displayExerSelection();
 });
 // Click "save" to update and save season data
-$('.app-container').on('click', '.btn--save', e => {
+$('.app-container').on('click', '.btnSaveDay', e => {
   const day = e.target.id.slice(9);
   saveDayPlan(state.season[day]);
   saveUserData(state);
@@ -147,7 +149,7 @@ $('.app-container').on('click', '.btn--save', e => {
   dayPlanView(state.season[day]);
 });
 // Click "cancel" to go back to day plan view
-$('.app-container').on('click', '.btn--cancel', e => {
+$('.app-container').on('click', '.btnCancelDay', e => {
   const day = e.target.id.slice(11);
   $('.modal-container').remove();
   dayPlanView(state.season[day]);

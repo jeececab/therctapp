@@ -34,7 +34,7 @@ export const getExerciseList = phase => {
   return array;
 };
 
-// Takes an ID and cycles through list to return the title of the corresponding exercise 
+// Takes an ID and cycles through exercisesList to return the title of the corresponding exercise
 export const formatExerName = (id)  => {
   let title;
   exercisesList.forEach(el => {

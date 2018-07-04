@@ -1,5 +1,5 @@
 import { modal } from './base';
-import { exerIDtoObj } from '../models/exercisesList';
+import { exercisesTodosView } from './exerciseView';
 
 export const dayPlanView = day => {
   if (day) {
@@ -7,11 +7,16 @@ export const dayPlanView = day => {
     $('.app-container').append(`
       <div class="modal-container">
         <div class="day-plan modal animated fadeIn">
+        
           <i class="modal__close-btn fa fa-times-circle"></i>
-          <div class="day-plan__header modal__header"></div>
-            <div class="day-plan__content modal-content">
-              <div class="day-plan__exer-list"></div>
+
+          <div class="day-plan__header modal__header">
+          </div>
+
+          <div class="day-plan__content modal-content">
+            <div class="day-plan__exer-list">
             </div>
+          </div>
         </div>
       </div>
     `);
@@ -28,18 +33,7 @@ export const dayPlanView = day => {
 
     // 3 - Display exercises todo list
     if (day.exercises.length >= 1) {
-      day.exercises.forEach(el => {
-        const exer = exerIDtoObj(el.id);
-        if (exer.type.includes(`${day.phase}-p`)) {
-          $('.day-plan__exer-list').append(`
-            <button id="${exer.id}" class="btn btn--ex btn--ex-${day.phase}">${exer.title} <i class="exer-arrow fa fa-caret-right"></i></button>
-          `);
-        } else {
-          $('.day-plan__exer-list').append(`
-            <button id="${exer.id}" class="btn btn--sec-ex">${exer.title} <i class="exer-arrow fa fa-caret-right"></i></button>
-          `);
-        };
-      });
+      exercisesTodosView(day);
     };
 
     // 4 - Display Edit button

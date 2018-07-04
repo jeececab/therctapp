@@ -1,0 +1,103 @@
+.exercise {
+  border: 1px solid $endur;
+  margin-bottom: 0.4em;
+  position: relative;
+  width: 100%;
+  h5 {
+    padding: 0.3em 0;
+  }
+  p {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.exercise__header {
+  color: $endur;
+  cursor: pointer;
+  width: 100%;
+  &:hover {
+    background: rgba($endur, 0.2);
+  }
+}
+
+.exercise__arrow {
+  font-size: 1.3rem;
+  margin: 0.3em auto;
+  position: absolute;
+  right: 0.5em;
+  top: 0em;
+  transition: 125ms;
+}
+
+.exercise__arrow--down {
+  transform: rotate(90deg);
+}
+
+.exercise__content {
+  display: none;
+  padding: 0.4em;
+}
+
+
+.exercise__header-base {
+  background: $base;
+  border: none;
+  color: $white;
+  &:hover {
+    background: lighten($base, 8);
+  }
+}
+
+.exercise__header-strength {
+  background: $strength;
+  border: none;
+  color: $white;
+  &:hover {
+    background: lighten($strength, 8);
+  }
+}
+
+.exercise__header-power {
+  background: $power;
+  border: none;
+  color: $white;
+  &:hover {
+    background: lighten($power, 8);
+  }
+}
+
+.exercise__header-endur {
+  background: $endur;
+  border: none;
+  color: $white;
+  &:hover {
+    background: lighten($endur, 8);
+  }
+}
+
+.exercise__header-perf {
+  background: $perf;
+  border: none;
+  color: $white;
+  &:hover {
+    background: lighten($perf, 8);
+  }
+}
+
+.exercise__header-rest {
+  background: $rest;
+  border: none;
+  color: $white;
+  &:hover {
+    background: lighten($rest, 8);
+  }
+}
+
+.exercise__components {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
