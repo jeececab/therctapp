@@ -27,7 +27,6 @@ $('.logIn').click(() => {
   // Load user data from database 
   state = importUserData();
   accountView(state, 'user');
-  console.log(state.season);
 });
 // Log out
 $('.navbar').on('click', '.logOut', () => {
