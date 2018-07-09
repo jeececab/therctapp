@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700");
+
+$base-font: 'Montserrat', sans-serif;
+$base-line-height: 1.375em;
+
+$regular: 400;
+$medium: 500;
+$bold: 700;
+
+html {
+  font-family: $base-font;
+  line-height: 1;
+}
+
+h1 {
+  color: $font-light;
+  font-size: 2em;
+  font-weight: $medium;
+  margin: 0.8em;
+}
+
+h2 {
+  color: $font-accent;
+  font-size: 1.5em;
+  font-weight: $medium;
+  margin: 0.8em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h3 {
+  color: $font-light;
+  font-size: 1rem;
+  font-weight: $medium;
+  margin: 0.2em 0;
+  text-align: left;
+}
+
+a {
+  color: $accent;
+  text-decoration: none;
+  &:hover {
+    border-bottom: 1px solid $accent;
+  }
+}
+
+p {
+  color: $font-light;
+  line-height: $base-line-height;
+}
+
+label {
+  color: $font-light;
+  line-height: $base-line-height;
+}
+

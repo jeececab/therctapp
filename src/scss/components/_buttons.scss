@@ -1,0 +1,87 @@
+.btn {
+  box-sizing: border-box;
+  cursor: pointer;
+  font-family: $base-font;
+  font-weight: bold;
+  height: 2.2em;
+  line-height: 1;
+  margin: 0;
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn--primary {
+  background: $accent;
+  border: none;
+  color: $font-dark;
+  font-size: 1.25rem;
+  padding: 0.5em 1.25em;
+  text-transform: uppercase;
+  width: 10.2em;
+  &:hover {
+    background: darken($accent, 8);
+  }
+}
+
+.btn--small-p {
+  border-radius: 0.3em;
+  font-size: 1rem;
+  height: auto;
+  padding: 0.25em;
+  text-transform: uppercase;
+  width: auto;
+}
+
+.btn--secondary {
+  background: transparent;
+  border: 0.095em solid $accent;
+  color: $font-accent;
+  font-size: 1.25rem;
+  padding: 0.5em 1.25em;
+  text-transform: uppercase;
+  width: 10.2em;
+  &:hover {
+    background: rgba($accent, 0.2);
+  }
+}
+
+.btn--tertiary {
+  background: transparent;
+  border: 0.095em solid $white;
+  color: $font-light;
+  font-weight: $medium;
+  padding: 0 0.7em;
+  text-transform: uppercase;
+  &:hover {
+    background: rgba($white, 0.2);
+  }
+}
+
+.btn--quat {
+  background: transparent;
+  border: 0.095em solid $white;
+  color: $font-light;
+  font-weight: $medium;
+  padding: 0 0.7em;
+  text-transform: lowercase;
+  &:hover {
+    background: rgba($white, 0.2);
+  }
+}
+
+.btn--corner {
+  display: none;
+  margin: 0;
+  position: absolute;
+  top: 0.7em;
+  right: 0.7em;
+  @media (min-width: 42em) {
+    display: block;
+  }
+}
+
+.btn--auto {
+  height: auto;
+  width: auto;
+}

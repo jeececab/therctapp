@@ -1,34 +1,46 @@
+import { modal } from './base';
 
 export function formView() {
-  $('.app-container').empty();
+  // $('.app-container').empty();
   $('.app-container').append(`
-    <div class="signup">
-    <div class="signup__form animated bounceInLeft">
-      <h1 class="signup__title">Create your account</h1>
+    <div class="modal-container">
+      <div class="signup modal flex-align animated bounceInLeft">
 
-      <form id="signupForm" class="signup__inputs">
-        <p>
-          <label>Username</label>
-          <input id="userName" type="text" name="username" required>
-        </p>
-        <p>
-          <label>Email</label>
-          <input id="email" type="email" name="email" required autocomplete="on">
-        </p>
-        <p>
-          <label>Password</label>
-          <input id="password" type="password" required name="password">
-        </p>
-        <p>
-          <label>Confirm password</label>
-          <input id="confirmPassword" type="password" required name="confirm-password">
-        </p>
-        <p>
-          <button type="submit">Submit</button>
-        </p>
-      </form>
+        <i class="modal__close-btn fa fa-times-circle"></i>
 
-    </div>
+        <h2>Create your account</h2>
+
+        <form id="signupForm" class="signup__form flex-align">
+
+          <div class="signup__inputs">
+            <p>
+              <label>Username</label>
+              <input class="signup__input" id="userName" type="text" name="username" required>
+            </p>
+
+            <p>
+              <label>Email</label>
+              <input class="signup__input" id="email" type="email" name="email" required autocomplete="on">
+            </p>
+
+            <p>
+              <label>Password</label>
+              <input class="signup__input" id="password" type="password" required name="password">
+            </p>
+
+            <p>
+              <label>Confirm password</label>
+              <input class="signup__input" id="confirmPassword" type="password" required name="confirm-password">
+            </p>
+          </div>
+  
+          <button class="btn btn--primary" type="submit">Submit</button>
+          
+        </form>
+
+      </div>
     </div>
   `);
+
+  modal();
 };

@@ -17,7 +17,7 @@ export const exercisesTodosView = day => {
       <div id="${exerciseID}" class="exercise">
 
         <div class="exercise__header">
-          <h5>${exercise.title}</h5>
+          <h3 class="exercise__title">${exercise.title}</h3>
           <i class="exercise__arrow fa fa-caret-right"></i>
         </div>
 

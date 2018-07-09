@@ -1,0 +1,40 @@
+.container {
+  margin: 0 auto;
+  max-width: 1150px;
+  text-align: center;
+  width: 90%;
+  @media (min-width: 42em) {
+    margin: 5em auto 0 auto;
+  }
+}
+
+.flex-align {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid--2-col {
+  align-items: center;
+  grid-template-columns: auto;
+  justify-content: center;
+  @media (min-width: 28.5em) {
+    grid-template-columns: auto auto;
+  }
+}
+
+.centered {
+  margin-left: auto;
+  margin-right: auto;
+}

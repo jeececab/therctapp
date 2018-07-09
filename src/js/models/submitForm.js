@@ -14,6 +14,8 @@ export const submitForm = (e, state) => {
     password: password,
     confirmPassword: confirmPassword
   };
+
+  $('body').removeClass('overflowless');
 };
 
 // Function to get from values

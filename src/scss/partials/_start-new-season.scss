@@ -1,0 +1,27 @@
+.plan-templates {
+  grid-gap: 0.4em;
+  grid-template-columns: 1fr;
+  margin: 0.5em 0 1.5em 0;
+  @media (min-width: 32em) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (min-width: 61.7em) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.plan-templates__btn {
+  border: 0.095em solid $gray;
+  color: $font-tert;
+  width: 14.5em;
+}
+
+.plan-templates__btn--active {
+  background: $blue;
+  color: $font-light;
+}
+
+.startNewSeasonNext {
+  height: auto;
+  width: auto;
+}

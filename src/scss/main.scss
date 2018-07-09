@@ -1,19 +1,23 @@
+
 @import 'vendors/normalize';
 
-@import 'modules/colors';
-@import 'modules/mixins';
-@import 'modules/typography';
+@import 'base/colors';
+@import 'base/layout';
+@import 'base/mixins';
+@import 'base/typography';
+@import 'base/reset';
 
-@import 'partials/base';
-@import 'partials/navbar';
+@import 'components/buttons';
+@import 'components/modal';
+
 @import 'partials/welcome';
 @import 'partials/signup';
-@import 'partials/new-season';
-@import 'partials/instructions';
+@import 'partials/start-new-season';
+@import 'partials/account';
 @import 'partials/season';
-@import 'partials/modal';
-@import 'partials/day-plan';
+@import 'partials/instructions';
+@import 'partials/dayplan';
 @import 'partials/day-editor';
 @import 'partials/exercise';
-@import 'partials/exerciseComponents';
+@import 'partials/exer-comp';
 

@@ -8,7 +8,7 @@ const clearSeasonView = () => {
 };
 
 const disableCells = () => {
-  $('.season__cell').addClass('season__cell--disable');
+  $('.season__plan').addClass('cell--disable');
 };
 
 // Displays the first phase exercise title in the cell, else the first secExercise
@@ -25,9 +25,9 @@ const cellDisplay = day => {
     return el.type.includes(`${day.phase}-s`);
   });
   if (phaseExer) {
-    display = `<p class="season__cell--primary">${phaseExer.title}</p>`;
+    display = `<p class="cell__title cell__title--primary">${phaseExer.title}</p>`;
   } else if (secExer) {
-    display = `<p class="season__cell--secondary">${secExer.title}</p>`;
+    display = `<p class="cell__title">${secExer.title}</p>`;
   } else {
     display = '';
   };
@@ -37,24 +37,24 @@ const cellDisplay = day => {
 export const seasonView = season => {
   clearSeasonView();
   $('.app-container').append(`
-    <div class="season">
+    <div class="season grid">
       
-      <div class="season__weeks">
-        <div class="season__cell season__weeks-col"></div>
+      <div class="season__weeks grid">
+        <div class="season__corner"></div>
       </div>
 
       <div>
-        <div class="season__days">
-          <div class="season__cell season__days-row">Sunday</div>
-          <div class="season__cell season__days-row">Monday</div>
-          <div class="season__cell season__days-row">Tuesday</div>
-          <div class="season__cell season__days-row">Wednesday</div>
-          <div class="season__cell season__days-row">Thursday</div>
-          <div class="season__cell season__days-row">Friday</div>
-          <div class="season__cell season__days-row">Saturday</div>
+        <div class="season__days grid">
+          <div class="season__days__item flex-center">Sunday</div>
+          <div class="season__days__item flex-center">Monday</div>
+          <div class="season__days__item flex-center">Tuesday</div>
+          <div class="season__days__item flex-center">Wednesday</div>
+          <div class="season__days__item flex-center">Thursday</div>
+          <div class="season__days__item flex-center">Friday</div>
+          <div class="season__days__item flex-center">Saturday</div>
         </div>
 
-        <div class="season__plan">
+        <div class="season__plan grid">
           
         </div>
       </div>
@@ -70,7 +70,7 @@ export const seasonView = season => {
   });
   if (nbOfEmptyCells === 5 || nbOfEmptyCells === 6 ) {
     $('.season__weeks').append(`
-      <div class="season__cell season__weeks-col">-</div>
+      <div class="season__weeks__item flex-center">-</div>
     `);
   };
 
@@ -78,14 +78,14 @@ export const seasonView = season => {
 
   season.forEach(el => {
     $('.season__plan').append(`
-      <div id="day-${el.day}" class="season__cell season__cell--${season[el.day].phase} season__cell"></div>
+      <div id="day-${el.day}" class="cell cell--${season[el.day].phase} flex-center"></div>
     `);
     $(`#day-${el.day}`).append(cellDisplay(season[el.day]));
 
     // Adds a week in the left column for every 7 cells/days
     if (el.day % 7 === 0) {
       $('.season__weeks').append(`
-        <div class="season__cell season__weeks-col">${weekNb}</div>
+        <div class="season__weeks__item flex-center">${weekNb}</div>
       `);
       weekNb++;
     };
@@ -102,16 +102,16 @@ export const seasonView = season => {
 export const newSeasonView = (type, season) => {
 
   $('.plan-templates__btn').removeClass('plan-templates__btn--active');
-  $(`.${type}-btn`).addClass('plan-templates__btn--active');
+  $(`#${type}-Btn`).addClass('plan-templates__btn--active');
 
   seasonView(season);
-  datesView(season);
   disableCells();
 
-  if ($('.start-new-season__btn--next')) {
-    $('.start-new-season__btn--next').remove();
+  if ($('.startNewSeasonNext')) {
+    $('.startNewSeasonNext').remove();
   };
+
   $('.start-new-season').append(`
-    <button class="start-new-season__btn start-new-season__btn--next">Next »</button>
+    <button class="startNewSeasonNext btn btn--primary">Next »</button>
   `);
 };

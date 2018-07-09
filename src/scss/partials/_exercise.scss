@@ -1,24 +1,26 @@
 .exercise {
-  border: 1px solid $endur;
-  margin-bottom: 0.4em;
+  background: $blue;
+  border: 1px solid $white;
+  border-left: 0.5em solid $accent;
+  color: $font-light;
+  margin-bottom: 1em;
   position: relative;
   width: 100%;
-  h5 {
-    padding: 0.3em 0;
-  }
-  p {
-    padding: 0;
-    margin: 0;
-  }
 }
 
 .exercise__header {
-  color: $endur;
   cursor: pointer;
+  text-align: center;
   width: 100%;
   &:hover {
-    background: rgba($endur, 0.2);
+    background: lighten($blue, 4);
   }
+}
+
+.exercise__title {
+  margin: 0;
+  padding: 0.5em;
+  text-align: center;
 }
 
 .exercise__arrow {
@@ -37,61 +39,6 @@
 .exercise__content {
   display: none;
   padding: 0.4em;
-}
-
-
-.exercise__header-base {
-  background: $base;
-  border: none;
-  color: $white;
-  &:hover {
-    background: lighten($base, 8);
-  }
-}
-
-.exercise__header-strength {
-  background: $strength;
-  border: none;
-  color: $white;
-  &:hover {
-    background: lighten($strength, 8);
-  }
-}
-
-.exercise__header-power {
-  background: $power;
-  border: none;
-  color: $white;
-  &:hover {
-    background: lighten($power, 8);
-  }
-}
-
-.exercise__header-endur {
-  background: $endur;
-  border: none;
-  color: $white;
-  &:hover {
-    background: lighten($endur, 8);
-  }
-}
-
-.exercise__header-perf {
-  background: $perf;
-  border: none;
-  color: $white;
-  &:hover {
-    background: lighten($perf, 8);
-  }
-}
-
-.exercise__header-rest {
-  background: $rest;
-  border: none;
-  color: $white;
-  &:hover {
-    background: lighten($rest, 8);
-  }
 }
 
 .exercise__components {

@@ -1,143 +1,154 @@
-.startDayTraining {
-  display: block;
-  margin: 1em auto 0 auto;
-}
-
-.season, .season__plan, .season__days, .season__weeks {
-  display: grid;
-  grid-gap: 0.2em;
-}
 
 .season {
-  grid-template-columns: 2.2em 1fr;
+  background: $blue;
+  border: 1px solid $gray;
+  grid-template-columns: 1fr;
   margin: 1.5em auto;
+  padding: 1em;
   width: 90%;
   max-width: 1100px;
-  @media (max-width: 58em) {
-    grid-template-columns: 1fr;
+  @media (min-width: 66.625em) {
+    grid-template-columns: 1.8em 1fr;
+    padding: 0 1em 1em 0;
   }
-  @include subtle-shadow; 
 }
 
-.season__plan {
-  padding: 0.2em;
+.season__corner {
+  height: 2em;
 }
 
-.season__plan, .season__days {
-  grid-template-columns: repeat(7, 1fr);
-  margin: 0 auto;
-  @media (max-width: 58em) {
-    grid-template-columns: repeat(auto-fit, minmax(7.2em, 1fr));
+.season__weeks {
+  padding-left: 0.4em;
+}
+
+.season__weeks__item {
+  color: $font-light;
+  font-weight: $medium;
+  height: 3.38em;
+  // padding: 0 0.5em;
+}
+
+.season__days {
+  @media (min-width: 66.625em) {
+    grid-template-columns: repeat(7, 1fr);
   }
+}
+
+.season__days__item {
+  color: $font-light;
+  font-weight: $medium;
+  height: 2.5em;
+  padding: 0 1em;
 }
 
 .season__days, .season__weeks {
-  display: default;
-  @media (max-width: 58em) {
-    display: none;
+  display: none;
+  @media (min-width: 66.625em) {
+    display: grid;
   }
 }
 
-.season__cell {
-  box-sizing: border-box;
-  background-color: $white;
-  color: $white;
-  text-align: center;
-  font-size: 0.85rem;
-  height: 3.2em;
-  padding: 0.2em;
-  display: flex;
-  align-items: center;
-  flex-flow: column;
-  justify-content: center;
+.season__plan {
+  grid-template-columns: repeat(auto-fit, minmax(7.8em, 1fr));
+  @media (min-width: 66.625em) {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+
+.season, .season__plan, .season__days, .season__weeks {
+  grid-gap: 0.4em;
+}
+
+.cell {
+  color: $font-sec;
   cursor: pointer;
+  background: $black;
+  border: 1px solid $gray;
+  height: 3.38em;
+  padding: 0 0.1em;
   position: relative;
-  p {
-    margin: 0;
-    padding: 0;
-    text-align: center;
+  transition: 0.125s;
+  &:hover {
+    background: lighten($black, 3);
   }
 }
 
-.season__days-row, .season__weeks-col {
-  color: $darkgrey;
-  cursor: default;
-  font-weight: 700;
+.cell__date {
+  background: $black;
+  font-size: 0.8rem;
+  font-weight: 300;
+  padding: 0 0 0 0.2em;
+  position: absolute;
+  margin: 0;
+  top: 1px;
+  right: 3px;
 }
 
-.season__date {
-  background-color: $white;
-  color: $darkgrey;
-  font-size: 0.65rem;
-  width: 1.5em;
+.cell__title {
+  padding: 0 0.1em;
+  margin: 0;
+  line-height: 1;
   text-align: center;
-  position: absolute;
-  top: 0;
-  right: 0;
+}
+
+.cell__title--primary {
+  color: $font-light;
+  font-weight: 500;
+}
+
+.cell--disable {
+  cursor: default;
+  pointer-events: none;
+}
+
+.cell--base {
+  border-left: 0.5em solid $base;
+  &:hover {
+    border: 1px solid $base;
+    border-left: 0.5em solid $base;
+  }
+}
+
+.cell--strength {
+  border-left: 0.5em solid $strength;
+  &:hover {
+    border: 1px solid $strength;
+    border-left: 0.5em solid $strength;
+  }
+}
+
+.cell--power {
+  border-left: 0.5em solid $power;
+  &:hover {
+    border: 1px solid $power;
+    border-left: 0.5em solid $power;
+  }
+}
+
+.cell--endur {
+  border-left: 0.5em solid $endur;
+  &:hover {
+    border: 1px solid $endur;
+    border-left: 0.5em solid $endur;
+  }
+}
+
+.cell--perf {
+  border-left: 0.5em solid $perf;
+  &:hover {
+    border: 1px solid $perf;
+    border-left: 0.5em solid $perf;
+  }
+}
+
+.cell--rest {
+  border-left: 0.5em solid $rest;
+  &:hover {
+    border: 1px solid $rest;
+    border-left: 0.5em solid $rest;
+  }
 }
 
 .currentDay {
-  border: solid 0.2em rgb(192, 3, 3);
-}
-
-.season__cell--primary {
-  font-weight: 700;
-}
-
-.season__cell--secondary {
-  font-size: 0.75rem;
-}
-
-
-// CELLS TYPES STYLE:
-.season__cell--empty {
-  border: solid 1px $strength;
-}
-
-.season__cell--rest {
-  background: linear-gradient($rest, darken($rest, 8));
-  &:hover {
-    background: lighten($rest, 8);
-  }
-}
-
-.season__cell--base {
-  background: linear-gradient($base, darken($base, 8));
-  &:hover {
-    background: lighten($base, 8);
-  }
-}
-
-.season__cell--strength {
-  background: linear-gradient($strength, darken($strength, 8));
-  &:hover {
-    background: lighten($strength, 8);
-  }
-}
-
-.season__cell--power {
-  background: linear-gradient($power, darken($power, 8));
-  &:hover {
-    background: lighten($power, 8);
-  }
-}
-
-.season__cell--endur {
-  background: linear-gradient($endur, darken($endur, 8));
-  &:hover {
-    background: lighten($endur, 8);
-  }
-}
-
-.season__cell--perf {
-  background: linear-gradient($perf, darken($perf, 8));
-  &:hover {
-    background: lighten($perf, 8);
-  }
-}
-
-
-.season__cell--disable {
-  cursor: default;
-  pointer-events: none;
+  
 }

@@ -1,107 +1,44 @@
 
-.edit {
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
-  width: 90%;
-  margin: 0 auto;
-}
-
-.edit__phase {
-  display: grid;
-  grid-template-columns: auto auto;
+.edit-day__phase {
   grid-gap: 0.3em;
-  margin-top: 1.5em;
-  label {
-    font-size: 1.1em;
-    font-weight: 700;
-  }
-  @media (max-width: 26.5em) {
-    grid-template-columns: auto;
+  @media (min-width: 25.5em) {
+    grid-template-columns: auto auto;
   }
 }
 
-.edit__exer {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  grid-gap: 0.3em;
-  margin-bottom: 1em;
-  select {
-    width: 15em;
-  }
-  @media (max-width: 32em) {
-    grid-template-columns: auto;
+.edit-day__exer {
+  grid-template-columns: auto;
+  grid-gap: 0.2em;
+  @media (min-width: 31.5em) {
+    grid-template-columns: auto auto;
   }
 }
 
-.edit__exer__sel {
-  margin: 0 auto;
-  padding: 0 0 0 0.5em;
+.edit-day__select {
+  width: 13em;
 }
 
-.edit__exer__list, .edit__secExer__list {
-  margin: 0 auto;
-  padding: 0;
-  li {
-    color: $endur;
-    font-weight: 700;
-    background: transparent;
-    padding: 0.2em;
-    margin: 0 auto 0.15em auto;
-    list-style: square;
-  }
-}
-
-.delete-btn {
-  color: $power;
+.edit-day__delete-exer {
+  color: $font-light;
   cursor: pointer;
+  font-weight: $medium;
+  padding-bottom: 2px;
   &:hover {
-    color: lighten($power, 8);
+    color: $font-tert;
   }
 }
 
-.edit-btns {
-  margin: 1em auto;
+.edit-day__btns {
+  padding-top: 0.8em;
 }
 
-.btn-ok, .btn-add, .btn-add--sec, .btn--save {
-  background: $base;
-  border: none;
-  border-radius: 0.3em;
-  color: $white;
-  cursor: pointer;
-  font-weight: bold;
-  padding: 0.15em 0.3em;
-  &:focus {
-    outline: none;
-  }
-  &:hover {
-    background: darken($base, 9);
-  }
+.btnSaveDay {
+  border: 0.095em solid $accent;
+  color: $font-accent;
+  margin-right: 0.5em;
+  width: 5.8em;
 }
 
-.btn--save, .btn--cancel {
-  width: 4.5em;
-}
-
-.btn--save:hover {
-  background: lighten($base, 8);
-}
-
-.btn--cancel {
-  background: transparent;
-  border: solid 0.2em $power;
-  border-radius: 0.3em;
-  box-sizing: border-box;
-  color: $power;
-  cursor: pointer;
-  font-weight: bold;
-  padding: 0 0.3em;
-  &:focus {
-    outline: none;
-  }
-  &:hover {
-    background: rgba($power, 0.2);
-  }
+.btnCancelDay {
+  width: 5.8em;
 }

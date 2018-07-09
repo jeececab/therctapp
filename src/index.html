@@ -12,34 +12,26 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-  <div class="navbar">
-     <h1 class="navbar__title"><span>The Rock Climber's</span> <span>Training App</span></h1>
-     <nav class="navbar__menu">
-       <ul>
-         <li><button class="navbar__menu__item--log logIn">Log in</button></li>
-       </ul>
-     </nav>
-  </div>
-
+  <button class="btn btn--tertiary btn--corner logIn">Log in</button>
+  
   <div class="app-container">
+    <div class="welcome grid">
+      <img class="welcome__img" src="./img/welcome-img.jpg" alt="Sonnie Trotter climbing the Totem Pole">
 
-    <div class="welcome container">
-      <h2>A guide to continuous improvement</h2>
+      <div class="welcome__content container">
+        <h1>The Rock Climber's Training App</h1>
+        <h2>A tool for continuous improvement</h2>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio minima, beatae facilis temporibus alias adipisci ab suscipit id, aspernatur veniam dolores unde assumenda? Ea voluptatem incidunt optio, fugit non eveniet at facilis veritatis aspernatur eaque quis eum omnis doloribus ratione esse autem aliquid veniam soluta impedit totam. Ad, tempore voluptatibus?</p>
+        <p>The Rock Climber's Training App is an interactive calender designed to help you build, follow and log you training plan based on Michael L. Anderson and Mark L. Anderson's book: <a href="https://rockclimberstrainingmanual.com/" target="_blank">The Rock Climber's Training Manuel</a>.</p>
 
-      <div class="w-signup">
-        <button class="btn btn--primary signUp">Get started</button>
-        <button class="btn btn--secondary logIn">Log in</button>
+        <p>You can start by choosing one of the four  templates they suggest(novice, advanced, trad or bouldering) and then customize  it to your own needs. It's strongly recommended to buy the book, as our  app is not meant to explain the vast knowledge that is available in the book.</p>
+
+        <div class="welcome__signup grid grid--2-col">
+          <button class="btn btn--primary signUp">Get started</button>
+          <button class="btn btn--secondary logIn">Log in</button>
+        </div>
       </div>
-
-      <div class="manual">
-        <img class="manual__front-img" src="./img/rctm-front.jpg" alt="Back cover of the Rock Climber's training manual">
-        <img class="manual__back-img" src="./img/rctm-back.jpg" alt="Front cover of the Rock Climber's training manual">
-      </div>
-
     </div>
-    
   </div>
 
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>

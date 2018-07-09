@@ -29,7 +29,7 @@ $('.logIn').click(() => {
   accountView(state, 'user');
 });
 // Log out
-$('.navbar').on('click', '.logOut', () => {
+$('body').on('click', '.logOut', () => {
   // Temporary fallback when log out
   window.location = 'http://localhost:8080/';
 });
@@ -57,13 +57,13 @@ $('.app-container').on('click', '#btnStartDateOk', e => {
 
 // Select a seasonal plan template (novice, experienced, trad or boulder)
 $('.app-container').on('click', '.plan-templates__btn', e => {
-  const type = e.target.classList[0].replace('-btn', '');
+  const type = e.target.id.split('-')[0];
   state.season = planTemplate(type);
   mapDates(state.season);
   newSeasonView(type, state.season);
 });
 // Click "next" to choose the plan and move to account UI
-$('.app-container').on('click', '.start-new-season__btn--next', () => {
+$('.app-container').on('click', '.startNewSeasonNext', () => {
   saveUserData(state);
   accountView(state, 'user');
   instructionsView();
@@ -72,12 +72,12 @@ $('.app-container').on('click', '.start-new-season__btn--next', () => {
 
 // SEASON UI CONTROLLER
 // View, edit and start day plan
-$('.app-container').on('click', '.season__cell', e => {
+$('.app-container').on('click', '.cell', e => {
   let day;
   if (e.target.id) {
     day = e.target.id.slice(4);
   } else {
-    const btn = e.target.closest('.season__cell');
+    const btn = e.target.closest('.cell');
     day = btn.id.slice(4);
   };
   dayPlanView(state.season[day]);
@@ -97,7 +97,7 @@ $('.app-container').on('click', '.exercise__header', e => {
   exerciseView(id, /*exerData*/);
 });
 // Click on edit to edit the day plan
-$('.app-container').on('click', '.btn--edit', e => {
+$('.app-container').on('click', '.btnEdit', e => {
   const day = e.target.id.slice(8)
   initEditorData(state.season[day]);
   dayEditorView(state.season[day]);
@@ -106,7 +106,7 @@ $('.app-container').on('click', '.btn--edit', e => {
 
 // DAY PLAN EDITOR UI CONTROLLER
 // Change the phase based on the value of the selection menu
-$('.app-container').on('change', '#edit__phase__inputs', e => {
+$('.app-container').on('change', '#edit-day__phase-inputs', e => {
   storeEditorPhase(e.target.value);
 });
 // Click OK to set the phase
@@ -116,25 +116,25 @@ $('.app-container').on('click', '#btnPhaseOk', () => {
   exerSelectionView();
 });
 // Change the exercise based on the value of the selection menu
-$('.app-container').on('change', '#edit__exer__inputs', e => {
+$('.app-container').on('change', '#edit-day__exer-inputs', e => {
   selectEditorExer(e.target.value);
  });
 // Select exercise and press add to add phase exercise
-$('.app-container').on('click', '.btn-add', () => {
+$('.app-container').on('click', '.btnAddExer', () => {
   addExercise();
   displayExerSelection();
 });
 // Change the secondary exercise based on the value of the selection menu
-$('.app-container').on('change', '#edit__secExer__inputs', e => {
+$('.app-container').on('change', '#edit-day__secExer-inputs', e => {
   selectEditorSecExer(e.target.value);
  });
 // Select sec exercise and press add to add secondary(optional, add-on, etc) exercise
-$('.app-container').on('click', '.btn-add--sec', () => {
+$('.app-container').on('click', '.btnAddSecExer', () => {
   addSecExercise();
   displayExerSelection();
 });
 // Click on the (remove) link next to an exercise to delete it
-$('.app-container').on('click', '.delete-btn', e => {
+$('.app-container').on('click', '.edit-day__delete-exer', e => {
   const exer = e.target.id.slice(7);
   deleteExercise(exer);
   displayExerSelection();

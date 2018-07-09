@@ -8,12 +8,12 @@ export const dayEditorView = day => {
 
   $('.day-plan__content').append(`
 
-    <div class="edit">
+    <div class="edit-day flex-align">
 
-      <div class="edit__phase">
-        <label for="edit__phase__inputs">Choose phase: </label>
+      <div class="edit-day__phase grid grid--2-col">
+        <label for="edit-day__phase-inputs"><h3 class="edit-day__choose-title">Choose phase: </h3></label>
         <div>
-          <select id="edit__phase__inputs">
+          <select id="edit-day__phase-inputs">
             <option value="base">Base-Fitness</option>
             <option value="strength">Strength</option>
             <option value="power">Power</option>
@@ -21,30 +21,30 @@ export const dayEditorView = day => {
             <option value="perf">Performance</option>
             <option value="rest">Rest</option>
           </select>
-          <button id="btnPhaseOk" class="btn-ok">Ok</button>
+          <button id="btnPhaseOk" class="btn btn--primary btn--small-p">Ok</button>
         </div>
       </div>
 
-      <div class="edit__exer"></div>
+      <div class="edit-day__exer grid grid--2-col"></div>
 
-      <div class="edit__exer__sel">
-        <ul class="edit__exer__list"></ul>
+      <div class="edit-day__exer-sel">
+        <ul class="edit-day__exer-list"></ul>
       </div>
 
-      <div class="edit-btns">
-        <button id="btn-save-${day.day}" class="btnSaveDay btn--save">Save</button>
-        <button id="btn-cancel-${day.day}" class="btnCancelDay btn--cancel">Cancel</button>
+      <div class="edit-day__btns">
+        <button id="btn-save-${day.day}" class="btnSaveDay btn btn--tertiary">Save</button>
+        <button id="btn-cancel-${day.day}" class="btnCancelDay btn btn--tertiary">Cancel</button>
       </div>
 
     </div>
   `);
 
   // Display day data if there is any
-  $('#edit__phase__inputs').val(day.phase);
+  $('#edit-day__phase-inputs').val(day.phase);
 };
 
 export const displayPhaseTitle = () => {
-  $('.edit__phase').remove();
+  $('.edit-day__phase').remove();
   $('.edit h4').remove();
   $('.edit').prepend(`
     <h4>${formatPhaseTitle(editorData.phase)}</h4>
@@ -52,45 +52,45 @@ export const displayPhaseTitle = () => {
 };
 
 export const displayExerSelection = () => {
-  $('.edit__exer__list').empty();
+  $('.edit-day__exer-list').empty();
   editorData.exercisesList.forEach(el => {
-    $('.edit__exer__list').append(`
-      <li>${formatExerName(el)} <span id="delete-${el}" class="delete-btn">(remove)</span></li>
+    $('.edit-day__exer-list').append(`
+      <li>${formatExerName(el)} <span id="delete-${el}" class="edit-day__delete-exer">(remove)</span></li>
     `);
   });
 };
 
 export const exerSelectionView = () => {
 
-  $('.edit__exer').empty();
+  $('.edit-day__exer').empty();
 
   if (editorData.phase !== 'rest') {
-    $('.edit__exer').append(`
-      <label for="edit__exer__inputs">Phase exercise: </label>
+    $('.edit-day__exer').append(`
+      <label for="edit-day__exer-inputs"><h3>Phase exercise: </h3></label>
       <div>
-        <select id="edit__exer__inputs">
+        <select id="edit-day__exer-inputs" class="edit-day__select">
         </select>
-        <button class="btn-add">Add</button>
+        <button class="btnAddExer btn btn--primary btn--small-p">Add</button>
       </div>
     `);
   };
 
-  $('.edit__exer').append(`
-    <label for="edit__secExer__inputs">Other exercise: </label>
+  $('.edit-day__exer').append(`
+    <label for="edit-day__secExer-inputs"><h3>Other exercise: </h3></label>
     <div>
-      <select id="edit__secExer__inputs">
+      <select id="edit-day__secExer-inputs" class="edit-day__select">
       </select>
-      <button class="btn-add--sec">Add</button>
+      <button class="btnAddSecExer btn btn--primary btn--small-p">Add</button>
     </div>
   `);
 
   getExerciseList(editorData.phase).forEach(el => {
     if (el.type.includes(`${editorData.phase}-p`)) {
-      $('#edit__exer__inputs').append(`
+      $('#edit-day__exer-inputs').append(`
         <option  value="${el.id}" title="${el.directives}">${el.title}</option>
       `);
     } else if (el.type.includes(`${editorData.phase}-s`)) {
-      $('#edit__secExer__inputs').append(`
+      $('#edit-day__secExer-inputs').append(`
         <option value="${el.id}" title="${el.directives}">${el.title}</option>
       `);
     };

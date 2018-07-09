@@ -7,7 +7,7 @@ const routeAdder = {
   loggedRoute: id => {return `
     <div id="${id}" class="logged-route">
       <form class="loggedRouteForm">
-        <div class="logged-route__inputs">
+        <div class="logged-route__inputs grid">
           <input type="text" name="route__name" class="route__name" placeholder="Route Name">
           <input type="text" name="route__grade" class="route__grade" placeholder="Grade">
           <select class="route__status" name="route__status">
@@ -19,9 +19,9 @@ const routeAdder = {
           </select>
         </div>
         <textarea class="route__notes" name="route__notes" placeholder="Notes"></textarea>
-        <div class="logged-route__btns">
-          <button type="submit" class="btn--save">Save modifications</button>
-          <button class="btn--save btnDelete">Delete route</button>
+        <div class="logged-route__btns grid">
+          <button type="submit" class="btn btn--quat">Save modifications</button>
+          <button class="btn btn--quat btnDelete">Delete route</button>
         </div>
       </form>
     </div>
@@ -34,7 +34,7 @@ const routeAdder = {
         html += routeAdder.loggedRoute(el.id);
       });
     };
-    html += '<button class="routeAdder btn-add">Add route</button>';
+    html += '<button class="routeAdder btn btn--secondary">Add route</button>';
     return html;
   },
   mapComponentData: (day, exerciseID) => {

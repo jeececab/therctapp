@@ -1,0 +1,62 @@
+
+.routeAdder {
+  margin: 0.3em 0;
+}
+
+.logged-route {
+  background: $black;
+  border: 1px solid $gray;
+  margin: 0 0 0.75em 0;
+  padding: 0.5em;
+  width: 100%;
+}
+
+.logged-route__inputs {
+  grid-template-columns: 3.8em 1fr;
+  grid-gap: 0.3em;
+  margin-bottom: 0.3em;
+  @media (min-width: 29em) {
+    grid-template-columns: 1fr 1fr 3.8em 7.2em;
+  }
+}
+
+.route__name {
+  grid-column: 1 / span 2;
+}
+
+.route__grade {
+  max-width: 3.8em;
+}
+
+.route__status {
+  max-width: 7.2em;
+}
+
+.route__notes {
+  box-sizing: border-box;
+  resize: none;
+  min-height: 6em;
+  width: 100%;
+}
+
+.logged-route__btns {
+  grid-template-columns: auto;
+  grid-gap: 0.5em;
+  justify-content: center;
+  padding-top: 0.5em;
+  button {
+    width: 11.15em;
+  }
+  @media (min-width: 28.5em) {
+    grid-template-columns: auto auto;
+  }
+}
+
+// .btn--delete-route {
+//   background: transparent;
+//   border: 0.2em solid $endur;
+//   color: $endur;
+//   &:hover {
+//     background: rgba($endur, 0.2);
+//   }
+// }

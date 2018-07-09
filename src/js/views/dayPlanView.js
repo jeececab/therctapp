@@ -6,40 +6,27 @@ export const dayPlanView = day => {
     // Display dayPlan modal
     $('.app-container').append(`
       <div class="modal-container">
-        <div class="day-plan modal animated fadeIn">
-        
-          <i class="modal__close-btn fa fa-times-circle"></i>
 
-          <div class="day-plan__header modal__header">
-          </div>
+        <div class="day-plan modal flex-align animated fadeIn">
+          <i class="modal__close-btn fa fa-times-circle"></i>
+          <h1>${formatDate(day.date)}</h1>
+          <h2 class="dayplan__h2">${formatPhaseTitle(day.phase)}</h2>
 
           <div class="day-plan__content modal-content">
-            <div class="day-plan__exer-list">
-            </div>
+            <div class="day-plan__exer-list"></div>
+            <button id="editDay-${day.day}" class="btn btn--tertiary btnEdit">Edit</button>
           </div>
+
         </div>
+
       </div>
     `);
 
-    // 1 - Display day number
-    $('.day-plan__header').append(`
-        <h3>${formatDate(day.date)}</h3>
-    `);
-
-    // 2 - Display phase type
-    $('.day-plan__content').prepend(`
-        <h4>${formatPhaseTitle(day.phase)}</h4>
-    `);
-
-    // 3 - Display exercises todo list
+    // Display exercises todo list
     if (day.exercises.length >= 1) {
       exercisesTodosView(day);
     };
 
-    // 4 - Display Edit button
-    $('.day-plan__content').append(`
-        <button id="editDay-${day.day}" class="btn btn--secondary btn--edit">Edit</button>
-    `);
 
     modal();
   };
