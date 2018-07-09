@@ -1,11 +1,11 @@
 
 const config = {
-  apiKey: "AIzaSyD-qvO4KHOK8ozzt0nXabtFn5vSCQb9QOQ",
+  apiKey: "",
   authDomain: "the-rcta.firebaseapp.com",
   databaseURL: "https://the-rcta.firebaseio.com",
   projectId: "the-rcta",
   storageBucket: "the-rcta.appspot.com",
-  messagingSenderId: "246890524940"
+  messagingSenderId: ""
 };
 
 firebase.initializeApp(config);
