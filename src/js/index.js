@@ -14,8 +14,8 @@ import { initEditorData, storeEditorPhase, selectEditorExer, selectEditorSecExer
 } from './models/dayEditor';
 import { saveUserData, importUserData } from './models/userData';
 
-// The state = {season, userData, pastData};
-export let state;
+// The currentUser = {season, userData, pastData};
+export let currentUser;
 
 // INDEX PAGE UI CONTROLLER
 // Get started aka sign up
@@ -25,8 +25,8 @@ $('.signUp').click(() => {
 // Log In
 $('.logIn').click(() => {
   // Load user data from database 
-  state = importUserData();
-  accountView(state, 'user');
+  currentUser = importUserData();
+  accountView(currentUser, 'user');
 });
 // Log out
 $('body').on('click', '.logOut', () => {
@@ -38,10 +38,10 @@ $('body').on('click', '.logOut', () => {
 // SIGN UP FORM UI CONTROLLER
 // Submit Form
 $('.app-container').on('submit', '#signupForm', e => {
-  state = {userData:'', season:''};
-  submitForm(e, state);
-  saveUserData(state);
-  accountView(state, 'newUser');
+  currentUser = {userData:'', season:''};
+  submitForm(e, currentUser);
+  saveUserData(currentUser);
+  accountView(currentUser, 'newUser');
 });
   
 
@@ -58,14 +58,14 @@ $('.app-container').on('click', '#btnStartDateOk', e => {
 // Select a seasonal plan template (novice, experienced, trad or boulder)
 $('.app-container').on('click', '.plan-templates__btn', e => {
   const type = e.target.id.split('-')[0];
-  state.season = planTemplate(type);
-  mapDates(state.season);
-  newSeasonView(type, state.season);
+  currentUser.season = planTemplate(type);
+  mapDates(currentUser.season);
+  newSeasonView(type, currentUser.season);
 });
 // Click "next" to choose the plan and move to account UI
 $('.app-container').on('click', '.startNewSeasonNext', () => {
-  saveUserData(state);
-  accountView(state, 'user');
+  saveUserData(currentUser);
+  accountView(currentUser, 'user');
   instructionsView();
 });
 
@@ -80,14 +80,14 @@ $('.app-container').on('click', '.cell', e => {
     const btn = e.target.closest('.cell');
     day = btn.id.slice(4);
   };
-  dayPlanView(state.season[day]);
+  dayPlanView(currentUser.season[day]);
 });
 // TODO: Start daily plan button (which basically is the same as clicking on the active day cell)
 // TODO: Start new season button:
   // archiveSeason();
   // saveUserData();
-  // state.season = '';
-  // accountView(state, 'user');
+  // currentUser.season = '';
+  // accountView(currentUser, 'user');
 
 
 // DAY PLAN UI CONTROLLER
@@ -99,8 +99,8 @@ $('.app-container').on('click', '.exercise__header', e => {
 // Click on edit to edit the day plan
 $('.app-container').on('click', '.btnEdit', e => {
   const day = e.target.id.slice(8)
-  initEditorData(state.season[day]);
-  dayEditorView(state.season[day]);
+  initEditorData(currentUser.season[day]);
+  dayEditorView(currentUser.season[day]);
 });
 
 
@@ -142,14 +142,14 @@ $('.app-container').on('click', '.edit-day__delete-exer', e => {
 // Click "save" to update and save season data
 $('.app-container').on('click', '.btnSaveDay', e => {
   const day = e.target.id.slice(9);
-  saveDayPlan(state.season[day]);
-  saveUserData(state);
-  accountView(state, 'user');
-  dayPlanView(state.season[day]);
+  saveDayPlan(currentUser.season[day]);
+  saveUserData(currentUser);
+  accountView(currentUser, 'user');
+  dayPlanView(currentUser.season[day]);
 });
 // Click "cancel" to go back to day plan view
 $('.app-container').on('click', '.btnCancelDay', e => {
   const day = e.target.id.slice(11);
   $('.modal-container').remove();
-  dayPlanView(state.season[day]);
+  dayPlanView(currentUser.season[day]);
 });

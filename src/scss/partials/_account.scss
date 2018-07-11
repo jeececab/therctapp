@@ -1,11 +1,11 @@
 
-.account {
-  margin: 1.5em;
-  @media (min-width: 42em) {
-    margin: 3.33em auto 0 auto;
-  }
-}
-
 .greet-user__title{
   text-transform: capitalize;
+}
+
+.startDayTraining {
+  margin-top: 1.5em;
+  @media (min-width: 42em) {
+    margin-top: 0;
+  }
 }

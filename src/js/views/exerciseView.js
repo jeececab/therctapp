@@ -43,7 +43,7 @@ export const exercisesTodosView = day => {
       const component = componentIDtoObj(el);
       $(`#${exerciseID} .exercise__components`).append(`${component.UIhtml(day, exerciseID)}`);
       component.setupHandlers(day, exerciseID);
-      component.mapComponentData(day, exerciseID);
+      // component.mapComponentData(day, exerciseID);
     });
 
   });

@@ -1,17 +1,18 @@
+// Route Adder and Boulder Adder
 
-.routeAdder {
+.routeAdder, .boulderAdder {
   margin: 0.3em 0;
 }
 
-.logged-route {
+.logged-route, .logged-boulder {
   background: $black;
   border: 1px solid $gray;
   margin: 0 0 0.75em 0;
-  padding: 0.5em;
+  padding: 0.6em;
   width: 100%;
 }
 
-.logged-route__inputs {
+.logged-route__inputs, .logged-boulder__inputs {
   grid-template-columns: 3.8em 1fr;
   grid-gap: 0.3em;
   margin-bottom: 0.3em;
@@ -20,26 +21,26 @@
   }
 }
 
-.route__name {
+.route__name, .boulder__name {
   grid-column: 1 / span 2;
 }
 
-.route__grade {
+.route__grade, .boulder__grade {
   max-width: 3.8em;
 }
 
-.route__status {
+.route__status, .boulder__status {
   max-width: 7.2em;
 }
 
-.route__notes {
+.route__notes, .boulder__notes {
   box-sizing: border-box;
   resize: none;
   min-height: 6em;
   width: 100%;
 }
 
-.logged-route__btns {
+.logged-route__btns, .logged-boulder__btns {
   grid-template-columns: auto;
   grid-gap: 0.5em;
   justify-content: center;
@@ -47,16 +48,123 @@
   button {
     width: 11.15em;
   }
-  @media (min-width: 28.5em) {
+  @media (min-width: 30.5em) {
     grid-template-columns: auto auto;
   }
 }
 
-// .btn--delete-route {
-//   background: transparent;
-//   border: 0.2em solid $endur;
-//   color: $endur;
-//   &:hover {
-//     background: rgba($endur, 0.2);
-//   }
-// }
+
+// Timer
+
+.timer {
+  background: $black;
+  border: 1px solid $white;
+  margin-top: 0.5em;
+  max-width: 18em;
+  padding-bottom: 1.3em;
+  position: relative;
+  width: 95%;
+}
+
+.set-timer {
+  align-items: center;
+  color: #F7F7F7;
+  grid-template-columns: repeat(5, auto);
+  padding: 0 1em;
+}
+
+.set-timer__colon {
+  font-size: 1.5rem;
+  margin: 0 0.4em;
+}
+
+.timer__digits {
+  font-size: 1.9rem;
+  line-height: 1;
+}
+
+.timer__unit {
+  font-size: 1.2rem;
+}
+
+.arrow-up, .arrow-down {
+  border-left: 0.7em solid transparent;
+  border-right: 0.7em solid transparent;
+  cursor: pointer;
+  display: inline-block;
+  height: 0;
+  width: 0;
+  &:focus {
+    outline: none;
+  }
+}
+
+.arrow-up {
+  border-bottom: 0.7em solid $white;
+  &:hover {
+    border-bottom: 0.7em solid $gray;
+  }
+}
+
+.arrow-down {
+  border-top: 0.7em solid $white;
+  &:hover {
+    border-top: 0.7em solid $gray;
+  }
+}
+
+#timerStart {
+  margin-top: 1em;
+}
+
+.counter-container {
+  background: rgba(0, 0, 0, 0.8);
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.counter {
+  background: $background;
+  border: 1px solid $gray;
+  color: #f7f7f7;
+  margin: 0 auto;
+  width: 85%;
+  @include modal-shadow;
+}
+
+.counter__digits {
+  grid-gap: 0.3em;
+  grid-template-columns: repeat(3, auto);
+  align-items: center;
+  justify-content: center;
+  padding: 0.75em;
+}
+
+.counter__digit {
+  font-size: 2rem;
+  text-align: center;
+  width: 1.75em;
+}
+
+.counter__comma {
+  font-size: 1.75rem;
+}
+
+.counter__btns {
+  grid-gap: 0.5em;
+  padding-bottom: 0.75em;
+  button {
+    width: 6em;
+  }
+  @media (min-width: 22.5em) {
+    grid-template-columns: auto auto;
+  }
+}
+
+.counter__resume {
+  border: 0.095em solid $accent;
+  color: $font-accent;
+}

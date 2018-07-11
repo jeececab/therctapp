@@ -161,7 +161,7 @@
   },
 
   {
-    "components" : [],
+    "components" : [ "timer" ],
     "directives" : "Climb at your MSS (maximum steady state) for 20-45 minutes straight. Up to three sets of at least 20 minutes can be completed in a single ARC workout. Choose vertical to slightly overhanging terrain. The goal is not to pump off the wall. Once the correct level of effort is determined, add up tp three skill acquisition exercises.",
     "id" : "arc",
     "title" : "ARC Training",
@@ -169,7 +169,7 @@
   },
 
   {
-    "components" : [],
+    "components" : [ "timer", "routeAdder" ],
     "directives" : "Climb six to twelve &quot;moderate&quot; routes or pitches. These climbs should be approximately one to two full number grades below the climber's maximum onsight ability. They should be moderately fatiguing - just like ARCing. Apply the guidelines of ARC training to these routes. It means you should try to create continuous ARC \"sets\" of 20-45 minutes, which may require to climb multiple pitches back-to-back.",
     "id" : "outdoorMileage",
     "title" : "Outdoor Mileage",
@@ -473,7 +473,7 @@
   },
 
   {
-    "components" : [],
+    "components" : [ "routeAdder" ],
     "directives" : "An onsight ascent is one in which the climber leads a climb sucessfully without prior rehearsal on the route, or specific information about the climbing. Onsight pyramids should begin humbly, with routes well below the climber's limit, because there is only one shot to onsight each route. The onsight pyramid should only be composed of outdoor routes on real rock.",
     "id" : "onsightAttempts",
     "title" : "Onsight Attempts",
@@ -481,7 +481,7 @@
   },
 
   {
-    "components" : [],
+    "components" : [ "boulderAdder" ],
     "directives" : "Free-climb outdoor boulder problems without falling.",
     "id" : "boulderAttempts",
     "title" : "Boulder Attempts",
