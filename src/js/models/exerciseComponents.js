@@ -197,7 +197,7 @@ const timer = {
   UIhtml: (day, exerciseID) => {
     return `
       <div class="timer flex-center">
-        <h2 class="timer__title">Set Timer</h2>
+        <h2 class="timer__title">Timer</h2>
         <div class="set-timer grid">
           <div class="timer__minutes noselect">
             <div class="timer__select-top">
@@ -226,18 +226,19 @@ const timer = {
           <div class="timer__unit">s</div>
         </div>
         <button id="timerStart" class="btn btn--secondary btn--auto">Start</button>
+        <audio class="timer__alarm" preload="auto">
+          <source src="./medias/alarm.mp3" type="audio/mpeg">
+          Your browser does not support the audio element
+        </audio>
       </div>
     `;
   },
-
   mapComponentData: (day, exerciseID) => {
     // No data for timer
   },
-
   setupHandlers: (day, exerciseID) => {
     let minutes = 0;
     let seconds = 0;
-
     $('.timer__select-arrow').click(e => {
       if (e.target.id === 'minLeftTop') {
         if (minutes < 50) {
@@ -303,12 +304,22 @@ const timer = {
       clearInterval(interval);
     };
 
+    const closeCounter = () => {
+      $('.counter__digits-min').html('00');
+      $('.counter__digits-sec').html('00');
+      timerCountMin = 0;
+      timerCountSec = 0;
+      $('.counter-container').remove();
+    };
+
     const timer = () => {
       startingTime.setSeconds(startingTime.getSeconds() - 1);
       timerCountMin = startingTime.getMinutes();
       timerCountSec = startingTime.getSeconds();
       if (timerCountMin === 0 && timerCountSec === 0) {
         stopTimer();
+        document.querySelector('.timer__alarm').play();
+        closeCounter();
       };
       $('.counter__digits-min').html(formatNumber(timerCountMin));
       $('.counter__digits-sec').html(formatNumber(timerCountSec));
@@ -356,11 +367,7 @@ const timer = {
 
     $('.timer').on('click', '.counter__cancel', () => {
       stopTimer();
-      $('.counter__digits-min').html('00');
-      $('.counter__digits-sec').html('00');
-      timerCountMin = 0;
-      timerCountSec = 0;
-      $('.counter-container').remove();
+      closeCounter();
     });
   }
 };

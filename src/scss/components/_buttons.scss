@@ -76,8 +76,18 @@
   position: absolute;
   top: 0.7em;
   right: 0.7em;
+  z-index: 3;
   @media (min-width: 42em) {
     display: block;
+  }
+}
+
+.btn--bottom {
+  display: block;
+  margin: 0 auto 1.5em auto;
+  z-index: 3;
+  @media (min-width: 42em) {
+    display: none;
   }
 }
 

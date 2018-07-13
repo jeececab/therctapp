@@ -1,15 +1,24 @@
 
 .welcome {
   grid-template-columns: 1fr;
-  @media (min-width: 63.4em) {
+  @media (min-width: 63.4em) and (max-height: 64em) {
     grid-template-columns: auto 1fr;
   }
+}
+
+.welcome__content {
+  min-height: 100vh;
+  position: relative;
+}
+
+.welcome__content-top {
+  position: relative;
 }
 
 .welcome__img {
   display: none;
   height: 100vh;
-  @media (min-width: 63.4em) {
+  @media (min-width: 63.4em) and (max-height: 64em) {
     display: block;
   }
 }
@@ -17,4 +26,31 @@
 .welcome__signup {
   grid-gap: 1em;
   padding-top: 0.8em;
+}
+
+#mountains-svg {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  @media (min-width: 46em) and (min-height: 39.5em) {
+    display: block;
+  }
+}
+
+#mountains-svg__path {
+  animation: dash 18s linear forwards;
+  animation-delay: 1s;
+  fill: none;
+  stroke: rgb(26, 56, 52);
+  stroke-width: 0.5;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+
+@keyframes dash {
+ to {
+   stroke-dashoffset: 0;
+ }
 }

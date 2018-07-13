@@ -26,7 +26,6 @@ export function accountView(state, userStatus) {
   // If the newUser or user doesn't have an ongoing season 
   if (state.season === '') {
     startNewSeasonView();
-    switchLogBtn();
   };
 
   // If the user has an active ongoing season
@@ -39,14 +38,14 @@ export function accountView(state, userStatus) {
       </div>
     `);
     seasonView(state.season);
-    switchLogBtn();
   };
-};
 
-// Switch Log In button to Log Out
-const switchLogBtn = () => {
   $('body .btn--corner').remove();
   $('body').prepend(`
     <button class="btn btn--tertiary btn--corner logOut">Log out</button>
   `);
+  $('body').append(`
+    <button class="btn btn--tertiary btn--bottom logOut">Log out</button>
+  `);
 };
+
