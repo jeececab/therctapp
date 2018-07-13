@@ -2,8 +2,8 @@
 export let calStartDate;
 export let trainingStartDate;
 
-export const setStartDate = e => {
-  const dateArr = e.target.value.split('/');
+export const setStartDate = date => {
+  const dateArr = date.split('/');
   for (let i = 0; i < dateArr.length; i++) {
     if (dateArr[i][0] === '0') {
       dateArr[i] = dateArr[i].slice(1, 2);

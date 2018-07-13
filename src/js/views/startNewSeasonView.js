@@ -1,3 +1,4 @@
+import { setStartDate } from "../models/mapDates";
 
 export const startNewSeasonView = () => {
   $('.app-container').append(`
@@ -13,6 +14,20 @@ export const startNewSeasonView = () => {
   `);
 
   $('#datepicker').datepicker();
+  const formatNb = nb => {
+    if (nb.toString().length === 1) {
+      return `0${nb}`
+    } else {
+      return nb;
+    };
+  };
+  const date = new Date();
+  const day = formatNb(date.getDate());
+  const month = formatNb(date.getMonth() + 1);
+  const year = date.getFullYear();
+  $('#datepicker').val(`${month}/${day}/${year}`);
+  setStartDate(`${month}/${day}/${year}`);
+
 };
 
 export const templatesView = () => {

@@ -48,7 +48,7 @@ $('.app-container').on('submit', '#signupForm', e => {
 // NEW SEASON UI CONTROLLER
 // Change starting date input to select starting date
 $('.app-container').on('change', '#datepicker', e => {
-  setStartDate(e);
+  setStartDate(e.target.value);
 });
 // Click ok to select the starting date of the template and move on
 $('.app-container').on('click', '#btnStartDateOk', e => {
