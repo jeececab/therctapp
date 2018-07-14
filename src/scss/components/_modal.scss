@@ -6,6 +6,7 @@
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 2;
 }
 
 .modal {
@@ -26,17 +27,7 @@
   margin: 0 auto;
   text-align: center;
   width: 95%;
-  &::-webkit-scrollbar {
-    width: 0.5em;
-  }
-  &::-webkit-scrollbar-track {
-    background-color: $black;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.6);
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: $gray;
-    outline: 1px solid $accent;
-  }
+  @include scrollbar--small;
 }
 
 .modal__close-btn {

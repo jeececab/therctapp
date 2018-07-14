@@ -60,7 +60,7 @@
 
 .btn--quat {
   background: transparent;
-  border: 0.095em solid $white;
+  border: 0.0625em solid $lightgray;
   color: $font-light;
   font-weight: $medium;
   padding: 0 0.7em;
@@ -70,13 +70,18 @@
   }
 }
 
+.btn--accent {
+  border: 0.095em solid $accent;
+  color: $font-accent;
+}
+
 .btn--corner {
   display: none;
   margin: 0;
   position: absolute;
   top: 0.7em;
   right: 0.7em;
-  z-index: 3;
+  z-index: 1;
   @media (min-width: 42em) {
     display: block;
   }
@@ -85,7 +90,7 @@
 .btn--bottom {
   display: block;
   margin: 0 auto 1.5em auto;
-  z-index: 3;
+  z-index: 1;
   @media (min-width: 42em) {
     display: none;
   }

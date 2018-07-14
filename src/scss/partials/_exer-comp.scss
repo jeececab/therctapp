@@ -4,7 +4,7 @@
   margin: 0.3em 0;
 }
 
-.logged-route, .logged-boulder {
+.logged-route, .logged-boulder, .logged-long-set {
   background: $black;
   border: 1px solid $gray;
   margin: 0 0 0.75em 0;
@@ -34,17 +34,14 @@
 }
 
 .route__notes, .boulder__notes {
-  box-sizing: border-box;
-  resize: none;
-  min-height: 6em;
-  width: 100%;
+  min-height: 4em;
 }
 
-.logged-route__btns, .logged-boulder__btns {
+.logged-route__btns, .logged-boulder__btns, .long-set__btns {
   grid-template-columns: auto;
-  grid-gap: 0.5em;
+  grid-gap: 0.6em;
   justify-content: center;
-  padding-top: 0.5em;
+  padding-top: 0.6em;
   button {
     width: 11.15em;
   }
@@ -59,7 +56,7 @@
 .timer {
   background: $black;
   border: 1px solid $white;
-  margin: 0.5em 0 1em 0;
+  margin: 0.5em 0 0.7em 0;
   max-width: 18em;
   padding-bottom: 1.3em;
   position: relative;
@@ -166,4 +163,68 @@
 .counter__resume {
   border: 0.095em solid $accent;
   color: $font-accent;
+}
+
+// Long Set Adder
+
+.long-set__left-col {
+  padding-right: 0.6em;
+}
+
+.long-set__title {
+  margin: 0 0 0.25em 0;
+  text-align: center;
+}
+
+.long-set__inputs {
+  grid-template-columns: auto 1fr;
+  margin-bottom: 0.6em;
+}
+
+.long-set__duration {
+  display: block;
+  margin: 0 auto;
+  width: 3.2em;
+}
+
+.long-set__add-skill {
+  grid-gap: 0.5em;
+  margin: 0 auto;
+  text-align: left;
+  @media (min-width: 25.5em) {
+    grid-template-columns: auto auto;
+  }
+}
+
+.long-set__skill-select {
+  width: 11.25em;
+}
+
+.skill {
+  background: $black;
+  border: 1px solid $white;
+  color: $font-light;
+  margin: 0 auto 0.6em auto;
+  position: relative;
+  width: 100%;
+}
+
+.skill__header {
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  &:hover {
+    background: lighten($black, 4);
+  }
+}
+
+.skill__title {
+  margin: 0;
+  padding: 0.5em;
+  text-align: center;
+}
+
+.skill__content {
+  display: none;
+  padding: 0.4em;
 }

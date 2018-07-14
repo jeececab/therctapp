@@ -34,6 +34,16 @@ export const getExerciseList = phase => {
   return array;
 };
 
+export const getSkillList = () => {
+  let array = [];
+  exercisesList.forEach(el => {
+    if (el.type.includes("skill")) {
+      array.push(el);
+    };
+  });
+  return array;
+}
+
 // Takes an ID and cycles through exercisesList to return the title of the corresponding exercise
 export const formatExerName = (id)  => {
   let title;

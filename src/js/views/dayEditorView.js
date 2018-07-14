@@ -51,7 +51,7 @@ export const displayPhaseTitle = () => {
   `);
 };
 
-export const displayExerSelection = () => {
+export const displaySelectedExer = () => {
   $('.edit-day__exer-list').empty();
   editorData.exercisesList.forEach(el => {
     $('.edit-day__exer-list').append(`
@@ -60,10 +60,8 @@ export const displayExerSelection = () => {
   });
 };
 
-export const exerSelectionView = () => {
-
+export const exerOptionsView = () => {
   $('.edit-day__exer').empty();
-
   if (editorData.phase !== 'rest') {
     $('.edit-day__exer').append(`
       <label for="edit-day__exer-inputs"><h3>Phase exercise: </h3></label>
@@ -74,7 +72,6 @@ export const exerSelectionView = () => {
       </div>
     `);
   };
-
   $('.edit-day__exer').append(`
     <label for="edit-day__secExer-inputs"><h3>Other exercise: </h3></label>
     <div>
@@ -83,11 +80,10 @@ export const exerSelectionView = () => {
       <button class="btnAddSecExer btn btn--primary btn--small-p">Add</button>
     </div>
   `);
-
   getExerciseList(editorData.phase).forEach(el => {
     if (el.type.includes(`${editorData.phase}-p`)) {
       $('#edit-day__exer-inputs').append(`
-        <option  value="${el.id}" title="${el.directives}">${el.title}</option>
+        <option value="${el.id}" title="${el.directives}">${el.title}</option>
       `);
     } else if (el.type.includes(`${editorData.phase}-s`)) {
       $('#edit-day__secExer-inputs').append(`

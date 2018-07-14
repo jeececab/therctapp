@@ -1,0 +1,20 @@
+.arrow {
+  border-left: 0.45em solid $white;
+  border-top: 0.45em solid transparent;
+  border-bottom: 0.45em solid transparent;
+  cursor: pointer;
+  display: inline-block;
+  height: 0;
+  position: absolute;
+  right: 0.6em;
+  top: 0.7em;
+  transition: 125ms;
+  width: 0;
+  &:focus {
+    outline: none;
+  }
+}
+
+.arrow--down {
+  transform: rotate(90deg);
+}

@@ -27,7 +27,6 @@ export const dayPlanView = day => {
       exercisesTodosView(day);
     };
 
-
     modal();
   };
 };

@@ -21,6 +21,11 @@ body {
   }
 }
 
+form {
+  margin: 0;
+  padding: 0;
+}
+
 input, select, option {
   margin: 0;
 }
@@ -39,6 +44,13 @@ li {
   line-height: 1.4;
   list-style: square;
   text-align: left;
+}
+
+textarea {
+  box-sizing: border-box;
+  resize: none;
+  width: 100%;
+  @include scrollbar--small;
 }
 
 .noselect {

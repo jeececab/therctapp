@@ -9,7 +9,7 @@ import { planTemplate } from './models/planTemplate';
 import { setStartDate, mapDates } from './models/mapDates';
 import { dayPlanView } from './views/dayPlanView';
 import { exerciseView } from './views/exerciseView';
-import { dayEditorView, displayPhaseTitle, exerSelectionView, displayExerSelection } from './views/dayEditorView';
+import { dayEditorView, displayPhaseTitle, exerOptionsView, displaySelectedExer } from './views/dayEditorView';
 import { initEditorData, storeEditorPhase, selectEditorExer, selectEditorSecExer, addExercise, addSecExercise, deleteExercise, saveDayPlan 
 } from './models/dayEditor';
 import { saveUserData, importUserData } from './models/userData';
@@ -51,7 +51,7 @@ $('.app-container').on('change', '#datepicker', e => {
   setStartDate(e.target.value);
 });
 // Click ok to select the starting date of the template and move on
-$('.app-container').on('click', '#btnStartDateOk', e => {
+$('.app-container').on('click', '#btnStartDateOk', () => {
   templatesView();
 });
 
@@ -112,8 +112,8 @@ $('.app-container').on('change', '#edit-day__phase-inputs', e => {
 // Click OK to set the phase
 $('.app-container').on('click', '#btnPhaseOk', () => {
   displayPhaseTitle();
-  displayExerSelection();
-  exerSelectionView();
+  displaySelectedExer();
+  exerOptionsView();
 });
 // Change the exercise based on the value of the selection menu
 $('.app-container').on('change', '#edit-day__exer-inputs', e => {
@@ -122,7 +122,7 @@ $('.app-container').on('change', '#edit-day__exer-inputs', e => {
 // Select exercise and press add to add phase exercise
 $('.app-container').on('click', '.btnAddExer', () => {
   addExercise();
-  displayExerSelection();
+  displaySelectedExer();
 });
 // Change the secondary exercise based on the value of the selection menu
 $('.app-container').on('change', '#edit-day__secExer-inputs', e => {
@@ -131,13 +131,13 @@ $('.app-container').on('change', '#edit-day__secExer-inputs', e => {
 // Select sec exercise and press add to add secondary(optional, add-on, etc) exercise
 $('.app-container').on('click', '.btnAddSecExer', () => {
   addSecExercise();
-  displayExerSelection();
+  displaySelectedExer();
 });
 // Click on the (remove) link next to an exercise to delete it
 $('.app-container').on('click', '.edit-day__delete-exer', e => {
   const exer = e.target.id.slice(7);
   deleteExercise(exer);
-  displayExerSelection();
+  displaySelectedExer();
 });
 // Click "save" to update and save season data
 $('.app-container').on('click', '.btnSaveDay', e => {

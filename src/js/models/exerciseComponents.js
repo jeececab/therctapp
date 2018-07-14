@@ -1,5 +1,6 @@
 import { currentUser } from '../index';
 import { saveUserData } from './userData';
+import { getSkillList, exerIDtoObj } from './exercisesList';
 
 const routeAdder = {
   id: 'routeAdder',
@@ -372,7 +373,170 @@ const timer = {
   }
 };
 
-const componentsList = [routeAdder, boulderAdder, timer];
+const longSetAdder = {
+  id: 'longSetAdder',
+  componentNb: 0,
+  skillNb: 0,
+  loggedLongSet: id => {return `
+    <div id="${id}" class="logged-long-set">
+      <div class="long-set__inputs grid">
+        <div class="long-set__left-col">
+          <h2 class="long-set__title">Set 1</h2>
+          <label>Duration</label>
+          <input class="long-set__duration" type="text" name="duration" placeholder="0 min">
+        </div>
+        <textarea class="long-set__notes" name="long-set__notes" placeholder="Notes"></textarea>
+      </div>
+      <div class="long-set__skills"></div>
+      <div class="long-set__add-skill grid grid--2-col">
+        <label for="long-set__skill-select">Skill drill:</label>
+        <div>
+          <select class="long-set__skill-select"></select>
+          <button class="btnAddSkill btn btn--primary btn--small-p">Add</button>
+        </div>
+      </div>
+      <div class="long-set__btns grid">
+        <button class="btn btn--quat btnSave">Save modifications</button>
+        <button class="btn btn--quat btnDelete">Delete set</button>
+      </div>
+    </div>`;
+  },
+  updateSetTitle: () => {
+    $('.logged-long-set').each((i, obj) => {
+      $(`#${obj.id} .long-set__title`).html(`Set ${i + 1}`);
+    });
+  },
+  displaySkillOptions: () => {
+    $('.long-set__skill-select').empty();
+    $('.logged-long-set').each((i, obj) => {
+      getSkillList().forEach(el => {
+        $(`#${obj.id} .long-set__skill-select`).append(`
+            <option value="${el.id}" title="${el.directives}">${el.title}</option>
+        `);
+      });
+    });
+  },
+  displaySkillTodo: (componentID, skillID) => {
+    const skill = exerIDtoObj(skillID);
+    $(`#${componentID} .long-set__skills`).append(`
+      <div id="${longSetAdder.skillNb}-${skillID}" class="skill">
+        <div class="skill__header">
+          <h3 class="skill__title">${skill.title}</h3>
+          <div class="skill__arrow arrow"></div>
+        </div>
+        <div class="skill__content">
+          <p>${skill.directives}</p>
+        </div>
+      </div>
+    `);
+    longSetAdder.skillNb++;
+  },
+  UIhtml: (day, exerciseID) => {
+    let html = '';
+    const exerDataArr = day.exercises[exerciseID.split('-')[0]].exerData;
+    if (exerDataArr.length >= 1) {
+      exerDataArr.forEach(el => {
+        html += longSetAdder.loggedLongSet(el.id);
+      });
+    };
+    longSetAdder.updateSetTitle();
+    html += '<button class="longSetAdder btn btn--secondary btn--auto">Add set</button>';
+    return html;
+  },
+  mapComponentData: (day, exerciseID) => {
+    const exerDataArr = day.exercises[exerciseID.split('-')[0]].exerData;
+    if (exerDataArr.length >= 1) {
+      exerDataArr.forEach(el => {
+
+        const componentID = el.id;
+        const duration = el.compData[0];
+        const notes = el.compData[1];
+        const skillsArr = el.compData[2];
+
+        $(`#${el.id} .long-set__duration`).val(duration);
+        $(`#${el.id} .long-set__notes`).val(notes);
+
+        skillsArr.forEach(el => {
+          longSetAdder.displaySkillTodo(componentID, el);
+        });
+
+      });
+    };
+    longSetAdder.updateSetTitle();
+    longSetAdder.displaySkillOptions();
+  },
+  setupHandlers: (day, exerciseID) => {
+    longSetAdder.componentNb = day.exercises[exerciseID.split('-')[0]].exerData.length;
+    const exerciseNb = exerciseID.split('-')[0];
+    // 1 - Add a route and save it (default)
+    $(`#${exerciseID} .longSetAdder`).click(() => {
+      $(`#${exerciseID} .longSetAdder`).before(longSetAdder.loggedLongSet(`${longSetAdder.componentNb}-loggedLongSet`));
+      day.exercises[exerciseNb].exerData.push({
+        id: `${longSetAdder.componentNb}-loggedLongSet`,
+        compData: ["", "", []]
+      });
+      longSetAdder.componentNb++;
+      longSetAdder.updateSetTitle();
+      longSetAdder.displaySkillOptions();
+      saveUserData(currentUser);
+    });
+
+    // 2 -  Select and add a skill to set and save it
+    let selectedSkill = getSkillList()[0].id;
+    $(`#${exerciseID}`).on('change', '.long-set__skill-select', e => {
+      selectedSkill = e.target.value;
+    });
+
+    $(`#${exerciseID}`).on('click', '.btnAddSkill', e => {
+      const componentID = e.target.parentNode.parentNode.parentNode.id;
+      day.exercises[exerciseNb].exerData.forEach(el => {
+        if (el.id === componentID) {
+          el.compData[2].push(selectedSkill);
+        };
+      });
+      longSetAdder.displaySkillTodo(componentID, selectedSkill);
+    });
+
+    // 3 Click on skill header to deploy skill content
+    $(`#${exerciseID}`).on('click', '.skill__header', e => {
+      const id = $(e.target).parents('div')[1].id;
+      $(`#${id} .skill__content`).toggle('fast');
+      $(`#${id} .skill__arrow`).toggleClass('arrow--down');
+    });
+
+    // 4 - Save to exerData 
+    $(`#${exerciseID}`).on('click', '.btnSave', e => {
+      const componentID = e.target.parentNode.parentNode.id;
+      const duration = $(`#${componentID} .long-set__duration`).val();
+      const notes = $(`#${componentID} .long-set__notes`).val();
+      day.exercises[exerciseNb].exerData.forEach(el => {
+        if (el.id === componentID) {
+          el.compData[0] = duration;
+          el.compData[1] = notes;
+        };
+      });
+      saveUserData(currentUser);
+      alert('Modifications saved');
+    });
+
+    // 5 - Delete route
+    $(`#${exerciseID}`).on('click', '.btnDelete', e => {
+      const componentID = e.target.parentNode.parentNode.id;
+      day.exercises[exerciseNb].exerData.forEach(el => {
+        if (el.id === componentID) {
+          const index = day.exercises[exerciseNb].exerData.indexOf(el);
+          day.exercises[exerciseNb].exerData.splice(index, 1);
+          $(`#${exerciseID} #${componentID}`).remove();
+        };
+      });
+      longSetAdder.updateSetTitle();
+    });
+  },
+};
+
+///
+
+const componentsList = [routeAdder, boulderAdder, timer, longSetAdder];
 
 export const componentIDtoObj = id => {
   let component;
