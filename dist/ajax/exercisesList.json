@@ -193,7 +193,7 @@
   },
 
   {
-    "components" : [],
+    "components" : [ "timer", "longSetAdder" ],
     "directives" : "Perform traverses at your MSS (maximum steady state) for 20-45 minutes straight. Up to two sets of at least 15 minutes can be completed. Choose vertical to slightly overhanging terrain. The goal is not to pump off the wall. This exercise mainly serves as a warm-up for strength and power workouts.",
     "id" : "lowIntensityArc",
     "title" : "Low-intensity ARC",
@@ -201,7 +201,7 @@
   },
 
   {
-    "components" : [],
+    "components" : [ "timer", "hangboardRoutine" ],
     "directives" : "Use two arms &quot;dead hangs&quot; with each arm on the same size and type of grip for a given set. Elbows and shoulders should be slightly bent. The Beginner Hangboard Routine should include one set each of eight to ten different grip positions. The following are recommended: warm-up jugs, large edge, medium edge, wide pinch, medium pinch, sloper, index-middle-ring (IMR) deep three-finger pocket, middle-ring-pinky (MRP) deep three-finger pocket, middle-ring (MR) deep two-finger pocket.",
     "id" : "beginnerHangboard",
     "title" : "Beginner Hangboard",
@@ -209,7 +209,7 @@
   },
 
   {
-    "components" : [],
+    "components" : [ "timer", "hangboardRoutine"  ],
     "directives" : "Use two arms &quot;dead hangs&quot; with each arm on the same size and type of grip for a given set. Elbows and shoulders should be slightly bent. The Intermediate Hangboard Routine should include two sets each of five to six of the following different grip positions: warm-up sloper, medium open-hand edge, small semi-closed edge, MR shallow two-finger pocket, index-middle (IM) deep two-finger pocket, IMR or MRP deep three-finger pocket, pinch.",
     "id" : "intermediateHangboard",
     "title" : "Intermediate Hangboard",
@@ -217,7 +217,7 @@
   },
 
   {
-    "components" : [],
+    "components" : [ "timer", "hangboardRoutine"  ],
     "directives" : "Use two arms &quot;dead hangs&quot; with each arm on the same size and type of grip for a given set. Elbows and shoulders should be slightly bent. The Advanced Hangboard Routine should include three sets each of six or seven different grip positions. Start with the grips listed for the Intermediate Hangboard Routine, but consider replacing some of the larger grips with more advanced grips such as: middle one-finger pocket (1F), additional pinch grips (or different width), closed crimp (very carefully).",
     "id" : "advancedHangboard",
     "title" : "Advanced Hangboard",

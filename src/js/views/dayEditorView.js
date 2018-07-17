@@ -40,15 +40,17 @@ export const dayEditorView = day => {
   `);
 
   // Display day data if there is any
-  $('#edit-day__phase-inputs').val(day.phase);
+  if (day.phase === 'empty') {
+    $('#edit-day__phase-inputs').val('base');
+  } else {
+    $('#edit-day__phase-inputs').val(day.phase);
+  };
+  
 };
 
 export const displayPhaseTitle = () => {
   $('.edit-day__phase').remove();
-  $('.edit h4').remove();
-  $('.edit').prepend(`
-    <h4>${formatPhaseTitle(editorData.phase)}</h4>
-  `);
+  $('.dayplan__h2').replaceWith(`<h2 class="dayplan__h2">${formatPhaseTitle(editorData.phase)}</h4>`);
 };
 
 export const displaySelectedExer = () => {

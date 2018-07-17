@@ -11,7 +11,11 @@ export const editorData = {
 
 export const initEditorData = day => {
   editorData.day = day.day;
-  editorData.phase = day.phase;
+  if (day.phase === 'empty') {
+    editorData.phase = 'base';
+  } else {
+    editorData.phase = day.phase;
+  };
   editorData.exercise = "";
   editorData.secExercise = "";
   editorData.exercisesList = [];

@@ -44,6 +44,8 @@ export const formatPhaseTitle = phase => {
     return 'Performance Phase';
   } else if (phase === 'rest') {
     return 'Rest Phase';
+  } else if (phase === 'empty') {
+    return ''
   };
 };
 

@@ -1,15 +1,37 @@
+// Global exercises components styles
+
+.ex-comp__background {
+  background: $black;
+  border: 1px solid $gray;
+  margin: 0.75em 0 0 0;
+  padding: 0.6em;
+  width: 100%;
+}
+
+.ex-comp__window {
+  background: $blue;
+  border: 1px solid $gray;
+  margin: 0.75em 0 0 0;
+  padding: 0.6em;
+}
+
+.ex-comp__2-btns {
+  grid-template-columns: auto;
+  grid-gap: 0.6em;
+  justify-content: center;
+  padding-top: 0.6em;
+  button {
+    width: 11.15em;
+  }
+  @media (min-width: 30.5em) {
+    grid-template-columns: auto auto;
+  }
+}
+
 // Route Adder and Boulder Adder
 
 .routeAdder, .boulderAdder {
   margin: 0.3em 0;
-}
-
-.logged-route, .logged-boulder, .logged-long-set {
-  background: $black;
-  border: 1px solid $gray;
-  margin: 0 0 0.75em 0;
-  padding: 0.6em;
-  width: 100%;
 }
 
 .logged-route__inputs, .logged-boulder__inputs {
@@ -37,30 +59,21 @@
   min-height: 4em;
 }
 
-.logged-route__btns, .logged-boulder__btns, .long-set__btns {
-  grid-template-columns: auto;
-  grid-gap: 0.6em;
-  justify-content: center;
-  padding-top: 0.6em;
-  button {
-    width: 11.15em;
-  }
-  @media (min-width: 30.5em) {
-    grid-template-columns: auto auto;
-  }
-}
-
 
 // Timer
 
 .timer {
   background: $black;
   border: 1px solid $white;
-  margin: 0.5em 0 0.7em 0;
+  margin: 0.5em 0 0 0;
   max-width: 18em;
   padding-bottom: 1.3em;
   position: relative;
   width: 95%;
+}
+
+.timer__title {
+  margin-top: 0.75em;
 }
 
 .set-timer {
@@ -200,6 +213,10 @@
   width: 11.25em;
 }
 
+.longSetAdder, .routeAdder {
+  margin: 0.6em 0 0 0;
+}
+
 .skill {
   background: $black;
   border: 1px solid $white;
@@ -227,4 +244,87 @@
 .skill__content {
   display: none;
   padding: 0.4em;
+}
+
+// Hangboard routine
+
+.saveHBbtn {
+  margin-top: 0.6em;
+}
+
+.hangboard__title {
+  margin: 0.4em 0 0.25em 0;
+}
+
+.hangboard__settings {
+  text-align: left;
+  p {
+    display: flex;
+    flex-flow: column;
+    margin: 0;
+    @media (min-width: 22.8em) {
+      display: block;
+    }
+  }
+  p:nth-child(2) {
+    margin-top: 0.6em;
+  }
+}
+
+.hangboard__settings-rep {
+  width: 8.7em;
+}
+
+.hangboard__settings-rest {
+  width: 2.5em;
+}
+
+.hangboard-set__top {
+  margin-bottom: 0.6em;
+  @media (min-width: 24.8em) {
+    text-align: left;
+  }
+}
+
+.hangboard-set__bot {
+  grid-gap: 0.6em;
+  grid-template-columns: auto;
+  text-align: left;
+  @media (min-width: 21.4em) {
+    grid-template-columns: auto auto;
+  }
+  @media (min-width: 27.3em) {
+    grid-template-columns: auto auto auto;
+  }
+}
+
+.hangboard-set__title {
+  display: inline-block;
+  margin: 0 0.4em 0.4em 0.4em;
+}
+
+.hangboard__set-reps {
+  width: 2em;
+}
+
+.hangboard__set-resis {
+  width: 4em;
+}
+
+.hangboard__set-check {
+  cursor: pointer;
+  color: $background;
+  font-size: 1rem;
+  text-align: center;
+  display: inline-block;
+  background: $white;
+  height: 1em;
+  width: 1em;
+}
+
+.hangboard-set__bot-c {
+  grid-gap: 0.2em;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  align-items: center;
 }

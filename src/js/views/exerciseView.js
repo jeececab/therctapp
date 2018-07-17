@@ -8,11 +8,9 @@ export const exerciseView = (id) => {
 
 export const exercisesTodosView = day => {
   day.exercises.forEach(el => {
- 
     const exercise = exerIDtoObj(el.id);
     const exerciseNb = day.exercises.indexOf(el);
     const exerciseID = `${exerciseNb}-${exercise.id}`
-
     $('.day-plan__exer-list').append(`
       <div id="${exerciseID}" class="exercise">
         <div class="exercise__header">
@@ -25,24 +23,19 @@ export const exercisesTodosView = day => {
         </div>
       </div>
     `);
-
     // Changes style of phase exercise (vs secondary one)
     exercise.type.forEach(el => {
-      const phase = el.split('-')[0];
-      const type = el.split('-')[1];
-      if (type === 'p') {
-        $('.exercise__header').addClass(`exercise__header-${phase}`);
+      if (el === `${day.phase}-p`) {
+        $(`#${exerciseID}`).addClass(`exercise__header-${day.phase}`);
       };
     });
-
     // Load exercises components
     exercise.components.forEach(el => {
       const component = componentIDtoObj(el);
       $(`#${exerciseID} .exercise__components`).append(`${component.UIhtml(day, exerciseID)}`);
-      component.setupHandlers(day, exerciseID);
       component.mapComponentData(day, exerciseID);
+      component.setupHandlers(day, exerciseID);
     });
-
   });
 };
 

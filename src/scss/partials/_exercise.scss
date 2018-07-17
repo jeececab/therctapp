@@ -1,7 +1,6 @@
 .exercise {
   background: $blue;
   border: 1px solid $white;
-  border-left: 0.5em solid $accent;
   color: $font-light;
   margin-bottom: 1em;
   position: relative;
@@ -15,6 +14,30 @@
   &:hover {
     background: lighten($blue, 4);
   }
+}
+
+.exercise__header-rest {
+  border-left: 0.5em solid $rest;
+}
+
+.exercise__header-base {
+  border-left: 0.5em solid $base;
+}
+
+.exercise__header-strength {
+  border-left: 0.5em solid $strength;
+}
+
+.exercise__header-power {
+  border-left: 0.5em solid $power;
+}
+
+.exercise__header-endur {
+  border-left: 0.5em solid $endur;
+}
+
+.exercise__header-perf {
+  border-left: 0.5em solid $perf;
 }
 
 .exercise__title {

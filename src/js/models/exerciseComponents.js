@@ -6,7 +6,7 @@ const routeAdder = {
   id: 'routeAdder',
   componentNb: 0,
   loggedRoute: id => {return `
-    <div id="${id}" class="logged-route">
+    <div id="${id}" class="logged-route ex-comp__background">
       <form class="loggedRouteForm">
         <div class="logged-route__inputs grid">
           <input type="text" name="route__name" class="route__name" placeholder="Route Name">
@@ -20,7 +20,7 @@ const routeAdder = {
           </select>
         </div>
         <textarea class="route__notes" name="route__notes" placeholder="Notes"></textarea>
-        <div class="logged-route__btns grid">
+        <div class="logged-route__btns ex-comp__2-btns grid">
           <button type="submit" class="btn btn--quat">Save modifications</button>
           <button class="btn btn--quat btnDelete">Delete route</button>
         </div>
@@ -103,11 +103,11 @@ const boulderAdder = {
   id: 'boulderAdder',
   componentNb: 0,
   loggedBoulder: id => {return `
-    <div id="${id}" class="logged-boulder">
+    <div id="${id}" class="logged-boulder ex-comp__background">
       <form class="loggedBoulderForm">
         <div class="logged-boulder__inputs grid">
           <input type="text" name="boulder__name" class="boulder__name" placeholder="Boulder Name">
-          <input type="text" name="boulder__grade" class="boulder__grade" placeholder="Grade">
+          <label type="text" name="boulder__grade" class="boulder__grade" placeholder="Grade">
           <select class="boulder__status" name="boulder__status">
             <option value="Not tried yet">Not tried yet</option>
             <option value="Onsight">Onsight</option>
@@ -117,7 +117,7 @@ const boulderAdder = {
           </select>
         </div>
         <textarea class="boulder__notes" name="boulder__notes" placeholder="Notes"></textarea>
-        <div class="logged-boulder__btns grid">
+        <div class="logged-boulder__btns ex-comp__2-btns grid">
           <button type="submit" class="btn btn--quat">Save modifications</button>
           <button class="btn btn--quat btnDelete">Delete boulder</button>
         </div>
@@ -195,7 +195,7 @@ const boulderAdder = {
 const timer = {
   id: 'timer',
   componentNb: 0,
-  UIhtml: (day, exerciseID) => {
+  UIhtml: () => {
     return `
       <div class="timer flex-center">
         <h2 class="timer__title">Timer</h2>
@@ -378,12 +378,12 @@ const longSetAdder = {
   componentNb: 0,
   skillNb: 0,
   loggedLongSet: id => {return `
-    <div id="${id}" class="logged-long-set">
+    <div id="${id}" class="logged-long-set ex-comp__background">
       <div class="long-set__inputs grid">
         <div class="long-set__left-col">
           <h2 class="long-set__title">Set 1</h2>
           <label>Duration</label>
-          <input class="long-set__duration" type="text" name="duration" placeholder="0 min">
+          <label class="long-set__duration" type="text" name="duration" placeholder="0 min">
         </div>
         <textarea class="long-set__notes" name="long-set__notes" placeholder="Notes"></textarea>
       </div>
@@ -395,7 +395,7 @@ const longSetAdder = {
           <button class="btnAddSkill btn btn--primary btn--small-p">Add</button>
         </div>
       </div>
-      <div class="long-set__btns grid">
+      <div class="long-set__btns grid ex-comp__2-btns">
         <button class="btn btn--quat btnSave">Save modifications</button>
         <button class="btn btn--quat btnDelete">Delete set</button>
       </div>
@@ -447,19 +447,17 @@ const longSetAdder = {
     const exerDataArr = day.exercises[exerciseID.split('-')[0]].exerData;
     if (exerDataArr.length >= 1) {
       exerDataArr.forEach(el => {
-
         const componentID = el.id;
         const duration = el.compData[0];
         const notes = el.compData[1];
         const skillsArr = el.compData[2];
-
         $(`#${el.id} .long-set__duration`).val(duration);
         $(`#${el.id} .long-set__notes`).val(notes);
-
-        skillsArr.forEach(el => {
-          longSetAdder.displaySkillTodo(componentID, el);
-        });
-
+        if (skillsArr) {
+          skillsArr.forEach(el => {
+            longSetAdder.displaySkillTodo(componentID, el);
+          });
+        };      
       });
     };
     longSetAdder.updateSetTitle();
@@ -480,10 +478,9 @@ const longSetAdder = {
       longSetAdder.displaySkillOptions();
       saveUserData(currentUser);
     });
-
     // 2 -  Select and add a skill to set and save it
     let selectedSkill = getSkillList()[0].id;
-    $(`#${exerciseID}`).on('change', '.long-set__skill-select', e => {
+    $('.exercise__components').on('change', '.long-set__skill-select', e => {
       selectedSkill = e.target.value;
     });
 
@@ -496,14 +493,12 @@ const longSetAdder = {
       });
       longSetAdder.displaySkillTodo(componentID, selectedSkill);
     });
-
     // 3 Click on skill header to deploy skill content
     $(`#${exerciseID}`).on('click', '.skill__header', e => {
       const id = $(e.target).parents('div')[1].id;
       $(`#${id} .skill__content`).toggle('fast');
       $(`#${id} .skill__arrow`).toggleClass('arrow--down');
     });
-
     // 4 - Save to exerData 
     $(`#${exerciseID}`).on('click', '.btnSave', e => {
       const componentID = e.target.parentNode.parentNode.id;
@@ -518,7 +513,6 @@ const longSetAdder = {
       saveUserData(currentUser);
       alert('Modifications saved');
     });
-
     // 5 - Delete route
     $(`#${exerciseID}`).on('click', '.btnDelete', e => {
       const componentID = e.target.parentNode.parentNode.id;
@@ -534,9 +528,148 @@ const longSetAdder = {
   },
 };
 
+const hangboardRoutine = {
+  id: 'hangboardRoutine',
+  loggedHBset: (setID, grip, reps, resis, check) => {return `
+    <div id="${setID}" class="hangboard-set ex-comp__window">
+      <div class="hangboard-set__top">
+        <h3 class="hangboard-set__title">Set ${parseInt(setID.split('-')[0]) + 1}</h3>
+        <select class="hangboard-set__grip-select" name="hangboard-set__grip-select" value="${grip}">
+          <option value="IM deep 2F pocket">IM deep 2F pocket</option>
+          <option value="IMR deep 3F pocket">IMR deep 3F pocket</option>
+          <option value="Large edge>Large edge</option>
+          <option value="Large open-hand edge">Large open-hand edge</option>
+          <option value="Medium edge">Medium edge</option>
+          <option value="Medium pinch">Medium pinch</option>
+          <option value="Middle 1F pocket">Middle 1F pocket</option>
+          <option value="MR deep 2F pocket">MR deep 2F pocket</option>
+          <option value="MR shallow 2F pocket">MR shallow 2F pocket</option>
+          <option value="MRP deep 3F pocket">MRP deep 3F pocket</option>
+          <option value="Narrow pinch">Narrow pinch</option>
+          <option value="Sloper">Sloper</option>
+          <option value="Small semi-closed edge">Small semi-closed edge</option>
+          <option value="Warm-up jug">Warm-up jug</option>
+          <option value="Warm-up open-hand edge">Warm-up open-hand edge</option>
+          <option value="Wide pinch">Wide pinch</option>
+        </select>
+      </div>
+      <div class="hangboard-set__bot grid">
+        <div>
+          <label>Reps:</label>
+          <input class="hangboard__set-reps" type="text" name="reps" placeholder="0" value="${reps}">
+        </div>
+        <div>
+          <label>Resis.:</label>
+          <input class="hangboard__set-resis" type="text" name="resistance" placeholder="base" value="${resis}">
+        </div>
+        <div class="hangboard-set__bot-c grid">
+          <label>Done:</label>
+          <div class="hangboard__set-check">${check}</div>
+        </div>
+      </div>
+    </div>
+  `},
+  UIhtml: () => {
+    let html = `
+      <div class="hangboard ex-comp__background flex-center">
+        <h2 class="hangboard__title">Hangboard Routine</h2>
+        <div class="hangboard__settings ex-comp__window">
+          <p>
+            <label>Rep timing:</label>
+            <input class="hangboard__settings-rep" type="text" name="timing" placeholder="10s hang / 10s rest">
+          </p>
+          <p>
+            <label>Rest between sets:</label>
+            <input class="hangboard__settings-rest" type="text" name="rest" placeholder="3:00">
+          </p>
+        </div>
+        <div class="hangboard__sets-list"></div>
+        <div class="hangboard__btns grid ex-comp__2-btns">
+          <button class="btn btn--quat addSetBtn">Add set</button>
+          <button class="btn btn--quat removeSetBtn">Remove last set</button>
+        </div>
+        <button class="btn btn--quat btn--accent saveHBbtn">Save modifications</button>
+      </div>
+    `;
+    return html;
+  },
+  mapComponentData: (day, exerciseID) => {
+    const exerData = day.exercises[exerciseID.split('-')[0]].exerData
+    if (exerData.length >= 1) {
+      $(`#${exerciseID} .hangboard__settings-rep`).val(exerData[0]);
+      $(`#${exerciseID} .hangboard__settings-rest`).val(exerData[1]);
+      exerData[2].forEach(el => {
+        $(`#${exerciseID} .hangboard__sets-list`).append(hangboardRoutine.loggedHBset(
+          el.setID, el.grip, el.reps, el.resis, hangboardRoutine.checkedFormat(el.checked)
+        ));
+      });
+    } else {
+      exerData.push('', '', []);
+    };
+  },
+  checkedFormat: setCheck => {
+    if (setCheck === true) {
+      return '✔';
+    } else if (setCheck === false) {
+      return '';
+    };
+  },
+  setupHandlers: (day, exerciseID) => {
+    const exerData = day.exercises[exerciseID.split('-')[0]].exerData;
+    const setsArr = exerData[2];
+    //1 - Add a set and save it
+    $(`#${exerciseID} .addSetBtn`).click(() => {
+      const defaultSet = [`${setsArr.length}-loggedHBset`, 'IM deep 2F pocket', '', '', false];
+      setsArr.push({
+          setID: defaultSet[0],
+          grip: defaultSet[1],
+          reps: defaultSet[2],
+          resis: defaultSet[3],
+          checked: defaultSet[4]
+      });
+      $(`#${exerciseID} .hangboard__sets-list`).append(hangboardRoutine.loggedHBset(
+        defaultSet[0], defaultSet[1], defaultSet[2], defaultSet[3], ""
+      ));
+      saveUserData(currentUser);
+    });
+    // 2 - Remove the last set and save
+    $(`#${exerciseID} .removeSetBtn`).click(() => {
+      setsArr.pop();
+      $('.hangboard__sets-list .hangboard-set').last().remove();
+      saveUserData(currentUser);
+    });
+    // 3 - Click on "done"
+    $(`#${exerciseID}`).on('click', '.hangboard__set-check', e => {
+      const setID = e.target.parentNode.parentNode.parentNode.id;
+      const setNb = setID.split('-')[0];
+      let setCheck = !setsArr[setNb].checked;
+      $(`#${setID} .hangboard__set-check`).html(hangboardRoutine.checkedFormat(setCheck));
+      // setsArr[setNb].checked = !setsArr[setNb].checked;
+    });
+    // 4 - Save modifications
+    $(`#${exerciseID} .saveHBbtn`).click(() => {
+      exerData[0] = $('.hangboard__settings-rep').val();
+      exerData[1] = $('.hangboard__settings-rest').val();
+      
+      for (let i = 0; i < setsArr.length; i++) {
+        setsArr[i].grip = $(`#${i}-loggedHBset .hangboard-set__grip-select`).val();
+        setsArr[i].reps = $(`#${i}-loggedHBset .hangboard__set-reps`).val();
+        setsArr[i].resis = $(`#${i}-loggedHBset .hangboard__set-resis`).val();
+        if ($(`#${i}-loggedHBset .hangboard__set-check`).html() === '✔') {
+          setsArr[i].checked = true;
+        } else {
+          setsArr[i].checked = false;
+        };
+      };
+      saveUserData(currentUser);
+      alert('Modifications saved');
+    });
+  },
+};
+
 ///
 
-const componentsList = [routeAdder, boulderAdder, timer, longSetAdder];
+const componentsList = [routeAdder, boulderAdder, timer, longSetAdder, hangboardRoutine];
 
 export const componentIDtoObj = id => {
   let component;
