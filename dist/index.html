@@ -6,40 +6,42 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>The Rock Climber's Training App</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="style.css" rel="stylesheet"></head>
 <body>
-  <div class="navbar">
-     <h1 class="navbar__title"><span>The Rock Climber's</span> <span>Training App</span></h1>
-     <nav class="navbar__menu">
-       <ul>
-         <li><button class="navbar__menu__item--log logIn">Log in</button></li>
-       </ul>
-     </nav>
-  </div>
-
+  <button class="btn btn--tertiary btn--corner logIn">Log in</button>
+  
   <div class="app-container">
+    <div class="welcome grid">
+      <img class="welcome__img" src="./img/welcome-img.jpg" alt="Sonnie Trotter climbing the Totem Pole">
 
-    <div class="welcome container">
-      <h2>A guide to continuous improvement</h2>
+      <div class="welcome__content">
+        <div class="welcome__content-top container">
+          <h1>The Rock Climber's Training App</h1>
+          <h2>A tool for continuous improvement</h2>
+  
+          <p>The Rock Climber's Training App is an interactive calender designed to help you build, follow and log your training plan based on Michael L. Anderson and Mark L. Anderson's book: <a href="https://rockclimberstrainingmanual.com/" target="_blank">The Rock Climber's Training Manuel</a>.</p>
+  
+          <p>You can start by choosing one of the four  templates they suggest (novice, advanced, trad or bouldering) and then customize  it to your own needs. It's strongly recommended to buy the book, as our  app is not meant to explain the vast knowledge that is available in the book.</p>
+  
+          <div class="welcome__signup grid grid--2-col">
+            <button class="btn btn--primary signUp">Get started</button>
+            <button class="btn btn--secondary logIn">Log in</button>
+          </div>
+        </div>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio minima, beatae facilis temporibus alias adipisci ab suscipit id, aspernatur veniam dolores unde assumenda? Ea voluptatem incidunt optio, fugit non eveniet at facilis veritatis aspernatur eaque quis eum omnis doloribus ratione esse autem aliquid veniam soluta impedit totam. Ad, tempore voluptatibus?</p>
-
-      <div class="w-signup">
-        <button class="btn btn--primary signUp">Get started</button>
-        <button class="btn btn--secondary logIn">Log in</button>
+        <svg id="mountains-svg" viewBox="0 0 210.26495 43.808109">
+          <g transform="translate(-0.24573366,-253.26962)">
+            <path id="mountains-svg__path"
+              d="m 0.35277776,297 5.37986114,-7.40833 2.998611,-3.61598 1.0583333,-0.17638 1.1465278,0.17638 6.614583,-10.58334 1.058333,-2.02845 1.058334,-0.79375 2.028472,4.05693 1.234722,2.02848 1.234722,0.70554 2.293056,0.26459 0.352777,0.0882 0.97014,-0.3528 2.822223,4.49792 0.705554,0.97015 1.499306,-2.11667 0.881943,-0.70556 0.705557,-0.17638 0.97014,0.26459 0.705553,1.14652 2.204863,0.88193 5.027084,3.08682 2.20486,-2.55765 h 0.97014 l 1.146526,-3.35137 2.822223,-4.40973 0.881944,-2.73402 1.234723,-1.85209 1.41111,-0.26458 1.76389,-1.7639 1.058333,-0.52916 0.529167,0.52916 1.146527,1.14652 0.61736,-0.17637 0.97014,-0.70556 0.97014,-1.67569 1.499303,-3.08681 2.469447,-2.82223 0.44097,-0.97014 1.411113,-1.76389 0.61736,-1.14652 0.352777,-0.70556 0.705556,-0.70556 1.234724,-4.14513 1.675693,1.67569 0.61736,0.79375 1.14653,0.70556 1.499304,2.29305 1.499306,0.26458 1.940277,-0.0882 0.617363,-0.52917 0.705554,-1.14652 1.852083,4.05694 1.234723,4.32152 1.234723,1.32292 0.61736,0.26458 0.440973,-0.26458 0.440971,-0.44096 0.881946,-0.17639 1.5875,1.67568 2.557637,4.14515 2.028473,1.5875 1.852083,0.61735 2.55764,-3.79235 1.940277,-2.29306 2.381248,-3.43959 0.88195,-2.29305 0.61736,-1.76389 1.32292,-1.41111 1.4993,3.61597 1.32292,1.23473 0.97014,1.23473 0.97014,2.91042 2.55763,3.175 3.175,3.35137 1.94028,1.05833 1.32292,-0.35277 0.88194,-1.05833 0.35278,-0.26458 0.88194,1.4111 2.73403,1.49931 0.70556,1.94027 1.05833,1.14655 2.02847,0.97012 3.52778,1.85208 1.94028,1.14655 1.05833,0.17637 0.79375,-0.79375 0.35278,-1.05833 2.11667,1.41112 1.5875,0.97013 2.29305,-1.94027 1.94028,-1.14652 1.5875,0.88193 6.70278,-5.64443 1.94027,-1.85209 1.94028,-0.70556 1.32292,0.1764 1.85208,0.35277 c 0,0 3.70417,-2.99861 3.79236,-3.43959 0.0882,-0.44098 2.46945,-2.9986 2.46945,-2.9986 l 1.94027,-2.82223 2.11667,-2.64584 3.61597,3.43959 2.02848,1.85208 2.91041,1.67569 1.5875,2.38125 1.41111,-1.4111 0.97014,-0.70557 0.79375,0.52917 1.41111,2.38125 3.79236,2.99863 3.88056,3.88054 2.82222,3.175 3.61597,5.37987 0.44098,-0.44098 0.70555,-0.0882 0.88195,0.79375 1.14652,0.52916 1.5875,0.17638 1.49931,1.14654 2.73403,2.38125 2.64583,1.67569 2.38125,1.76389"/>
+          </g>
+        </svg>
       </div>
-
-      <div class="manual">
-        <img class="manual__front-img" src="./img/rctm-front.jpg" alt="Back cover of the Rock Climber's training manual">
-        <img class="manual__back-img" src="./img/rctm-back.jpg" alt="Front cover of the Rock Climber's training manual">
-      </div>
-
     </div>
-    
   </div>
-
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
 <script type="text/javascript" src="js/bundle.js"></script></body>
 </html>

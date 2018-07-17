@@ -107,7 +107,7 @@ const boulderAdder = {
       <form class="loggedBoulderForm">
         <div class="logged-boulder__inputs grid">
           <input type="text" name="boulder__name" class="boulder__name" placeholder="Boulder Name">
-          <label type="text" name="boulder__grade" class="boulder__grade" placeholder="Grade">
+          <input type="text" name="boulder__grade" class="boulder__grade" placeholder="Grade">
           <select class="boulder__status" name="boulder__status">
             <option value="Not tried yet">Not tried yet</option>
             <option value="Onsight">Onsight</option>
@@ -129,7 +129,7 @@ const boulderAdder = {
     const exerDataArr = day.exercises[exerciseID.split('-')[0]].exerData;
     if (exerDataArr.length >= 1) {
       exerDataArr.forEach(el => {
-        html += routeAdder.loggedBoulder(el.id);
+        html += boulderAdder.loggedBoulder(el.id);
       });
     };
     html += '<button class="boulderAdder btn btn--secondary btn--auto">Add boulder</button>';
